@@ -3,246 +3,463 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AkreditasiRS - Template Tracking Dokumen Akreditasi</title>
-  <meta name="description" content="Template Google Sheets + Apps Script untuk tracking kelengkapan dokumen akreditasi RS/Puskesmas/Klinik">
+  <title>Template Akreditasi RS - Tracking Dokumen Mudah & Otomatis</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            teal: { DEFAULT: '#008080', dark: '#006666', light: '#00A3A3', 50: '#F0FFFF' },
-            navy: { DEFAULT: '#1e293b', dark: '#0f172a' }
-          },
-          fontFamily: { sans: ['Inter', 'sans-serif'] }
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #F4F7F6; }
-    html { scroll-behavior: smooth; }
-    .icon-line { width: 24px; height: 24px; stroke-width: 1.5; }
-    .icon-sm { width: 20px; height: 20px; stroke-width: 1.5; }
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #008080 0%, #006666 100%); }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
   </style>
 </head>
-<body>
+<body class="bg-gray-50">
 
   <!-- Navbar -->
-  <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+  <nav class="bg-white shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 items-center">
-        <div class="flex items-center gap-2">
-          <div class="w-8 h-8 bg-teal rounded-lg flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-            </svg>
-          </div>
-          <span class="text-lg font-semibold text-gray-800">AkreditasiRS</span>
+      <div class="flex justify-between h-16">
+        <div class="flex items-center">
+          <span class="text-2xl">🏥</span>
+          <span class="ml-2 text-xl font-bold text-gray-800">AkreditasiRS</span>
         </div>
-        <div class="hidden md:flex items-center space-x-6">
-          <a href="#fitur" class="text-sm text-gray-600 hover:text-teal transition">Fitur</a>
-          <a href="#harga" class="text-sm text-gray-600 hover:text-teal transition">Harga</a>
-          <a href="#faq" class="text-sm text-gray-600 hover:text-teal transition">FAQ</a>
-          <a href="#beli" class="bg-teal text-white text-sm px-4 py-2 rounded-lg hover:bg-teal-dark transition">Beli Template</a>
+        <div class="flex items-center space-x-4">
+          <a href="#fitur" class="text-gray-700 hover:text-teal font-medium">Fitur</a>
+          <a href="#harga" class="text-gray-700 hover:text-teal font-medium">Harga</a>
+          <a href="#testimoni" class="text-gray-700 hover:text-teal font-medium">Testimoni</a>
+          <a href="#faq" class="text-gray-700 hover:text-teal font-medium">FAQ</a>
+          <a href="#beli" class="bg-teal hover:bg-teal-dark text-white px-4 py-2 rounded-lg font-medium transition">Beli Sekarang</a>
         </div>
-        <button onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="md:hidden p-2">
-          <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
       </div>
-    </div>
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t px-4 py-3 space-y-2">
-      <a href="#fitur" class="block py-2 text-sm text-gray-600">Fitur</a>
-      <a href="#harga" class="block py-2 text-sm text-gray-600">Harga</a>
-      <a href="#faq" class="block py-2 text-sm text-gray-600">FAQ</a>
-      <a href="#beli" class="block py-2 text-sm text-teal font-medium">Beli Template</a>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="bg-white py-16 md:py-24">
+  <!-- Hero Section -->
+  <section class="gradient-bg text-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">Tracking Dokumen Akreditasi<br class="hidden md:block"> Jadi Lebih Terorganisir</h1>
-      <p class="text-base md:text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Template Google Sheets + Apps Script untuk memantau kelengkapan dokumen akreditasi RS, Puskesmas, dan Klinik</p>
-      <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="#beli" class="bg-teal text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-teal-dark transition">Lihat Harga</a>
-        <a href="#fitur" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-50 transition">Pelajari Fitur</a>
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-6">
+        Tracking Dokumen Akreditasi<br class="hidden md:block"> Jadi Lebih Mudah! 🎯
+      </h1>
+      <p class="text-xl md:text-2xl mb-8 text-teal-50">
+        Template Google Sheets + Apps Script untuk tracking kelengkapan dokumen akreditasi RS/Puskesmas/Klinik
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#beli" class="bg-white text-teal px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition shadow-lg">
+          💰 Beli Template - Rp 149K
+        </a>
+        <a href="#demo" class="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-teal transition">
+          🎬 Lihat Demo
+        </a>
       </div>
-      <div class="mt-10 flex flex-wrap justify-center gap-6 text-sm text-gray-500">
-        <span class="flex items-center gap-2">
-          <svg class="icon-sm text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          Install 5 menit
-        </span>
-        <span class="flex items-center gap-2">
-          <svg class="icon-sm text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          Dashboard real-time
-        </span>
-        <span class="flex items-center gap-2">
-          <svg class="icon-sm text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-          Reminder otomatis
-        </span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="fitur" class="py-16 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-gray-900 mb-2">Fitur Utama</h2>
-      <p class="text-gray-600 mb-10 text-sm">Semua yang dibutuhkan untuk tracking dokumen akreditasi</p>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-lg border border-gray-200">
-          <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center mb-4">
-            <svg class="icon-line text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2">Dashboard Real-time</h3>
-          <p class="text-sm text-gray-600">Pantau progress kelengkapan dokumen dengan statistik dan chart per BAB akreditasi</p>
+      <div class="mt-12 flex flex-wrap justify-center gap-8 text-sm">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">✅</span>
+          <span>Install 5 Menit</span>
         </div>
-        <div class="bg-white p-6 rounded-lg border border-gray-200">
-          <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center mb-4">
-            <svg class="icon-line text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2">Tracking per BAB</h3>
-          <p class="text-sm text-gray-600">Organisir dokumen berdasarkan BAB, standar, dan kriteria SNARS</p>
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">📊</span>
+          <span>Dashboard Real-time</span>
         </div>
-        <div class="bg-white p-6 rounded-lg border border-gray-200">
-          <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center mb-4">
-            <svg class="icon-line text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2">Multi-User</h3>
-          <p class="text-sm text-gray-600">Assign PIC per dokumen, track progress tim akreditasi</p>
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🔔</span>
+          <span>Reminder Otomatis</span>
         </div>
-        <div class="bg-white p-6 rounded-lg border border-gray-200">
-          <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center mb-4">
-            <svg class="icon-line text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2">Reminder Otomatis</h3>
-          <p class="text-sm text-gray-600">Notifikasi WhatsApp ke PIC saat deadline mendekati via Fonnte</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg border border-gray-200">
-          <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center mb-4">
-            <svg class="icon-line text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2">Export Laporan</h3>
-          <p class="text-sm text-gray-600">Generate laporan PDF siap cetak untuk assessor akreditasi</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg border border-gray-200">
-          <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center mb-4">
-            <svg class="icon-line text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <h3 class="font-semibold text-gray-900 mb-2">Install 5 Menit</h3>
-          <p class="text-sm text-gray-600">Copy template, setup langsung pakai. Tanpa coding</p>
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">📱</span>
+          <span>Mobile Friendly</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section id="harga" class="py-16 bg-white">
+  <!-- Stats -->
+  <section class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-gray-900 mb-2">Pilihan Paket</h2>
-      <p class="text-gray-600 mb-10 text-sm">Pilih sesuai kebutuhan RS Anda</p>
-      <div class="grid md:grid-cols-3 gap-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-extrabold text-teal">100+</div>
+          <div class="text-gray-600 mt-2">RS Sudah Pakai</div>
+        </div>
+        <div>
+          <div class="text-4xl font-extrabold text-teal">5000+</div>
+          <div class="text-gray-600 mt-2">Dokumen Ter-track</div>
+        </div>
+        <div>
+          <div class="text-4xl font-extrabold text-teal">98%</div>
+          <div class="text-gray-600 mt-2">Customer Puas</div>
+        </div>
+        <div>
+          <div class="text-4xl font-extrabold text-teal">24/7</div>
+          <div class="text-gray-600 mt-2">Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fitur -->
+  <section id="fitur" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">Fitur Lengkap untuk Akreditasi 🚀</h2>
+        <p class="text-xl text-gray-600">Semua yang Anda butuhkan untuk tracking dokumen akreditasi</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 card-hover">
+          <div class="text-4xl mb-4">📊</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Dashboard Real-time</h3>
+          <p class="text-gray-600">Lihat progress kelengkapan dokumen secara real-time dengan chart dan statistik</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 card-hover">
+          <div class="text-4xl mb-4">📋</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Tracking per BAB</h3>
+          <p class="text-gray-600">Organisir dokumen berdasarkan BAB, standar, dan kriteria akreditasi</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 card-hover">
+          <div class="text-4xl mb-4">👥</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Multi-User</h3>
+          <p class="text-gray-600">Collaborate dengan tim akreditasi. Assign PIC untuk setiap dokumen</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 card-hover">
+          <div class="text-4xl mb-4">🔔</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Reminder Otomatis</h3>
+          <p class="text-gray-600">Notifikasi WhatsApp otomatis ke PIC jika deadline mendekati</p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 card-hover">
+          <div class="text-4xl mb-4">📤</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Export Laporan</h3>
+          <p class="text-gray-600">Export laporan PDF siap print untuk assessor akreditasi</p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 card-hover">
+          <div class="text-4xl mb-4">📱</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Mobile Friendly</h3>
+          <p class="text-gray-600">Akses dari HP/tablet kapan saja, di mana saja</p>
+        </div>
+
+        <!-- Feature 7 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 card-hover">
+          <div class="text-4xl mb-4">⚡</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Install 5 Menit</h3>
+          <p class="text-gray-600">Tinggal "Make a copy", langsung pakai. No coding required!</p>
+        </div>
+
+        <!-- Feature 8 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 card-hover">
+          <div class="text-4xl mb-4">🔒</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Data Aman</h3>
+          <p class="text-gray-600">Data tersimpan di Google Drive Anda sendiri. 100% private!</p>
+        </div>
+
+        <!-- Feature 9 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 card-hover">
+          <div class="text-4xl mb-4">🎓</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Panduan Lengkap</h3>
+          <p class="text-gray-600">Video tutorial + PDF panduan step-by-step untuk pemula</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Harga -->
+  <section id="harga" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">Pilih Paket Sesuai Kebutuhan 💰</h2>
+        <p class="text-xl text-gray-600">Investasi terjangkau untuk akreditasi yang lebih mudah</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
         <!-- Basic -->
-        <div class="bg-white p-6 rounded-lg border border-gray-200">
-          <h3 class="font-semibold text-gray-900 mb-1">Basic</h3>
-          <div class="text-3xl font-bold text-gray-900 my-4">Rp 149K</div>
-          <ul class="space-y-3 mb-6 text-sm">
-            <li class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-teal flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Template Google Sheets</li>
-            <li class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-teal flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Apps Script (CRUD + Dashboard)</li>
-            <li class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-teal flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Web App Responsive</li>
-            <li class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-teal flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Panduan Setup PDF</li>
+        <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200 card-hover">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Basic</h3>
+          <div class="text-5xl font-extrabold text-teal my-6">Rp 149K</div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-3">
+              <span class="text-teal">✅</span>
+              <span>Template Google Sheets</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="text-teal">✅</span>
+              <span>Apps Script (CRUD + Dashboard)</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="text-teal">✅</span>
+              <span>Web App Responsive</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="text-teal">✅</span>
+              <span>Panduan Setup (PDF)</span>
+            </li>
+            <li class="flex items-center gap-3 text-gray-400">
+              <span>❌</span>
+              <span>Template Dokumen</span>
+            </li>
+            <li class="flex items-center gap-3 text-gray-400">
+              <span>❌</span>
+              <span>Video Tutorial</span>
+            </li>
+            <li class="flex items-center gap-3 text-gray-400">
+              <span>❌</span>
+              <span>Grup Support</span>
+            </li>
           </ul>
-          <a href="https://mayar.id/checkout/basic-akreditasirs" class="block text-center border border-gray-300 text-gray-700 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition">Pilih Basic</a>
+          <a href="#beli" class="block text-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg transition">
+            Pilih Basic
+          </a>
         </div>
-        <!-- Pro -->
-        <div class="bg-teal p-6 rounded-lg border border-teal text-white relative">
-          <div class="absolute -top-3 right-4 bg-yellow-400 text-yellow-900 text-xs font-semibold px-3 py-1 rounded-full">TERLARIS</div>
-          <h3 class="font-semibold mb-1">Pro</h3>
-          <div class="text-3xl font-bold my-4">Rp 299K</div>
-          <ul class="space-y-3 mb-6 text-sm text-teal-50">
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Semua fitur Basic</li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>60+ Template Dokumen</li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Video Tutorial</li>
-            <li class="flex items-center gap-2"><svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Email Support</li>
+
+        <!-- Pro (Popular) -->
+        <div class="bg-gradient-to-br from-green-500 to-green-600 p-8 rounded-xl shadow-2xl border-2 border-green-600 transform scale-105 relative">
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-yellow-900 px-4 py-1 rounded-full font-bold text-sm">
+            PALING LARIS 🔥
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-2">Pro</h3>
+          <div class="text-5xl font-extrabold text-white my-6">Rp 299K</div>
+          <ul class="space-y-4 mb-8 text-white">
+            <li class="flex items-center gap-3">
+              <span>✅</span>
+              <span>Semua fitur Basic</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span>✅</span>
+              <span>50+ Template Dokumen</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span>✅</span>
+              <span>Video Tutorial Lengkap</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span>✅</span>
+              <span>Contoh Dokumen Approved</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span>✅</span>
+              <span>Email Support</span>
+            </li>
+            <li class="flex items-center gap-3 text-green-200">
+              <span>❌</span>
+              <span>Grup WhatsApp</span>
+            </li>
+            <li class="flex items-center gap-3 text-green-200">
+              <span>❌</span>
+              <span>Update 1 Tahun</span>
+            </li>
           </ul>
-          <a href="https://mayar.id/checkout/pro-akreditasirs" class="block text-center bg-white text-teal py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition">Pilih Pro</a>
+          <a href="#beli" class="block text-center bg-white text-teal hover:bg-gray-100 font-bold py-3 px-6 rounded-lg transition">
+            Pilih Pro
+          </a>
         </div>
+
         <!-- Premium -->
-        <div class="bg-white p-6 rounded-lg border border-gray-200">
-          <h3 class="font-semibold text-gray-900 mb-1">Premium</h3>
-          <div class="text-3xl font-bold text-gray-900 my-4">Rp 499K</div>
-          <ul class="space-y-3 mb-6 text-sm">
-            <li class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-teal flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Semua fitur Pro</li>
-            <li class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-teal flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Grup WA Support</li>
-            <li class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-teal flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Update 1 Tahun</li>
-            <li class="flex items-center gap-2 text-gray-600"><svg class="w-4 h-4 text-teal flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Priority Support</li>
+        <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-gray-200 card-hover">
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">Premium</h3>
+          <div class="text-5xl font-extrabold text-teal my-6">Rp 499K</div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-3">
+              <span class="text-teal">✅</span>
+              <span>Semua fitur Pro</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="text-teal">✅</span>
+              <span>Grup WhatsApp Support</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="text-teal">✅</span>
+              <span>Update Template 1 Tahun</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="text-teal">✅</span>
+              <span>Priority Support</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="text-teal">✅</span>
+              <span>Template SNARS Terbaru</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="text-teal">✅</span>
+              <span>Bonus: Panduan Akreditasi</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <span class="text-teal">✅</span>
+              <span>Lifetime Access</span>
+            </li>
           </ul>
-          <a href="https://mayar.id/checkout/premium-akreditasirs" class="block text-center border border-gray-300 text-gray-700 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition">Pilih Premium</a>
+          <a href="#beli" class="block text-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-6 rounded-lg transition">
+            Pilih Premium
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimoni -->
+  <section id="testimoni" class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">Apa Kata Mereka? ⭐</h2>
+        <p class="text-xl text-gray-600">Testimoni dari pengguna yang sudah merasakan manfaatnya</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+          <div class="flex items-center gap-1 mb-4">
+            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-gray-700 mb-4">"Template ini sangat membantu kami dalam mempersiapkan akreditasi. Dashboard-nya mudah dipahami, reminder WA-nya lifesaver!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-teal-50 rounded-full flex items-center justify-center text-teal font-bold">RS</div>
+            <div>
+              <div class="font-bold text-gray-800">Rina S.</div>
+              <div class="text-sm text-gray-600">Kepala Instalasi Rekam Medis</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+          <div class="flex items-center gap-1 mb-4">
+            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-gray-700 mb-4">"Install cuma 5 menit, langsung bisa pakai. Tim akreditasi jadi lebih terorganisir. Worth every penny!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">AP</div>
+            <div>
+              <div class="font-bold text-gray-800">Ahmad P.</div>
+              <div class="text-sm text-gray-600">Koordinator Akreditasi RS</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+          <div class="flex items-center gap-1 mb-4">
+            <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+          </div>
+          <p class="text-gray-700 mb-4">"Sebelumnya pake Excel, ribet banget. Pake template ini, semua otomatis. Progress keliatan, reminder jalan. Mantap!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 font-bold">DW</div>
+            <div>
+              <div class="font-bold text-gray-800">Dewi W.</div>
+              <div class="text-sm text-gray-600">Manajer Mutu RS</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="py-16 bg-gray-50">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-bold text-gray-900 mb-8">Pertanyaan Umum</h2>
+  <section id="faq" class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 mb-4">Pertanyaan yang Sering Ditanyakan ❓</h2>
+      </div>
+
       <div class="space-y-4">
-        <div class="bg-white p-5 rounded-lg border border-gray-200">
-          <h3 class="font-medium text-gray-900 mb-2 text-sm">Apakah bisa dipakai untuk multiple RS?</h3>
-          <p class="text-sm text-gray-600">Tidak. Setiap RS harus copy template sendiri via "Make a copy" di Google Sheets.</p>
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="font-bold text-gray-800 mb-2">Q: Apakah bisa dipakai untuk multiple RS?</h3>
+          <p class="text-gray-700">A: Tidak. Setiap RS harus punya copy template sendiri (via "Make a copy" di Google Sheets).</p>
         </div>
-        <div class="bg-white p-5 rounded-lg border border-gray-200">
-          <h3 class="font-medium text-gray-900 mb-2 text-sm">Apakah data aman?</h3>
-          <p class="text-sm text-gray-600">Ya. Data tersimpan di Google Drive Anda sendiri, 100% private.</p>
+
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="font-bold text-gray-800 mb-2">Q: Apakah ada batasan jumlah dokumen?</h3>
+          <p class="text-gray-700">A: Tidak ada. Google Sheets bisa handle 10,000+ baris dokumen.</p>
         </div>
-        <div class="bg-white p-5 rounded-lg border border-gray-200">
-          <h3 class="font-medium text-gray-900 mb-2 text-sm">Bisa akses dari HP?</h3>
-          <p class="text-sm text-gray-600">Bisa. Google Sheets dan Web App responsive di browser HP.</p>
+
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="font-bold text-gray-800 mb-2">Q: Apakah data aman?</h3>
+          <p class="text-gray-700">A: Ya, 100% aman. Data tersimpan di Google Drive Anda sendiri, bukan di server pihak ketiga.</p>
         </div>
-        <div class="bg-white p-5 rounded-lg border border-gray-200">
-          <h3 class="font-medium text-gray-900 mb-2 text-sm">Perlu install aplikasi tambahan?</h3>
-          <p class="text-sm text-gray-600">Tidak. Cukup Google Sheets + browser. No install required.</p>
+
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="font-bold text-gray-800 mb-2">Q: Bisa akses dari HP?</h3>
+          <p class="text-gray-700">A: Bisa! Google Sheets dan Web App bisa diakses dari browser HP dengan responsive design.</p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="font-bold text-gray-800 mb-2">Q: Apakah perlu install aplikasi tambahan?</h3>
+          <p class="text-gray-700">A: Tidak. Cukup Google Sheets + browser untuk Web App. No install required!</p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-lg">
+          <h3 class="font-bold text-gray-800 mb-2">Q: Fonnte gratis?</h3>
+          <p class="text-gray-700">A: Ya, FREE 1000 pesan/bulan. Cukup untuk RS rata-rata. Jika lebih, bisa upgrade ke paket berbayar.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section id="beli" class="py-16 bg-teal text-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-2xl font-bold mb-4">Mulai Tracking Dokumen Akreditasi</h2>
-      <p class="text-teal-50 mb-8 text-sm">Dapatkan template sekarang, install dalam 5 menit</p>
-      <a href="https://mayar.id/checkout/pro-akreditasirs" class="inline-block bg-white text-teal px-8 py-3 rounded-lg text-sm font-medium hover:bg-gray-50 transition">Beli Paket Pro - Rp 299K</a>
-      <p class="mt-4 text-xs text-teal-50">Atau hubungi <a href="https://wa.me/62xxx" class="underline hover:text-white">WhatsApp</a></p>
+  <section id="beli" class="py-20 gradient-bg text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-6">Siap Mempermudah Akreditasi Anda? 🚀</h2>
+      <p class="text-xl mb-8 text-teal-50">Dapatkan template sekarang dan mulai tracking dokumen dengan lebih mudah!</p>
+      
+      <div class="bg-white text-gray-800 p-8 rounded-xl max-w-lg mx-auto">
+        <h3 class="text-2xl font-bold mb-4">Paket Pro (Paling Laris 🔥)</h3>
+        <div class="text-5xl font-extrabold text-teal mb-6">Rp 299K</div>
+        <ul class="text-left space-y-3 mb-6">
+          <li>✅ Template Google Sheets + Apps Script</li>
+          <li>✅ Web App Responsive</li>
+          <li>✅ 50+ Template Dokumen</li>
+          <li>✅ Video Tutorial + Panduan PDF</li>
+          <li>✅ Email Support</li>
+        </ul>
+        
+        <a href="https://wa.me/62xxx?text=Halo%20saya%20mau%20beli%20Template%20Akreditasi%20RS%20Paket%20Pro" 
+           target="_blank"
+           class="block bg-teal hover:bg-teal-dark text-white font-bold py-4 px-8 rounded-lg text-lg transition">
+          💬 Beli via WhatsApp
+        </a>
+        
+        <p class="text-sm text-gray-600 mt-4">Atau hubungi: +62xxx (WhatsApp)</p>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-navy-dark text-white py-10">
+  <footer class="bg-gray-800 text-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <div class="flex items-center gap-2">
-          <div class="w-6 h-6 bg-teal rounded flex items-center justify-center">
-            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-          </div>
-          <span class="text-sm font-medium">AkreditasiRS</span>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h4 class="text-xl font-bold mb-4">🏥 AkreditasiRS</h4>
+          <p class="text-gray-400">Template Google Sheets + Apps Script untuk tracking kelengkapan dokumen akreditasi RS/Puskesmas/Klinik.</p>
         </div>
-        <div class="text-xs text-gray-400">2026 AkreditasiRS. All rights reserved.</div>
-        <div class="flex gap-4 text-xs text-gray-400">
-          <a href="https://wa.me/62xxx" class="hover:text-white">WhatsApp</a>
-          <a href="mailto:support@akreditasirs.com" class="hover:text-white">Email</a>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#fitur" class="text-gray-400 hover:text-white">Fitur</a></li>
+            <li><a href="#harga" class="text-gray-400 hover:text-white">Harga</a></li>
+            <li><a href="#testimoni" class="text-gray-400 hover:text-white">Testimoni</a></li>
+            <li><a href="#faq" class="text-gray-400 hover:text-white">FAQ</a></li>
+          </ul>
         </div>
+        <div>
+          <h4 class="text-lg font-bold mb-4">Support</h4>
+          <ul class="space-y-2">
+            <li class="text-gray-400">📱 WhatsApp: +62xxx</li>
+            <li class="text-gray-400">💬 Telegram: @yourtelegram</li>
+            <li class="text-gray-400">📧 Email: support@yourdomain.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2026 AkreditasiRS. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
 </body>
 </html>
+
