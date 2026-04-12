@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akreditasi RS - Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              DEFAULT: '#008080',
+              dark: '#006666',
+              light: '#00A3A3',
+              50: '#F0FFFF'
+            },
+            navy: {
+              DEFAULT: '#1e293b',
+              dark: '#0f172a'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Roboto', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #F4F7F6; overflow: hidden; }
+    
+    /* Sidebar Transitions */
+    .sidebar {
+      width: 260px;
+      min-width: 260px;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      position: relative;
+    }
+    .sidebar.collapsed {
+      width: 70px;
+      min-width: 70px;
+    }
+    
+    /* Hide all text when collapsed */
+    .sidebar.collapsed .menu-text,
+    .sidebar.collapsed .logo-text,
+    .sidebar.collapsed .sidebar-footer-text {
+      display: none;
+    }
+    
+    /* Logo icon centered when collapsed */
+    .sidebar.collapsed .logo-wrapper {
+      justify-content: center;
+    }
+    .sidebar.collapsed .logo-icon-only {
+      display: flex;
+      margin: 0 auto;
+    }
+    .logo-icon-only {
+      display: none;
+    }
+    
+    /* Menu items centered when collapsed */
+    .sidebar.collapsed .menu-item {
+      justify-content: center;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .sidebar.collapsed .menu-item svg {
+      margin: 0;
+    }
+    
+    /* Section headers hidden when collapsed */
+    .sidebar.collapsed .section-header {
+      display: none;
+    }
+    
+    /* Sidebar Toggle Button in Top Bar */
+    .hamburger-btn {
+      padding: 8px;
+      cursor: pointer;
+      color: white;
+      transition: background 0.2s;
+    }
+    .hamburger-btn:hover {
+      background: rgba(255,255,255,0.1);
+    }
+    
+    /* Sidebar Active State */
+    .menu-item.active {
+      background: #E6F7F7;
+      color: #008080;
+      border-right: 3px solid #008080;
+    }
+    .sidebar.collapsed .menu-item.active {
+      border-right: none;
+      border-left: 3px solid #008080;
+    }
+    .menu-item.active svg { stroke: #008080; }
+    
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #008080; border-radius: 3px; }
+    
+    /* Card Hover */
+    .card { transition: all 0.2s ease; }
+    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    
+    /* Table Row Hover */
+    .table-row-hover:hover { background: #F0FFFF; }
+    
+    /* Loading Animation */
+    .spinner {
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #008080;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="flex h-screen">
+    
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="sidebar bg-white border-r border-gray-200 flex flex-col">
+      <!-- Logo -->
+      <div class="p-4 border-b border-gray-200 logo-wrapper flex items-center gap-3">
+        <div class="w-8 h-8 bg-teal rounded-lg flex items-center justify-center flex-shrink-0 logo-icon-only">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <div class="font-bold text-gray-800 text-sm">AKREDITASI RS</div>
+          <div class="text-[10px] text-gray-500">Manajemen Mutu</div>
+        </div>
+      </div>
+
+      <!-- Navigation Menu -->
+      <nav class="flex-1 py-4 overflow-y-auto">
+        <div class="px-4 mb-2 section-header text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Menu Utama</div>
+        
+        <button onclick="showPage('dashboard')" id="menu-dashboard" class="menu-item active w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+          </svg>
+          <span class="menu-text">Dashboard</span>
+        </button>
+
+        <button onclick="showPage('list')" id="menu-list" class="menu-item w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <span class="menu-text">Data Dokumen</span>
+        </button>
+
+        <button onclick="showPage('tambah')" id="menu-tambah" class="menu-item w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path>
+          </svg>
+          <span class="menu-text">Tambah Dokumen</span>
+        </button>
+
+        <div class="px-4 mt-6 mb-2 section-header text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Laporan</div>
+
+        <button onclick="exportLaporan()" class="menu-item w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          <span class="menu-text">Export Laporan</span>
+        </button>
+
+        <button onclick="checkReminders()" class="menu-item w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+          </svg>
+          <span class="menu-text">Cek Reminder</span>
+        </button>
+      </nav>
+
+      <!-- Sidebar Footer -->
+      <div class="p-4 border-t border-gray-200">
+        <div class="text-[10px] text-gray-500 text-center sidebar-footer-text">
+          Template Akreditasi RS v1.0<br>© 2026 All Rights Reserved
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content flex-1 flex flex-col overflow-hidden">
+      
+      <!-- TOP BAR -->
+      <header class="bg-teal-dark text-white px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <!-- Hamburger Menu Button (always visible) -->
+          <button onclick="toggleSidebar()" class="hamburger-btn" title="Toggle Sidebar">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+          </svg>
+          <span class="font-bold text-lg tracking-wide">SISTEM AKREDITASI RUMAH SAKIT</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="text-right">
+            <div class="font-semibold text-sm">Administrator</div>
+            <div class="text-xs text-teal-50">Tim Akreditasi</div>
+          </div>
+          <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+            <span class="text-teal-dark font-bold text-sm">AD</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT AREA -->
+      <main class="flex-1 overflow-y-auto p-6 bg-[#F4F7F6]">
+        
+        <!-- DASHBOARD PAGE -->
+        <div id="dashboardPage">
+          <!-- Page Title -->
+          <div class="mb-6">
+            <h1 class="text-2xl font-bold uppercase tracking-wide text-gray-800">DASHBOARD AKREDITASI</h1>
+            <p class="text-sm text-gray-600 mt-1">Overview progress kelengkapan dokumen akreditasi</p>
+          </div>
+
+          <!-- Success Alert Box -->
+          <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-green-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+              <div>
+                <div class="font-semibold text-green-800">Sistem Berjalan Normal</div>
+                <div class="text-sm text-green-700 mt-0.5">Semua dokumen akreditasi dapat dipantau melalui dashboard ini</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <!-- Total Dokumen -->
+            <div class="card bg-white rounded-lg p-5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-sm text-gray-600 font-medium">Total Dokumen</div>
+                <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="text-3xl font-bold text-gray-800" id="totalDokumen">-</div>
+            </div>
+
+            <!-- Lengkap -->
+            <div class="card bg-white rounded-lg p-5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-sm text-gray-600 font-medium">Lengkap</div>
+                <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="text-3xl font-bold text-green-600" id="lengkapDokumen">-</div>
+            </div>
+
+            <!-- Draft/Review -->
+            <div class="card bg-white rounded-lg p-5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-sm text-gray-600 font-medium">Draft / Review</div>
+                <div class="w-10 h-10 bg-yellow-50 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="text-3xl font-bold text-yellow-600" id="draftDokumen">-</div>
+            </div>
+
+            <!-- Persentase -->
+            <div class="card bg-white rounded-lg p-5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+              <div class="flex items-center justify-between mb-3">
+                <div class="text-sm text-gray-600 font-medium">Persentase</div>
+                <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="text-3xl font-bold text-teal-600" id="persentase">-</div>
+            </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="card bg-white rounded-lg p-6 mb-6" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <h2 class="text-base font-semibold text-gray-800 mb-4">PROGRESS KESELURUHAN</h2>
+            <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
+              <div id="progressBar" class="bg-teal h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <p class="text-sm text-gray-600" id="progressText">0% kelengkapan</p>
+          </div>
+
+          <!-- Progress per BAB -->
+          <div class="card bg-white rounded-lg p-6 mb-6" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <h2 class="text-base font-semibold text-gray-800 mb-4">PROGRESS PER BAB</h2>
+            <div id="perBabContainer" class="space-y-4">
+              <div class="text-center py-8 text-gray-500">
+                <div class="spinner mx-auto mb-3"></div>
+                <div class="text-sm">Memuat data...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIST DOKUMEN PAGE -->
+        <div id="listPage" class="hidden">
+          <!-- Page Title -->
+          <div class="mb-6">
+            <h1 class="text-2xl font-bold uppercase tracking-wide text-gray-800">DATA DOKUMEN AKREDITASI</h1>
+            <p class="text-sm text-gray-600 mt-1">Kelola dan pantau semua dokumen akreditasi</p>
+          </div>
+
+          <!-- Filter Section -->
+          <div class="card bg-white rounded-lg p-4 mb-6" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <!-- Search Bar -->
+              <div>
+                <label class="block text-xs font-medium text-gray-600 mb-2">PENCARIAN</label>
+                <div class="relative">
+                  <svg class="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                  </svg>
+                  <input type="text" id="searchInput" onkeyup="filterDokumen()" placeholder="Cari dokumen..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal">
+                </div>
+              </div>
+
+              <!-- Filter Status -->
+              <div>
+                <label class="block text-xs font-medium text-gray-600 mb-2">STATUS</label>
+                <select id="filterStatus" onchange="filterDokumen()" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal">
+                  <option value="">Semua Status</option>
+                  <option value="Belum Mulai">Belum Mulai</option>
+                  <option value="Draft">Draft</option>
+                  <option value="Review">Review</option>
+                  <option value="Lengkap">Lengkap</option>
+                </select>
+              </div>
+
+              <!-- Filter BAB -->
+              <div>
+                <label class="block text-xs font-medium text-gray-600 mb-2">BAB</label>
+                <select id="filterBab" onchange="filterDokumen()" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal">
+                  <option value="">Semua BAB</option>
+                  <option value="1">BAB 1 - Hak Pasien</option>
+                  <option value="2">BAB 2 - Pelayanan</option>
+                  <option value="3">BAB 3 - Manajemen Risiko</option>
+                  <option value="4">BAB 4 - SDM</option>
+                  <option value="5">BAB 5 - Fasilitas</option>
+                  <option value="6">BAB 6 - Manajemen Informasi</option>
+                  <option value="7">BAB 7 - Pengukuran</option>
+                  <option value="8">BAB 8 - Peningkatan Mutu</option>
+                  <option value="9">BAB 9 - Tata Kelola</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Table -->
+          <div class="card bg-white rounded-lg" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <div class="overflow-x-auto">
+              <table class="min-w-full">
+                <thead class="bg-gray-100 border-b border-gray-200">
+                  <tr>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">ID</th>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Nama Dokumen</th>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">BAB</th>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Status</th>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">PIC</th>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Deadline</th>
+                    <th class="px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="dokumenTableBody" class="divide-y divide-gray-200">
+                  <tr>
+                    <td colspan="7" class="px-6 py-8 text-center">
+                      <div class="spinner mx-auto mb-3"></div>
+                      <div class="text-sm text-gray-600">Memuat data dokumen...</div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAMBAH DOKUMEN PAGE -->
+        <div id="tambahPage" class="hidden">
+          <!-- Page Title -->
+          <div class="mb-6">
+            <h1 class="text-2xl font-bold uppercase tracking-wide text-gray-800">TAMBAH DOKUMEN BARU</h1>
+            <p class="text-sm text-gray-600 mt-1">Isi form berikut untuk menambahkan dokumen akreditasi</p>
+          </div>
+
+          <!-- Form Card -->
+          <div class="card bg-white rounded-lg max-w-3xl" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+            <form id="formDokumen" class="p-6 space-y-5">
+              <!-- Row 1 -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">
+                  Nama Dokumen <span class="text-red-500">*</span>
+                </label>
+                <input type="text" id="nama" required
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal"
+                  placeholder="Contoh: SOP Pengkajian Pasien">
+              </div>
+
+              <!-- Row 2 -->
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                    BAB <span class="text-red-500">*</span>
+                  </label>
+                  <select id="bab" required
+                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal">
+                    <option value="">Pilih BAB</option>
+                    <option value="1">BAB 1 - Hak Pasien & Keluarga</option>
+                    <option value="2">BAB 2 - Pelayanan Pasien</option>
+                    <option value="3">BAB 3 - Manajemen Risiko</option>
+                    <option value="4">BAB 4 - Sumber Daya Manusia</option>
+                    <option value="5">BAB 5 - Fasilitas & Peralatan</option>
+                    <option value="6">BAB 6 - Manajemen Informasi</option>
+                    <option value="7">BAB 7 - Pengukuran & Analisis</option>
+                    <option value="8">BAB 8 - Peningkatan Mutu</option>
+                    <option value="9">BAB 9 - Tata Kelola</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
+                  <select id="status"
+                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal">
+                    <option value="Belum Mulai">Belum Mulai</option>
+                    <option value="Draft">Draft</option>
+                    <option value="Review">Review</option>
+                    <option value="Lengkap">Lengkap</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Standar</label>
+                  <input type="text" id="standar"
+                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal"
+                    placeholder="Contoh: STK-01">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">Kriteria</label>
+                  <input type="text" id="kriteria"
+                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal"
+                    placeholder="Contoh: KRT-01">
+                </div>
+              </div>
+
+              <!-- Row 4 -->
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                    PIC (Penanggung Jawab) <span class="text-red-500">*</span>
+                  </label>
+                  <input type="text" id="pic" required
+                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal"
+                    placeholder="Nama penanggung jawab">
+                </div>
+
+                <div>
+                  <label class="block text-sm font-medium text-gray-700 mb-2">
+                    Deadline <span class="text-red-500">*</span>
+                  </label>
+                  <input type="date" id="deadline" required
+                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal">
+                </div>
+              </div>
+
+              <!-- Row 5 -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Skor Self-Assessment</label>
+                <select id="skor"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal">
+                  <option value="">Pilih Skor</option>
+                  <option value="1">1 - Tidak ada</option>
+                  <option value="2">2 - Ada sebagian</option>
+                  <option value="3">3 - Ada sebagian besar</option>
+                  <option value="4">4 - Lengkap</option>
+                </select>
+              </div>
+
+              <!-- Row 6 -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Link File (Google Drive)</label>
+                <input type="url" id="link"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal"
+                  placeholder="https://drive.google.com/...">
+              </div>
+
+              <!-- Row 7 -->
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Catatan</label>
+                <textarea id="catatan" rows="3"
+                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal"
+                  placeholder="Catatan tambahan..."></textarea>
+              </div>
+
+              <!-- Buttons -->
+              <div class="flex gap-3 pt-4 border-t border-gray-200">
+                <button type="submit"
+                  class="flex-1 bg-navy hover:bg-navy-dark text-white font-medium py-2.5 px-6 rounded-lg transition">
+                  <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Simpan Dokumen
+                </button>
+                <button type="button" onclick="resetForm()"
+                  class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2.5 px-6 rounded-lg transition">
+                  Reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div id="loading" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-6 text-center">
+      <div class="spinner mx-auto mb-3"></div>
+      <div class="text-sm text-gray-700">Memproses...</div>
+    </div>
+  </div>
+
+  <script>
+    // Page navigation
+    function showPage(page) {
+      document.getElementById('dashboardPage').classList.add('hidden');
+      document.getElementById('tambahPage').classList.add('hidden');
+      document.getElementById('listPage').classList.add('hidden');
+
+      if (page === 'dashboard') {
+        document.getElementById('dashboardPage').classList.remove('hidden');
+        loadDashboard();
+      } else if (page === 'tambah') {
+        document.getElementById('tambahPage').classList.remove('hidden');
+      } else if (page === 'list') {
+        document.getElementById('listPage').classList.remove('hidden');
+        loadListDokumen();
+      }
+
+      // Update menu active state
+      document.querySelectorAll('.menu-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      document.getElementById('menu-' + page).classList.add('active');
+    }
+
+    // Load dashboard
+    function loadDashboard() {
+      google.script.run
+        .withSuccessHandler(displayDashboard)
+        .withFailureHandler(handleError)
+        .getDashboardData();
+    }
+
+    function displayDashboard(data) {
+      document.getElementById('totalDokumen').textContent = data.total;
+      document.getElementById('lengkapDokumen').textContent = data.lengkap;
+      document.getElementById('draftDokumen').textContent = data.draft + data.review;
+      document.getElementById('persentase').textContent = data.persentase + '%';
+
+      document.getElementById('progressBar').style.width = data.persentase + '%';
+      document.getElementById('progressText').textContent = `${data.persentase}% kelengkapan (${data.lengkap} dari ${data.total} dokumen)`;
+
+      const container = document.getElementById('perBabContainer');
+      container.innerHTML = '';
+
+      if (Object.keys(data.perBab).length === 0) {
+        container.innerHTML = '<p class="text-gray-500 text-center py-4">Belum ada data</p>';
+        return;
+      }
+
+      Object.keys(data.perBab).sort().forEach(bab => {
+        const babData = data.perBab[bab];
+        const percent = Math.round((babData.lengkap / babData.total) * 100);
+        
+        container.innerHTML += `
+          <div>
+            <div class="flex justify-between mb-2">
+              <span class="text-sm font-medium text-gray-700">BAB ${bab}</span>
+              <span class="text-sm text-gray-600">${babData.lengkap}/${babData.total} (${percent}%)</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div class="bg-teal h-2.5 rounded-full transition-all" style="width: ${percent}%"></div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Load list dokumen
+    let allDokumen = [];
+
+    function loadListDokumen() {
+      google.script.run
+        .withSuccessHandler(displayListDokumen)
+        .withFailureHandler(handleError)
+        .getAllDokumen();
+    }
+
+    function displayListDokumen(dokumen) {
+      allDokumen = dokumen;
+      renderTable(dokumen);
+    }
+
+    function renderTable(dokumen) {
+      const tbody = document.getElementById('dokumenTableBody');
+      tbody.innerHTML = '';
+
+      if (dokumen.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-8 text-center text-gray-500">Tidak ada data dokumen</td></tr>';
+        return;
+      }
+
+      dokumen.forEach(doc => {
+        const statusColor = {
+          'Belum Mulai': 'bg-red-100 text-red-700',
+          'Draft': 'bg-yellow-100 text-yellow-700',
+          'Review': 'bg-blue-100 text-blue-700',
+          'Lengkap': 'bg-green-100 text-green-700'
+        }[doc.status] || 'bg-gray-100 text-gray-700';
+
+        tbody.innerHTML += `
+          <tr class="table-row-hover">
+            <td class="px-6 py-4 text-sm font-mono text-gray-700">${doc.id}</td>
+            <td class="px-6 py-4 text-sm text-gray-800 font-medium">${doc.nama}</td>
+            <td class="px-6 py-4 text-sm text-gray-700">BAB ${doc.bab}</td>
+            <td class="px-6 py-4">
+              <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${statusColor}">
+                ${doc.status}
+              </span>
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-700">${doc.pic}</td>
+            <td class="px-6 py-4 text-sm text-gray-700">${new Date(doc.deadline).toLocaleDateString('id-ID', {day: '2-digit', month: 'short', year: 'numeric'})}</td>
+            <td class="px-6 py-4">
+              <button class="bg-navy hover:bg-navy-dark text-white text-xs font-medium py-1.5 px-4 rounded transition">
+                Lihat
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+    }
+
+    // Filter dokumen
+    function filterDokumen() {
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      const status = document.getElementById('filterStatus').value;
+      const bab = document.getElementById('filterBab').value;
+
+      let filtered = allDokumen;
+
+      if (search) {
+        filtered = filtered.filter(d => d.nama.toLowerCase().includes(search));
+      }
+      if (status) {
+        filtered = filtered.filter(d => d.status === status);
+      }
+      if (bab) {
+        filtered = filtered.filter(d => d.bab === bab);
+      }
+
+      renderTable(filtered);
+    }
+
+    // Form submission
+    document.getElementById('formDokumen').addEventListener('submit', function(e) {
+      e.preventDefault();
+      submitForm();
+    });
+
+    function submitForm() {
+      showLoading();
+
+      const data = {
+        nama: document.getElementById('nama').value,
+        bab: document.getElementById('bab').value,
+        standar: document.getElementById('standar').value,
+        kriteria: document.getElementById('kriteria').value,
+        pic: document.getElementById('pic').value,
+        deadline: document.getElementById('deadline').value,
+        status: document.getElementById('status').value,
+        skor: document.getElementById('skor').value,
+        link: document.getElementById('link').value,
+        catatan: document.getElementById('catatan').value
+      };
+
+      google.script.run
+        .withSuccessHandler(function(result) {
+          hideLoading();
+          if (result.success) {
+            showPage('list');
+            loadListDokumen();
+          } else {
+            alert('❌ Gagal menyimpan: ' + result.error);
+          }
+        })
+        .withFailureHandler(function(error) {
+          hideLoading();
+          alert('❌ Terjadi kesalahan: ' + error.message);
+        })
+        .tambahDokumen(data);
+    }
+
+    function resetForm() {
+      document.getElementById('formDokumen').reset();
+    }
+
+    // Export laporan
+    function exportLaporan() {
+      showLoading();
+      google.script.run
+        .withSuccessHandler(function(result) {
+          hideLoading();
+          if (result.success) {
+            alert('✅ ' + result.message + '\n\nFile tersimpan di Google Drive Anda.');
+          } else {
+            alert('❌ Gagal export: ' + result.error);
+          }
+        })
+        .withFailureHandler(function(error) {
+          hideLoading();
+          alert('❌ Terjadi kesalahan: ' + error.message);
+        })
+        .exportLaporan();
+    }
+
+    // Check reminders
+    function checkReminders() {
+      showLoading();
+      google.script.run
+        .withSuccessHandler(function(result) {
+          hideLoading();
+          if (result.success) {
+            if (result.count === 0) {
+              alert('✅ Tidak ada reminder aktif. Semua dokumen aman!');
+            } else {
+              let message = `⚠️ Ada ${result.count} dokumen yang perlu diperhatikan:\n\n`;
+              result.reminders.forEach(r => {
+                message += `• ${r.nama}\n  PIC: ${r.pic}\n  Deadline: ${new Date(r.deadline).toLocaleDateString('id-ID')}\n  Sisa: ${r.hariTersisa} hari\n\n`;
+              });
+              alert(message);
+            }
+          } else {
+            alert(result.message);
+          }
+        })
+        .withFailureHandler(function(error) {
+          hideLoading();
+          alert('❌ Terjadi kesalahan: ' + error.message);
+        })
+        .checkReminders();
+    }
+
+    // Loading helpers
+    function showLoading() {
+      document.getElementById('loading').classList.remove('hidden');
+    }
+
+    function hideLoading() {
+      document.getElementById('loading').classList.add('hidden');
+    }
+
+    function handleError(error) {
+      hideLoading();
+      alert('❌ Terjadi kesalahan: ' + error.message);
+    }
+
+    // Toggle Sidebar
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('collapsed');
+    }
+
+    // Load dashboard on page load
+    window.onload = function() {
+      loadDashboard();
+    };
+  </script>
+</body>
+</html>
