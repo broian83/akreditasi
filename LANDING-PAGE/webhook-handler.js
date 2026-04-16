@@ -92,4 +92,6 @@ function handlePaymentExpired(data) {
   // TODO: Cleanup order expired
 }
 
-module.exports = { handleMayarWebhook };
+if (typeof module !== 'undefined') {
+  module.exports = { handleMayarWebhook };
+}
