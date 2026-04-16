@@ -264,6 +264,73 @@
       background: var(--gray-100) !important;
     }
 
+    .edu-action-btn {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 24px;
+      border: var(--border-w) solid var(--gray-800) !important;
+      background: var(--accent) !important;
+      color: var(--gray-800) !important;
+      border-radius: 0 !important;
+      box-shadow: 6px 6px 0 var(--gray-800) !important;
+      font-weight: 900;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      transition: all .15s ease;
+    }
+
+    .edu-action-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0 var(--gray-800) !important;
+      background: #facc15 !important;
+    }
+
+    .edu-action-btn svg {
+      color: currentColor !important;
+    }
+
+    .edu-secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border: var(--border-w) solid var(--gray-800) !important;
+      background: var(--primary) !important;
+      color: var(--bg-white) !important;
+      border-radius: 0 !important;
+      box-shadow: 4px 4px 0 var(--gray-800) !important;
+      font-weight: 800;
+      transition: all .15s ease;
+    }
+
+    .edu-secondary-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--gray-800) !important;
+      background: var(--primary-dark) !important;
+    }
+
+    .edu-icon-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: var(--border-w) solid var(--gray-800) !important;
+      background: var(--bg-white) !important;
+      color: var(--gray-800) !important;
+      border-radius: 0 !important;
+      transition: all .15s ease;
+    }
+
+    .edu-icon-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--gray-800) !important;
+      background: var(--gray-100) !important;
+    }
+
     #searchInput {
       border-radius: 0 !important;
       border: 2px solid var(--gray-800) !important;
@@ -288,12 +355,108 @@
       transform: translate(-2px, -2px);
     }
 
-    #materiList > button {
-      border-bottom: 2px solid var(--gray-100);
+    #materiList {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 56vh;
+      overflow-y: auto;
     }
 
-    #materiList > button:hover {
-      background: var(--yellow-100, #fef9c3) !important;
+    .materi-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 48px;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .materi-item__button {
+      width: 100%;
+      text-align: left;
+      padding: 16px 18px;
+      border: 2px solid transparent;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      transition: all .18s ease;
+    }
+
+    .materi-item__button:hover {
+      border-color: var(--gray-800);
+      background: #fff8cc;
+      box-shadow: 3px 3px 0 var(--gray-800);
+      transform: translate(-1px, -1px);
+    }
+
+    .materi-item__button.is-active {
+      border-color: var(--gray-800);
+      background: linear-gradient(180deg, #fff8cc 0%, #fff3a3 100%);
+      box-shadow: 4px 4px 0 var(--gray-800);
+    }
+
+    .materi-item__code {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      color: var(--gray-800);
+    }
+
+    .materi-item__dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #cbd5e1;
+      border: 2px solid #cbd5e1;
+      flex: 0 0 auto;
+    }
+
+    .materi-item__dot.is-read {
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .materi-item__title {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .materi-item__category {
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.3;
+    }
+
+    .materi-item__bookmark {
+      width: 48px;
+      min-height: 100%;
+      border: 2px solid #e2e8f0;
+      background: #fff;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .18s ease;
+    }
+
+    .materi-item__bookmark:hover {
+      border-color: var(--gray-800);
+      color: var(--accent);
+      box-shadow: 3px 3px 0 var(--gray-800);
+      transform: translate(-1px, -1px);
+    }
+
+    .materi-item__bookmark.is-active {
+      border-color: var(--gray-800);
+      background: #fff8cc;
+      color: var(--accent);
+      box-shadow: 3px 3px 0 var(--gray-800);
     }
 
     #materiContent > div,
@@ -577,24 +740,23 @@
       list.innerHTML = data.map(m => {
         const isRead = progress[m.id] === true;
         const isBookmarked = bookmarks.includes(m.id);
+        const isActive = currentMateri && currentMateri.id === m.id;
         return `
-          <button onclick="viewMateri('${m.id}')" class="w-full text-left p-4 hover:bg-primary-50 transition-all group">
-            <div class="flex items-start justify-between">
-              <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-2">
-                  ${isRead ? '<span class="w-2 h-2 bg-primary-500 rounded-full flex-shrink-0"></span>' : '<span class="w-2 h-2 bg-slate-200 rounded-full flex-shrink-0"></span>'}
-                  <span class="text-[10px] font-bold text-primary-600 truncate">${m.id}</span>
-                </div>
-                <p class="text-sm font-semibold text-slate-700 mt-1 truncate group-hover:text-primary-700">${m.title}</p>
-                <p class="text-[10px] text-slate-400 mt-0.5 truncate">${m.kategori}</p>
+          <article class="materi-item">
+            <button onclick="viewMateri('${m.id}')" class="materi-item__button ${isActive ? 'is-active' : ''}">
+              <div class="materi-item__code">
+                <span class="materi-item__dot ${isRead ? 'is-read' : ''}"></span>
+                <span>${m.id}</span>
               </div>
-              <button onclick="event.stopPropagation(); toggleBookmark('${m.id}')" class="${isBookmarked ? 'text-amber-400' : 'text-slate-300 hover:text-amber-400'}">
-                <svg class="w-5 h-5" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
-                </svg>
-              </button>
-            </div>
-          </button>
+              <div class="materi-item__title">${m.title}</div>
+              <div class="materi-item__category">${m.kategori}</div>
+            </button>
+            <button onclick="toggleBookmark('${m.id}')" class="materi-item__bookmark ${isBookmarked ? 'is-active' : ''}" aria-label="Bookmark ${m.title}">
+              <svg class="w-5 h-5" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+              </svg>
+            </button>
+          </article>
         `;
       }).join('');
     }
@@ -605,6 +767,7 @@
       progress[id] = true;
       localStorage.setItem('eduProgress', JSON.stringify(progress));
       updateProgress();
+      renderMateriList(filteredData || eduData.bab);
       
       const mb = currentMateri;
       const isBookmarked = bookmarks.includes(id);
@@ -660,7 +823,7 @@
           ` : ''}
 
           ${mb.quiz && mb.quiz.length > 0 ? `
-          <button onclick="startQuiz('${id}')" class="w-full py-4 bg-gradient-to-r from-primary-600 to-indigo-600 text-white rounded-xl font-bold shadow-lg shadow-primary-500/30 hover:shadow-xl hover:scale-[1.01] transition-all flex items-center justify-center gap-2">
+          <button onclick="startQuiz('${id}')" class="edu-action-btn">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             Mulai Quiz (${mb.quiz.length} Soalan)
           </button>
@@ -679,7 +842,7 @@
       document.getElementById('quizContent').innerHTML = `
         <div class="animate-fade-in">
           <div class="flex items-center gap-3 mb-6">
-            <button onclick="backToMateri('${id}')" class="p-2 bg-slate-100 rounded-lg hover:bg-slate-200 transition">
+            <button onclick="backToMateri('${id}')" class="edu-icon-btn">
               <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
             <div>
@@ -697,7 +860,7 @@
             <div id="quizIcon" class="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl"></div>
             <h3 id="quizTitle" class="text-2xl font-bold mb-2"></h3>
             <p id="quizMessage" class="text-slate-600 mb-6"></p>
-            <button onclick="startQuiz('${id}')" class="px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold hover:bg-primary-700">Coba Lagi</button>
+            <button onclick="startQuiz('${id}')" class="edu-secondary-btn">Coba Lagi</button>
           </div>
         </div>
       `;
