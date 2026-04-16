@@ -554,22 +554,25 @@
 
     function renderTable(dokumen) {
       const tbody = document.getElementById('dokumenTableBody');
+      if (!tbody) return;
       tbody.innerHTML = '';
 
       if (!dokumen || dokumen.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-12 text-center text-gray-500 font-bold uppercase tracking-widest bg-gray-50">❌ Tidak ada data ditemukan</td></tr>';
+        tbody.innerHTML = `<tr><td colspan="7" class="px-6 py-12 text-center text-gray-400 font-black uppercase tracking-widest bg-gray-50/50">
+          <div class="mb-2">❌ TIDAK ADA DATA DITEMUKAN</div>
+          <div class="text-[10px] font-bold text-gray-400">Pastikan baris data di Sheet memiliki ID di kolom A</div>
+        </td></tr>`;
         return;
       }
 
       dokumen.forEach(doc => {
-        if (!doc || !doc.id) return; // Skip empty/invalid rows
-
+        // Tampilkan semua data, jangan di skip
         const statusColor = {
-          'Belum Mulai': 'bg-red-500 text-white border-2 border-navy',
-          'Draft': 'bg-yellow-400 text-navy border-2 border-navy font-bold',
-          'Review': 'bg-blue-400 text-white border-2 border-navy font-bold',
-          'Lengkap': 'bg-green-500 text-white border-2 border-navy font-bold'
-        }[doc.status] || 'bg-gray-200 text-gray-800 border-2 border-navy';
+          'Belum Mulai': 'bg-red-500 text-white',
+          'Draft': 'bg-yellow-400 text-navy font-bold',
+          'Review': 'bg-blue-400 text-white font-bold',
+          'Lengkap': 'bg-green-500 text-white font-bold'
+        }[doc.status] || 'bg-gray-200 text-gray-800';
 
         // Safe Date Formatting
         let deadlineStr = 'No Date';

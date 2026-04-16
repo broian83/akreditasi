@@ -332,40 +332,30 @@ function getAllDokumen() {
   try {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const sheet = ss.getSheetByName(CONFIG.SHEET_NAMES.DATA_DOKUMEN);
-    if (!sheet) {
-      Logger.log('Error: Sheet DATA DOKUMEN tidak ditemukan');
-      return [];
-    }
+    if (!sheet) return [];
     
-    // Gunakan getRange daripada getDataRange untuk kontrol lebih baik
-    const lastRow = sheet.getLastRow();
-    if (lastRow <= 1) return []; // Hanya header
-    
-    const dataRange = sheet.getRange(2, 1, lastRow - 1, 13).getValues();
+    const dataRange = sheet.getDataRange().getValues();
+    if (dataRange.length <= 1) return []; 
     
     const dokumen = [];
-    for (let i = 0; i < dataRange.length; i++) {
-      if (!dataRange[i][0]) continue; // Skip jika ID kosong
-      
+    for (let i = 1; i < dataRange.length; i++) {
       dokumen.push({
-        id: dataRange[i][0],
-        nama: dataRange[i][1],
-        bab: dataRange[i][2],
-        standar: dataRange[i][3],
-        kriteria: dataRange[i][4],
-        status: dataRange[i][5],
-        skor: dataRange[i][6],
-        pic: dataRange[i][7],
+        id: dataRange[i][0] || '(No ID)',
+        nama: dataRange[i][1] || '(Tanpa Nama)',
+        bab: dataRange[i][2] || '-',
+        standar: dataRange[i][3] || '-',
+        kriteria: dataRange[i][4] || '-',
+        status: dataRange[i][5] || 'Belum Mulai',
+        skor: dataRange[i][6] || '-',
+        pic: dataRange[i][7] || '-',
         deadline: dataRange[i][8],
-        link: dataRange[i][9]
+        link: dataRange[i][9] || '#'
       });
     }
-    
-    Logger.log('Success: Fetched ' + dokumen.length + ' dokumen');
     return dokumen;
   } catch (e) {
     Logger.log('Error in getAllDokumen: ' + e.message);
-    throw e;
+    return [];
   }
 }
 
