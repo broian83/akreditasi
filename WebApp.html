@@ -375,7 +375,7 @@
               <div class="grid grid-cols-2 gap-6">
                 <div>
                   <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Pilih Standar MRMIK <span class="text-red-500">*</span></label>
-                  <select id="standar" required
+                  <select id="standar" required onchange="updateEPList()"
                     class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all">
                     <option value="">Pilih Standar</option>
                     <option value="MRMIK 1">MRMIK 1: Kepemimpinan & Manajemen</option>
@@ -395,10 +395,11 @@
                 </div>
 
                 <div>
-                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Kriteria (Elemen Penilaian)</label>
-                  <input type="text" id="kriteria"
-                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
-                    placeholder="Contoh: EP 1, EP 2">
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Elemen Penilaian (EP) <span class="text-red-500">*</span></label>
+                  <select id="kriteria" required onchange="onEPChange()"
+                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all">
+                    <option value="">Pilih EP</option>
+                  </select>
                 </div>
               </div>
 
@@ -725,7 +726,11 @@
       document.getElementById('bab').value = doc.bab;
       document.getElementById('status').value = doc.status;
       document.getElementById('standar').value = doc.standar;
+      
+      // Update EP list first based on selected Standar
+      updateEPList();
       document.getElementById('kriteria').value = doc.kriteria;
+      
       document.getElementById('pic').value = doc.pic;
       document.getElementById('link').value = doc.link === '#' ? '' : doc.link;
       document.getElementById('jenis').value = doc.jenis || 'Regulasi';
@@ -743,34 +748,99 @@
       showPage('tambah');
     }
 
-    // Auto-fill saran nama dokumen berdasarkan standar MRMIK
-    document.getElementById('standar').addEventListener('change', function() {
-      const val = this.value;
-      const namaInput = document.getElementById('nama');
-      
-      const hints = {
-        'MRMIK 1': 'Pedoman & Kebijakan Manajemen Informasi Rumah Sakit',
-        'MRMIK 2': 'Bukti Rapat/Analisis Kebutuhan Data dan Informasi Staf',
-        'MRMIK 3': 'Pedoman Tata Naskah & Pengendalian Dokumen Internal',
-        'MRMIK 4': 'Kebijakan Jangka Waktu Retensi & Pemusnahan Rekam Medis',
-        'MRMIK 5': 'Pedoman Pelayanan Rekam Medis (Registrasi - Pulang)',
-        'MRMIK 6': 'Kebijakan Hak Privasi & Kerahasiaan Rekam Medis Pasien',
-        'MRMIK 7': 'Daftar Singkatan & Simbol Baku yang digunakan Unit Kerja',
-        'MRMIK 8': 'Regulasi tentang Isi & Format Rekam Medis Rawat Inap/Jalan',
-        'MRMIK 9': 'Format & Bukti Pengisian Rekam Medis Gawat Darurat',
-        'MRMIK 10': 'Bukti Hasil Pelayanan dari luar (Rujukan/Laborat luar)',
-        'MRMIK 11': 'Bukti Pelaksanaan Review Rekam Medis secara Periodik',
-        'MRMIK 12': 'Laporan Audit Medis & Bukti Tindakan Perbaikan PPA',
-        'MRMIK 13': 'Kebijakan Pengelolaan SIMRS & Keamanan Data Digital'
-      };
+    // Master Data EP MRMIK
+    const MRMIK_EP_DATA = {
+      'MRMIK 1': [
+        { ep: 'EP 1', nama: 'Pedoman Manajemen Informasi RS', jenis: 'Regulasi' },
+        { ep: 'EP 2', nama: 'Laporan Kebutuhan Informasi Internal/Eksternal', jenis: 'Dokumen' },
+        { ep: 'EP 3', nama: 'Bukti Pelatihan Manajemen Informasi bagi Staf', jenis: 'Dokumen' }
+      ],
+      'MRMIK 2': [
+        { ep: 'EP 1', nama: 'Bukti Analisis Kebutuhan Data Staf Klinis/Non-Klinis', jenis: 'Dokumen' },
+        { ep: 'EP 2', nama: 'Bukti Pemberian Data kepada Pihak Luar (jika ada)', jenis: 'Dokumen' }
+      ],
+      'MRMIK 3': [
+        { ep: 'EP 1', nama: 'Pedoman Tata Naskah & Pengendalian Dokumen', jenis: 'Regulasi' },
+        { ep: 'EP 2', nama: 'Daftar Induk Dokumen Internal yang Aktif', jenis: 'Dokumen' },
+        { ep: 'EP 3', nama: 'Bukti Pemantauan Kepatuhan Tata Naskah', jenis: 'Dokumen' }
+      ],
+      'MRMIK 4': [
+        { ep: 'EP 1', nama: 'Kebijakan Jangka Waktu Retensi Rekam Medis', jenis: 'Regulasi' },
+        { ep: 'EP 2', nama: 'Bukti Pemusnahan Rekam Medis (Berita Acara)', jenis: 'Dokumen' }
+      ],
+      'MRMIK 5': [
+        { ep: 'EP 1', nama: 'Pedoman Penyelenggaraan Rekam Medis Lengkap', jenis: 'Regulasi' },
+        { ep: 'EP 2', nama: 'Daftar PPA yang berwenang mengisi Rekam Medis', jenis: 'Dokumen' }
+      ],
+      'MRMIK 6': [
+        { ep: 'EP 1', nama: 'Kebijakan Privasi dan Kerahasiaan Data Pasien', jenis: 'Regulasi' },
+        { ep: 'EP 2', nama: 'Bukti Kepatuhan PPA dalam menjaga kerahasiaan', jenis: 'Dokumen' }
+      ],
+      'MRMIK 7': [
+        { ep: 'EP 1', nama: 'Daftar Simbol & Singkatan yang disahkan RS', jenis: 'Regulasi' },
+        { ep: 'EP 2', nama: 'Bukti Monitoring penggunaan singkatan baku', jenis: 'Dokumen' }
+      ],
+      'MRMIK 8': [
+        { ep: 'EP 1', nama: 'Regulasi tentang Isi Rekam Medis Pasien', jenis: 'Regulasi' },
+        { ep: 'EP 2', nama: 'Bukti Rekam Medis terisi lengkap & tepat waktu', jenis: 'Dokumen' }
+      ],
+      'MRMIK 9': [
+        { ep: 'EP 1', nama: 'Bukti Pengisian Rekam Medis Gawat Darurat', jenis: 'Dokumen' },
+        { ep: 'EP 2', nama: 'Bukti Pencatatan Waktu Kedatangan Pasien', jenis: 'Dokumen' }
+      ],
+      'MRMIK 10': [
+        { ep: 'EP 1', nama: 'Bukti Penyimpanan Hasil Pelayanan dari luar RS', jenis: 'Dokumen' }
+      ],
+      'MRMIK 11': [
+        { ep: 'EP 1', nama: 'Laporan Review Rekam Medis (Audit Kualitatif)', jenis: 'Dokumen' }
+      ],
+      'MRMIK 12': [
+        { ep: 'EP 1', nama: 'Laporan Audit Klinis/Audit Medis Komite Medis', jenis: 'Dokumen' }
+      ],
+      'MRMIK 13': [
+        { ep: 'EP 1', nama: 'Kebijakan Pengelolaan SIMRS & Keamanan Data', jenis: 'Regulasi' },
+        { ep: 'EP 2', nama: 'Laporan Backup Data & Uji Coba Pemulihan', jenis: 'Dokumen' },
+        { ep: 'EP 3', nama: 'Bukti Perlindungan dari Akses tidak berwenang', jenis: 'Dokumen' }
+      ]
+    };
 
-      if (hints[val] && (!namaInput.value || namaInput.value === '')) {
-        namaInput.value = hints[val];
+    function updateEPList() {
+      const standar = document.getElementById('standar').value;
+      const kriteriaSelect = document.getElementById('kriteria');
+      const namaInput = document.getElementById('nama');
+      const jenisSelect = document.getElementById('jenis');
+      
+      // Clear EP suggestions
+      kriteriaSelect.innerHTML = '<option value="">Pilih EP</option>';
+      
+      if (MRMIK_EP_DATA[standar]) {
+        MRMIK_EP_DATA[standar].forEach(item => {
+          const opt = document.createElement('option');
+          opt.value = item.ep;
+          opt.textContent = item.ep + ' - ' + item.nama;
+          kriteriaSelect.appendChild(opt);
+        });
       }
-    });
+    }
+
+    function onEPChange() {
+      const standar = document.getElementById('standar').value;
+      const epVal = document.getElementById('kriteria').value;
+      const namaInput = document.getElementById('nama');
+      const jenisSelect = document.getElementById('jenis');
+      
+      if (MRMIK_EP_DATA[standar]) {
+        const selected = MRMIK_EP_DATA[standar].find(i => i.ep === epVal);
+        if (selected) {
+          namaInput.value = selected.nama;
+          jenisSelect.value = selected.jenis;
+        }
+      }
+    }
 
     function resetForm() {
       document.getElementById('formDokumen').reset();
+      document.getElementById('kriteria').innerHTML = '<option value="">Pilih EP</option>';
       document.getElementById('editId').value = '';
       document.getElementById('formTitle').textContent = 'TAMBAH DOKUMEN BARU';
       document.getElementById('btnSubmit').textContent = 'SIMPAN DATA';
