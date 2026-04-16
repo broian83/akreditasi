@@ -95,6 +95,11 @@
           <span class="menu-text">TAMBAH DOKUMEN</span>
         </button>
 
+        <button onclick="showPage('edukasi')" id="menu-edukasi" class="menu-item group flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-gray-100 transition">
+          <svg class="w-5 h-5 group-hover:scale-110 transition" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.586.477 5 1.253m0-13C14.168 5.477 15.754 5 17.5 5S20.832 5.477 22 6.253v13C20.832 18.477 19.246 18 17.5 18s-3.586.477-5 1.253"></path></svg>
+          <span class="menu-text">EDUKASI MRMIK</span>
+        </button>
+
         <div class="px-6 mt-8 mb-2 section-header text-[11px] font-black text-gray-400 uppercase tracking-widest">Reports</div>
 
         <button onclick="exportLaporan()" class="menu-item group flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-gray-100 transition">
@@ -474,6 +479,33 @@
           </div>
         </div>
 
+        <!-- EDUKASI PAGE -->
+        <div id="edukasiPage" class="hidden">
+          <div class="mb-6">
+            <h1 class="text-2xl font-bold uppercase tracking-wide text-gray-800">EDUKASI & PANDUAN MRMIK</h1>
+            <p class="text-sm text-gray-600 mt-1">Belajar standar akreditasi MRMIK 1-13 (STARKES 2022)</p>
+          </div>
+
+          <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Navigation Sidebar Local -->
+            <div class="w-full lg:w-1/3 bg-white p-4 shadow-sm border border-gray-200">
+              <h3 class="text-xs font-black text-gray-500 uppercase mb-4 tracking-widest pl-2">Pilih Standar</h3>
+              <div id="edukasiList" class="space-y-1 max-h-[65vh] overflow-y-auto pr-2">
+                <!-- JS Rendered -->
+              </div>
+            </div>
+
+            <!-- Content Detail -->
+            <div class="w-full lg:w-2/3">
+              <div id="edukasiContent" class="bg-white p-8 shadow-sm border border-gray-200 min-h-[65vh] relative overflow-hidden">
+                <div class="flex flex-col items-center justify-center h-full text-gray-400 py-20">
+                  <svg class="w-16 h-16 mb-4 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.586.477 5 1.253m0-13C14.168 5.477 15.754 5 17.5 5S20.832 5.477 22 6.253v13C20.832 18.477 19.246 18 17.5 18s-3.586.477-5 1.253"></path></svg>
+                  <p class="font-bold uppercase tracking-widest text-sm">Pilih Materi Akreditasi untuk Memulai</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   </div>
@@ -492,6 +524,7 @@
       document.getElementById('dashboardPage').classList.add('hidden');
       document.getElementById('tambahPage').classList.add('hidden');
       document.getElementById('listPage').classList.add('hidden');
+      document.getElementById('edukasiPage').classList.add('hidden');
 
       if (page === 'dashboard') {
         document.getElementById('dashboardPage').classList.remove('hidden');
@@ -501,13 +534,18 @@
       } else if (page === 'list') {
         document.getElementById('listPage').classList.remove('hidden');
         loadListDokumen();
+      } else if (page === 'edukasi') {
+        document.getElementById('edukasiPage').classList.remove('hidden');
+        initEdukasi();
       }
 
       // Update menu active state
       document.querySelectorAll('.menu-item').forEach(item => {
         item.classList.remove('active');
+        item.classList.remove('bg-gray-100');
       });
-      document.getElementById('menu-' + page).classList.add('active');
+      const btn = document.getElementById('menu-' + page);
+      if (btn) btn.classList.add('active', 'bg-gray-100');
     }
 
     // Load dashboard
@@ -913,9 +951,112 @@
       sidebar.classList.toggle('collapsed');
     }
 
+    // Edukasi MRMIK Logic
+    const MATERI_MRMIK = [
+      {
+        id: 'MRMIK 1',
+        title: 'Manajemen Informasi',
+        summary: 'RS menetapkan proses manajemen informasi untuk memenuhi kebutuhan internal & eksternal.',
+        detail: 'Informasi harus dikelola dengan aman berdasarkan prinsip keamanan data. Perencanaan melibatkan PPA, pimpinan, dan unit layanan.',
+        checklist: [
+          { type: 'R', desc: 'Regulasi Pengelolaan SIRS (a-g) '},
+          { type: 'D', desc: 'Bukti penerapan SIRS/RME untuk PPA & Pimpinan' },
+          { type: 'D', desc: 'Evaluasi berkala terhadap pemenuhan informasi' }
+        ]
+      },
+      {
+        id: 'MRMIK 2',
+        title: 'Pelatihan Staf',
+        summary: 'Pimpinan & Staf dilatih mengenai prinsip manajemen dan penggunaan informasi.',
+        detail: 'Fokus pada: penggunaan RME, keamanan data, strategi downtime, dan integrasi data klinis/non-klinis.',
+        checklist: [
+          { type: 'D', desc: 'Bukti pelatihan RME bagi PPA & Staf' },
+          { type: 'D', desc: 'Integrasi data untuk pengambilan keputusan' }
+        ]
+      },
+      {
+        id: 'MRMIK 3',
+        title: 'Tata Naskah',
+        summary: 'RS menerapkan proses pengelolaan dokumen secara konsisten.',
+        detail: 'Peninjauan dokumen oleh otoritas, pengendalian versi terkini, pemeliharaan identitas, dan penyimpanan dokumen obsolete.',
+        checklist: [
+          { type: 'R', desc: 'Pedoman Tata Naskah (Butir a-h)' },
+          { type: 'D', desc: 'Format dokumen seragam sesuai standar' }
+        ]
+      },
+      {
+        id: 'MRMIK 5',
+        title: 'Penyelenggaraan RME',
+        summary: 'RS menetapkan penyelenggaraan rekam medis elektronik (RME).',
+        detail: 'Unit RM dikelola orang kompeten. Keamanan dijamin di 3 tempat: server lokal, backup rutin, dan virtual/cloud.',
+        checklist: [
+          { type: 'R', desc: 'Pedoman Penyelenggaraan RME' },
+          { type: 'D', desc: 'Audit keamanan data RM oleh tim reviu' }
+        ]
+      },
+      {
+        id: 'MRMIK 13',
+        title: 'Teknologi Informasi',
+        summary: 'Penerapan SIMRS untuk mengelola data klinis/non-klinis.',
+        detail: 'Individu IT merekomendasikan peralatan, mengkaji risiko keamanan, dan melatih staf tentang kebijakan keamanan IT.',
+        checklist: [
+          { type: 'R', desc: 'Pedoman Penyelenggaraan SIMRS Terintegrasi' },
+          { type: 'D', desc: 'Identifikasi kerentanan sistem & mitigasi risiko' }
+        ]
+      }
+    ];
+
+    function initEdukasi() {
+      const listDiv = document.getElementById('edukasiList');
+      if (!listDiv) return;
+      listDiv.innerHTML = MATERI_MRMIK.map(m => `
+        <button onclick="viewMateri('${m.id}')" class="w-full text-left p-3 hover:bg-teal-50 border-l-4 border-transparent hover:border-teal-500 transition group">
+          <div class="text-[9px] font-black text-teal-600 uppercase tracking-tighter">${m.id}</div>
+          <div class="text-xs font-bold text-gray-800">${m.title}</div>
+        </button>
+      `).join('');
+    }
+
+    window.viewMateri = function(id) {
+      const m = MATERI_MRMIK.find(item => item.id === id);
+      if (!m) return;
+      
+      const content = document.getElementById('edukasiContent');
+      content.innerHTML = `
+        <div class="animate-in fade-in slide-in-from-bottom-2 duration-300">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-teal-dark text-white rounded-lg flex items-center justify-center font-bold text-xl">${m.id.split(' ')[1]}</div>
+            <div>
+              <h2 class="text-xl font-bold text-teal-dark uppercase">${m.title}</h2>
+              <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">INSTRUMEN AKREDITASI MRMIK</p>
+            </div>
+          </div>
+          
+          <div class="bg-teal-50 border-l-4 border-teal-500 p-4 mb-6 italic text-sm text-teal-900">
+            "${m.summary}"
+          </div>
+
+          <div class="mb-8">
+            <h4 class="text-xs font-black text-gray-400 uppercase tracking-widest mb-3">Maksud & Tujuan</h4>
+            <p class="text-sm text-gray-700 leading-relaxed">${m.detail}</p>
+          </div>
+
+          <div class="space-y-3">
+            <h4 class="text-xs font-black text-gray-400 uppercase tracking-widest mb-3">Checklist Bukti Penilaian</h4>
+            ${m.checklist.map(c => `
+              <div class="flex items-center gap-3 p-3 bg-gray-50 border border-gray-200 rounded-md hover:border-teal-300 transition">
+                <div class="w-8 h-8 bg-white border border-teal-200 text-teal-600 flex items-center justify-center font-bold text-xs rounded">${c.type}</div>
+                <div class="text-xs font-bold text-gray-700">${c.desc}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    };
+
     // Load dashboard on page load
     window.onload = function() {
-      loadDashboard();
+      showPage('dashboard');
     };
   </script>
 </body>
