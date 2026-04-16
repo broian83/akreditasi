@@ -240,8 +240,8 @@ function tambahDokumen(data) {
       deadlineDate,
       data.link || '',
       now,
-      now,
-      data.catatan || ''
+      data.catatan || '',
+      data.jenis || 'Regulasi'
     ];
     
     sheet.appendRow(rowData);
@@ -273,6 +273,7 @@ function updateDokumen(id, data) {
       if (data.deadline) sheet.getRange(row, 9).setValue(data.deadline);
       if (data.link) sheet.getRange(row, 10).setValue(data.link);
       if (data.catatan) sheet.getRange(row, 13).setValue(data.catatan);
+      if (data.jenis) sheet.getRange(row, 14).setValue(data.jenis);
       
       sheet.getRange(row, 12).setValue(new Date()); // Last Updated
       return { success: true };
@@ -319,7 +320,8 @@ function getDokumen(id) {
           link: dataRange[i][9],
           tanggalUpload: dataRange[i][10],
           lastUpdated: dataRange[i][11],
-          catatan: dataRange[i][12]
+          catatan: dataRange[i][12],
+          jenis: dataRange[i][13]
         }
       };
     }
@@ -364,7 +366,8 @@ function getAllDokumen() {
         skor: row[6] || '-',
         pic: row[7] || '-',
         deadline: deadlineValue,
-        link: row[9] || '#'
+        link: row[9] || '#',
+        jenis: row[13] || 'Regulasi'
       });
     }
     

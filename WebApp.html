@@ -348,27 +348,25 @@
               <!-- Row 2 -->
               <div class="grid grid-cols-2 gap-6">
                 <div>
-                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">BAB <span class="text-red-500">*</span></label>
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Kategori MRMIK <span class="text-red-500">*</span></label>
                   <select id="bab" required
                     class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all">
-                    <option value="">Pilih BAB</option>
-                    <option value="1">BAB 1 - Tata Kelola</option>
-                    <option value="2">BAB 2 - Kualifikasi & Staf</option>
-                    <option value="3">BAB 3 - Manajemen Fasilitas</option>
-                    <option value="4">BAB 4 - Rekam Medis</option>
-                    <option value="5">BAB 5 - Pencegahan Infeksi</option>
-                    <option value="6">BAB 6 - Pelayanan Pasien</option>
+                    <option value="">Pilih Kategori</option>
+                    <option value="Manajemen Informasi">Manajemen Informasi (MRMIK 1-2)</option>
+                    <option value="Pengelolaan Dokumen">Pengelolaan Dokumen (MRMIK 3-4)</option>
+                    <option value="Rekam Medis Pasien">Rekam Medis Pasien (MRMIK 5-12)</option>
+                    <option value="Teknologi Informasi">Teknologi Informasi (MRMIK 13)</option>
                   </select>
                 </div>
 
                 <div>
-                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Status <span class="text-red-500">*</span></label>
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Status Progres <span class="text-red-500">*</span></label>
                   <select id="status" required
                     class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all">
-                    <option value="Belum Mulai">Belum Mulai</option>
-                    <option value="Draft">Draft</option>
-                    <option value="Review">Review</option>
-                    <option value="Lengkap">Lengkap</option>
+                    <option value="Belum Mulai">0% - Belum Mulai</option>
+                    <option value="Draft">40% - Draft/Penyusunan</option>
+                    <option value="Review">70% - Review/Validasi</option>
+                    <option value="Lengkap">100% - Lengkap/Final</option>
                   </select>
                 </div>
               </div>
@@ -376,17 +374,31 @@
               <!-- Row 3 -->
               <div class="grid grid-cols-2 gap-6">
                 <div>
-                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Standar</label>
-                  <input type="text" id="standar"
-                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
-                    placeholder="Contoh: STK-01">
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Pilih Standar MRMIK <span class="text-red-500">*</span></label>
+                  <select id="standar" required
+                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all">
+                    <option value="">Pilih Standar</option>
+                    <option value="MRMIK 1">MRMIK 1: Kepemimpinan & Manajemen</option>
+                    <option value="MRMIK 2">MRMIK 2: Kebutuhan Informasi</option>
+                    <option value="MRMIK 3">MRMIK 3: Tata Naskah/Pengelolaan Dokumen</option>
+                    <option value="MRMIK 4">MRMIK 4: Retensi & Pemusnahan</option>
+                    <option value="MRMIK 5">MRMIK 5: Penyelenggaraan Rekam Medis</option>
+                    <option value="MRMIK 6">MRMIK 6: Identitas & Privasi Pasien</option>
+                    <option value="MRMIK 7">MRMIK 7: Simbol & Singkatan</option>
+                    <option value="MRMIK 8">MRMIK 8: Isi Rekam Medis (General)</option>
+                    <option value="MRMIK 9">MRMIK 9: Rekam Medis Gawat Darurat</option>
+                    <option value="MRMIK 10">MRMIK 10: Hasil Pelayanan Rujukan/Luar</option>
+                    <option value="MRMIK 11">MRMIK 11: Kemudahan Akses & Review</option>
+                    <option value="MRMIK 12">MRMIK 12: Audit Medis/Audit Klinis</option>
+                    <option value="MRMIK 13">MRMIK 13: SIMRS (Sistem Informasi)</option>
+                  </select>
                 </div>
 
                 <div>
-                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Kriteria</label>
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Kriteria (Elemen Penilaian)</label>
                   <input type="text" id="kriteria"
                     class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
-                    placeholder="Contoh: KRT-01">
+                    placeholder="Contoh: EP 1, EP 2">
                 </div>
               </div>
 
@@ -428,11 +440,22 @@
               </div>
 
               <!-- Row 6 -->
-              <div>
-                <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Catatan Perbaikan</label>
-                <textarea id="catatan" rows="3"
-                  class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
-                  placeholder="Catatan tambahan..."></textarea>
+              <div class="grid grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Jenis Dokumen</label>
+                  <select id="jenis"
+                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all">
+                    <option value="Regulasi">R - Regulasi (Kebijakan/SOP)</option>
+                    <option value="Dokumen">D - Dokumen Bukti (Laporan/Log)</option>
+                    <option value="Observasi/Wawancara">O/W - Observasi/Wawancara</option>
+                  </select>
+                </div>
+                <div>
+                   <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Catatan Perbaikan</label>
+                  <textarea id="catatan" rows="1"
+                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
+                    placeholder="Catatan tambahan..."></textarea>
+                </div>
               </div>
 
               <!-- Buttons -->
@@ -586,9 +609,14 @@
             </td>
             <td class="px-6 py-4 text-xs font-bold text-navy border-b-2 border-gray-100 bg-gray-50/50">BAB ${doc.bab || '?'}</td>
             <td class="px-6 py-4 border-b-2 border-gray-100">
-              <span class="px-3 py-1 text-[10px] uppercase font-black ${statusColor} shadow-[2px_2px_0px_#1f2937]">
-                ${doc.status || 'BELUM MULAI'}
-              </span>
+              <div class="flex flex-col gap-1">
+                <span class="px-3 py-1 text-[10px] uppercase font-black text-center ${statusColor} shadow-[2px_2px_0px_#1f2937]">
+                  ${doc.status || 'BELUM MULAI'}
+                </span>
+                <span class="text-[9px] font-black text-navy/60 text-center uppercase tracking-widest bg-gray-100 border border-navy/20">
+                  ${doc.jenis || 'REGULASI'}
+                </span>
+              </div>
             </td>
             <td class="px-6 py-4 text-xs font-bold text-navy border-b-2 border-gray-100">${doc.pic || '-'}</td>
             <td class="px-6 py-4 text-xs font-bold text-red-600 border-b-2 border-gray-100">${deadlineStr}</td>
@@ -647,7 +675,8 @@
         deadline: getVal('deadline'),
         skor: getVal('skor'),
         link: getVal('link'),
-        catatan: getVal('catatan')
+        catatan: getVal('catatan'),
+        jenis: getVal('jenis')
       };
 
       const editId = document.getElementById('editId').value;
@@ -699,6 +728,7 @@
       document.getElementById('kriteria').value = doc.kriteria;
       document.getElementById('pic').value = doc.pic;
       document.getElementById('link').value = doc.link === '#' ? '' : doc.link;
+      document.getElementById('jenis').value = doc.jenis || 'Regulasi';
       
       // Format deadline untuk input type date (YYYY-MM-DD)
       if (doc.deadline) {
@@ -713,11 +743,38 @@
       showPage('tambah');
     }
 
+    // Auto-fill saran nama dokumen berdasarkan standar MRMIK
+    document.getElementById('standar').addEventListener('change', function() {
+      const val = this.value;
+      const namaInput = document.getElementById('nama');
+      
+      const hints = {
+        'MRMIK 1': 'Pedoman & Kebijakan Manajemen Informasi Rumah Sakit',
+        'MRMIK 2': 'Bukti Rapat/Analisis Kebutuhan Data dan Informasi Staf',
+        'MRMIK 3': 'Pedoman Tata Naskah & Pengendalian Dokumen Internal',
+        'MRMIK 4': 'Kebijakan Jangka Waktu Retensi & Pemusnahan Rekam Medis',
+        'MRMIK 5': 'Pedoman Pelayanan Rekam Medis (Registrasi - Pulang)',
+        'MRMIK 6': 'Kebijakan Hak Privasi & Kerahasiaan Rekam Medis Pasien',
+        'MRMIK 7': 'Daftar Singkatan & Simbol Baku yang digunakan Unit Kerja',
+        'MRMIK 8': 'Regulasi tentang Isi & Format Rekam Medis Rawat Inap/Jalan',
+        'MRMIK 9': 'Format & Bukti Pengisian Rekam Medis Gawat Darurat',
+        'MRMIK 10': 'Bukti Hasil Pelayanan dari luar (Rujukan/Laborat luar)',
+        'MRMIK 11': 'Bukti Pelaksanaan Review Rekam Medis secara Periodik',
+        'MRMIK 12': 'Laporan Audit Medis & Bukti Tindakan Perbaikan PPA',
+        'MRMIK 13': 'Kebijakan Pengelolaan SIMRS & Keamanan Data Digital'
+      };
+
+      if (hints[val] && (!namaInput.value || namaInput.value === '')) {
+        namaInput.value = hints[val];
+      }
+    });
+
     function resetForm() {
       document.getElementById('formDokumen').reset();
       document.getElementById('editId').value = '';
       document.getElementById('formTitle').textContent = 'TAMBAH DOKUMEN BARU';
       document.getElementById('btnSubmit').textContent = 'SIMPAN DATA';
+      document.getElementById('jenis').value = 'Regulasi';
     }
 
     // Export laporan
