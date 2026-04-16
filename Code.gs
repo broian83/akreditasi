@@ -211,34 +211,47 @@ function ensureSheetsExist() {
 // ============================================
 
 function tambahDokumen(data) {
-  ensureSheetsExist(); // Auto-setup jika belum ada
-  
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheetByName(CONFIG.SHEET_NAMES.DATA_DOKUMEN);
-  
-  // Generate ID otomatis
-  const lastRow = sheet.getLastRow();
-  const newId = `DOC-${String(lastRow).padStart(3, '0')}`;
-  
-  const now = new Date();
-  const rowData = [
-    newId,
-    data.nama,
-    data.bab,
-    data.standar,
-    data.kriteria,
-    data.status || 'Belum Mulai',
-    data.skor || '',
-    data.pic,
-    data.deadline,
-    data.link || '',
-    now,
-    now,
-    data.catatan || ''
-  ];
-  
-  sheet.appendRow(rowData);
-  return { success: true, id: newId };
+  try {
+    ensureSheetsExist();
+    
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = ss.getSheetByName(CONFIG.SHEET_NAMES.DATA_DOKUMEN);
+    
+    // Generate ID otomatis - hitung dokumen yang ada
+    const lastRow = sheet.getLastRow();
+    const newId = `DOC-${String(lastRow).padStart(3, '0')}`;
+    
+    const now = new Date();
+    // Konversi deadline string ke Date object jika perlu agar masuk ke Sheet sebagai Date
+    let deadlineDate = data.deadline;
+    if (typeof deadlineDate === 'string' && deadlineDate.includes('-')) {
+      deadlineDate = new Date(deadlineDate);
+    }
+
+    const rowData = [
+      newId,
+      data.nama,
+      data.bab,
+      data.standar,
+      data.kriteria,
+      data.status || 'Belum Mulai',
+      data.skor || '',
+      data.pic,
+      deadlineDate,
+      data.link || '',
+      now,
+      now,
+      data.catatan || ''
+    ];
+    
+    sheet.appendRow(rowData);
+    SpreadsheetApp.flush(); // Paksa write ke sheet
+    Logger.log('Success: Dokumen ditambahkan dengan ID ' + newId);
+    return { success: true, id: newId };
+  } catch (e) {
+    Logger.log('Error in tambahDokumen: ' + e.message);
+    return { success: false, error: e.message };
+  }
 }
 
 function updateDokumen(id, data) {
@@ -316,27 +329,44 @@ function getDokumen(id) {
 }
 
 function getAllDokumen() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheetByName(CONFIG.SHEET_NAMES.DATA_DOKUMEN);
-  const dataRange = sheet.getDataRange().getValues();
-  
-  const dokumen = [];
-  for (let i = 1; i < dataRange.length; i++) {
-    dokumen.push({
-      id: dataRange[i][0],
-      nama: dataRange[i][1],
-      bab: dataRange[i][2],
-      standar: dataRange[i][3],
-      kriteria: dataRange[i][4],
-      status: dataRange[i][5],
-      skor: dataRange[i][6],
-      pic: dataRange[i][7],
-      deadline: dataRange[i][8],
-      link: dataRange[i][9]
-    });
+  try {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = ss.getSheetByName(CONFIG.SHEET_NAMES.DATA_DOKUMEN);
+    if (!sheet) {
+      Logger.log('Error: Sheet DATA DOKUMEN tidak ditemukan');
+      return [];
+    }
+    
+    // Gunakan getRange daripada getDataRange untuk kontrol lebih baik
+    const lastRow = sheet.getLastRow();
+    if (lastRow <= 1) return []; // Hanya header
+    
+    const dataRange = sheet.getRange(2, 1, lastRow - 1, 13).getValues();
+    
+    const dokumen = [];
+    for (let i = 0; i < dataRange.length; i++) {
+      if (!dataRange[i][0]) continue; // Skip jika ID kosong
+      
+      dokumen.push({
+        id: dataRange[i][0],
+        nama: dataRange[i][1],
+        bab: dataRange[i][2],
+        standar: dataRange[i][3],
+        kriteria: dataRange[i][4],
+        status: dataRange[i][5],
+        skor: dataRange[i][6],
+        pic: dataRange[i][7],
+        deadline: dataRange[i][8],
+        link: dataRange[i][9]
+      });
+    }
+    
+    Logger.log('Success: Fetched ' + dokumen.length + ' dokumen');
+    return dokumen;
+  } catch (e) {
+    Logger.log('Error in getAllDokumen: ' + e.message);
+    throw e;
   }
-  
-  return dokumen;
 }
 
 // ============================================

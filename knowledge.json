@@ -1,0 +1,2248 @@
+[{
+    "pokja": "TKRS",
+    "nama_bab": "Tata Kelola Rumah Sakit",
+    "data": [
+        {
+            "kode_standar": "TKRS 1",
+            "deskripsi": "Struktur organisasi serta wewenang representasi pemilik/dewan pengawas dijelaskan di dalam aturan internal rumah sakit (Hospital Bylaws) yang ditetapkan oleh pemilik rumah sakit.",
+            "maksud_tujuan": "Representasi pemilik/dewan pengawas memiliki tugas pokok dan fungsi secara khusus dalam pengolaan rumah sakit yang diatur dalam peraturan internal rumah sakit atau Hospital Bylaws. Fungsi utama meliputi penentuan arah kebijakan, persetujuan rencana strategis, anggaran, kendali mutu/biaya, serta menjaga hak pasien dan kepatuhan etika[cite: 1].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 1.a",
+                    "pernyataan": "Representasi pemilik/Dewan Pengawas dipilih dan ditetapkan oleh Pemilik.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan Representasi Pemilik/Dewan Pengawas oleh pemilik."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 1.b",
+                    "pernyataan": "Tanggung jawab dan wewenang representasi pemilik/Dewan Pengawas meliputi poin a) sampai dengan i) yang tertera di dalam maksud dan tujuan serta dijelaskan di dalam peraturan internal rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan tentang tanggung jawab dan wewenang representasi pemilik/Dewan Pengawas meliputi poin a) - g) dalam maksud dan tujuan."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 1.c",
+                    "pernyataan": "Representasi pemilik/Dewan Pengawas dievaluasi oleh pemilik setiap tahun dan hasil evaluasinya didokumentasikan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti evaluasi berupa penilaian kinerja representasi pemilik/ Dewan pengawas oleh pemilik, setiap tahun; Wawancara Representasi pemilik/ Dewan pengawas."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 1.d",
+                    "pernyataan": "Representasi pemilik/Dewan Pengawas menetapkan visi misi rumah sakit yang diarahkan oleh pemilik.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan visi misi oleh representasi pemilik/ Dewan Pengawas yang diarahkan oleh pemilik."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 2",
+            "deskripsi": "Direktur rumah sakit bertanggung jawab untuk menjalankan rumah sakit dan mematuhi peraturan dan perundang-undangan dan kebijakan rumah sakit[cite: 2].",
+            "maksud_tujuan": "Pimpinan tertinggi organisasi Rumah Sakit adalah Direktur. Tanggung jawabnya mencakup mematuhi perundang-undangan, menjalankan visi-misi, menetapkan kebijakan anti-korupsi/fraud, mengelola sumber daya (SDM, keuangan), serta melaporkan hasil program mutu (PMKP) dan manajemen risiko secara berkala[cite: 2].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 2.a",
+                    "pernyataan": "Telah menetapkan regulasi tentang kualifikasi Direktur, uraian tugas, tanggung jawab dan wewenang sesuai dengan persyaratan dan peraturan perundang-undangan yang berlaku.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "1. Penetapan tentang kualifikasi Direktur, tugas, tanggung jawab dan wewenang (poin a-i); 2. Penetapan Direktur RS; 3. Kebijakan pengendalian anti korupsi/fraud."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 2.b",
+                    "pernyataan": "Direktur menjalankan operasional rumah sakit sesuai tanggung jawabnya (poin a-i) yang dituangkan dalam uraian tugasnya.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "1. Bukti operasional sesuai uraian tugas; 2. Laporan penerapan anti korupsi/fraud; Wawancara Direktur Rumah Sakit."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 2.c",
+                    "pernyataan": "Memiliki bukti tertulis tanggung jawab Direktur telah dilaksanakan dan dievaluasi oleh pemilik/representasi pemilik setiap tahun dan hasil evaluasinya didokumentasikan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti penilaian kinerja Direktur tahunan (termasuk poin anti fraud); Wawancara Representasi pemilik."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 3",
+            "deskripsi": "Pimpinan rumah sakit menyusun misi, rencana kerja dan kebijakan serta merencanakan dan menentukan jenis pelayanan klinis untuk memenuhi kebutuhan pasien[cite: 3].",
+            "maksud_tujuan": "Direktur bersama wakil direktur dan kepala unit merencanakan cakupan pelayanan, meminta masukan masyarakat, serta menentukan komunitas populasi pasien untuk mengidentifikasi kebutuhan layanan[cite: 3].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 3.a",
+                    "pernyataan": "Direktur menunjuk pimpinan rumah sakit lain dan kepala unit sesuai kualifikasi dalam persyaratan jabatan yang telah ditetapkan beserta uraian tugasnya.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan pimpinan RS lain dan kepala unit sesuai kualifikasi persyaratan jabatan dan uraian tugas."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 3.b",
+                    "pernyataan": "Pimpinan rumah sakit bertanggung jawab untuk melaksanakan misi yang telah ditetapkan dan memastikan kebijakan serta prosedur dilaksanakan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Laporan bulanan/tahunan dan supervisi kepatuhan staf; Wawancara Pimpinan rumah sakit."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 3.c",
+                    "pernyataan": "Pimpinan rumah sakit bersama pimpinan unit merencanakan dan menentukan jenis pelayanan klinis untuk memenuhi kebutuhan pasien yang dilayani rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti rapat perencanaan jenis pelayanan klinis; Wawancara Pimpinan RS dan Kepala unit."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 3.d",
+                    "pernyataan": "Rumah sakit memberikan informasi tentang pelayanan kepada tokoh masyarakat, pemangku kepentingan, fasilitas kesehatan lain, dan terdapat proses menerima masukan untuk peningkatan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "1. Bukti pemberian informasi pelayanan ke eksternal; 2. Bukti proses menerima masukan dari masyarakat."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 3.1",
+            "deskripsi": "Pimpinan rumah sakit memastikan komunikasi yang efektif telah dilaksanakan secara menyeluruh di rumah sakit[cite: 4].",
+            "maksud_tujuan": "Tanggung jawab pimpinan untuk mengatur parameter komunikasi efektif antara PPA, antar unit, manajemen, pasien, keluarga, hingga organisasi luar RS, serta memberikan teladan dalam komunikasi misi dan strategi[cite: 4].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 3.1.a",
+                    "pernyataan": "Pimpinan rumah sakit memastikan terdapat proses untuk menyampaikan informasi dalam lingkungan rumah sakit secara akurat dan tepat waktu.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti proses penyampaian informasi internal; Wawancara pimpinan RS dan Kepala Unit."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 3.1.b",
+                    "pernyataan": "Pimpinan rumah sakit memastikan komunikasi efektif antara unit klinis/nonklinis, PPA dengan manajemen, PPA dengan pasien/keluarga, serta antar staf telah dilaksanakan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti rapat antar unit, CPPT rekam medis, bukti edukasi ke pasien, formulir serah terima; Wawancara PPA, Pasien, dan Pimpinan."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 3.1.c",
+                    "pernyataan": "Pimpinan rumah sakit telah mengomunikasikan visi, misi, tujuan, rencana strategis dan kebijakan kepada semua staf.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti sosialisasi visi-misi ke semua staf; Wawancara Staf Rumah Sakit."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        }
+    ]
+},
+{
+    "pokja": "TKRS",
+    "nama_bab": "Tata Kelola Rumah Sakit",
+    "data": [
+        {
+            "kode_standar": "TKRS 4",
+            "deskripsi": "Pimpinan rumah sakit (direktur dan pimpinan rumah sakit lain/wakil direktur) merencanakan, mengembangkan, dan menerapkan program peningkatan mutu dan keselamatan pasien.",
+            "maksud_tujuan": "Peran pimpinan sangat penting dalam membangun budaya mutu. Pimpinan memilih mekanisme pengukuran data, menyediakan sumber daya yang cukup (software/hardware/staf), dan melakukan koordinasi menyeluruh untuk mengurangi duplikasi pengukuran mutu antar unit[cite: 7].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 4.a",
+                    "pernyataan": "Pimpinan rumah sakit berpartisipasi dalam merencanakan mengembangkan dan menerapkan program peningkatan mutu dan keselamatan pasien di lingkungan rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D, W",
+                        "keterangan": "Program PMKP yang ditetapkan Direktur; Laporan pelaksanaan program PMKP kepada pemilik; Wawancara Direktur dan Representasi pemilik[cite: 7]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 4.b",
+                    "pernyataan": "Pimpinan rumah sakit memilih dan menetapkan proses pengukuran, pengkajian data, rencana perbaikan dan mempertahankan peningkatan mutu dan keselamatan pasien di lingkungan rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D, W",
+                        "keterangan": "Penetapan proses pengukuran dan pengkajian data; Bukti rapat pemilihan indikator mutu[cite: 7]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 4.c",
+                    "pernyataan": "Pimpinan rumah sakit memastikan terlaksananya program PMKP termasuk memberikan dukungan teknologi dan sumber daya yang adekuat serta menyediakan pendidikan staf.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti daftar inventaris software/hardware manajemen data; Bukti pelatihan staf tentang PMKP[cite: 7]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 5",
+            "deskripsi": "Pimpinan rumah sakit berpartisipasi dalam menetapkan prioritas perbaikan di tingkat rumah sakit yang merupakan proses yang berdampak luas/menyeluruh.",
+            "maksud_tujuan": "Pimpinan menetapkan Indikator Mutu Prioritas Rumah Sakit (IMPRS) yang mencakup Sasaran Keselamatan Pasien, pelayanan klinis prioritas (misal KJSU), tujuan strategis (KPI), dan manajemen risiko[cite: 8].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 5.a",
+                    "pernyataan": "Pimpinan rumah sakit menggunakan data yang tersedia (data based) dalam menetapkan indikator prioritas rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti kajian/analisis berbasis data untuk penetapan indikator prioritas RS[cite: 8]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 5.b",
+                    "pernyataan": "Dalam memilih prioritas perbaikan di tingkat rumah sakit maka pimpinan rumah sakit menggunakan kriteria prioritas (High volume, High cost, High process, dsb).",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti penggunaan kriteria pemilihan indikator prioritas RS[cite: 8]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 5.c",
+                    "pernyataan": "Pimpinan rumah sakit mengkaji dampak perbaikan primer dan dampak perbaikan sekunder pada indikator prioritas rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti analisis dampak perbaikan (efisiensi, biaya, hasil luaran pasien)[cite: 8]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 6",
+            "deskripsi": "Pimpinan Rumah Sakit bertanggung jawab untuk mengkaji, memilih, dan memantau kontrak klinis dan nonklinis.",
+            "maksud_tujuan": "Kontrak klinis (seperti lab/radiologi luar) dan kontrak manajemen (kebersihan/makanan) harus dipantau mutunya. Pimpinan unit harus menerima laporan mutu dari pihak yang dikontrak untuk diintegrasikan ke program mutu RS[cite: 9].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 6.a",
+                    "pernyataan": "Pimpinan rumah sakit bertanggung jawab terhadap kontrak untuk memenuhi kebutuhan pasien dan manajemen termasuk ruang lingkup pelayanan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D",
+                        "keterangan": "Regulasi tentang mengkaji, memilih, menegosiasi, dan menghentikan kontrak[cite: 9]."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 6.c",
+                    "pernyataan": "Pimpinan rumah sakit melakukan supervisi melakukan inspeksi kepatuhan layanan kontrak sesuai kebutuhan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pelaksanaan supervisi kepatuhan layanan kontrak[cite: 9]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 6.e",
+                    "pernyataan": "Semua kontrak menetapkan data mutu yang harus dilaporkan kepada rumah sakit, disertai frekuensi dan mekanisme pelaporan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan indikator mutu dalam dokumen kontrak dan respon RS jika ekspektasi tidak terpenuhi[cite: 9]."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 7",
+            "deskripsi": "Pimpinan rumah sakit membuat keputusan tentang pengadaan dan pembelian berdasarkan pertimbangan mutu dan dampaknya pada keselamatan.",
+            "maksud_tujuan": "Pimpinan mengutamakan mutu/keselamatan di atas biaya saat membeli alat medis baru (misal pompa infus) atau saat rotasi staf. Rekomendasi pembelian dapat berasal dari organisasi profesional atau Kemenkes[cite: 11].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 7.a",
+                    "pernyataan": "Pimpinan rumah sakit menggunakan data dan informasi mutu serta dampak terhadap keselamatan untuk membuat keputusan pembelian dan penggunaan peralatan baru.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti kajian pembelian alat baru yang mempertimbangkan aspek keselamatan[cite: 11]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 7.d",
+                    "pernyataan": "Pimpinan rumah sakit memberikan arahan, dukungan, dan pengawasan terhadap penggunaan sumber daya Teknologi informasi Kesehatan (TIK).",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pengawasan terhadap implementasi TIK termasuk rekam medis elektronik[cite: 11]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 7.f",
+                    "pernyataan": "Pimpinan rumah sakit memantau hasil keputusannya dan menggunakan data tersebut untuk mengevaluasi dan memperbaiki mutu keputusan pembelian.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pemantauan hasil keputusan pengalokasian sumber daya dan tindak lanjut perbaikannya[cite: 11]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        }
+    ]
+},
+{
+    "pokja": "TKRS",
+    "nama_bab": "Tata Kelola Rumah Sakit",
+    "data_lanjutan": [
+        {
+            "kode_standar": "TKRS 8",
+            "deskripsi": "Komite Medik, Komite Keperawatan dan Komite Tenaga Kesehatan Lain menerapkan pengorganisasisannya sesuai peraturan perundang-undangan untuk mendukung tanggung jawab serta wewenang mereka.",
+            "maksud_tujuan": "Struktur organisasi Komite Medik, Komite Keperawatan, dan Komite Tenaga Kesehatan Lain ditetapkan oleh Direktur sesuai peraturan perundang-undangan yang berlaku[cite: 12]. Tanggung jawab mereka meliputi: a) mendukung komunikasi efektif antar tenaga profesional; b) menyusun kebijakan, pedoman, prosedur, protokol, tata hubungan kerja, dan alur klinis; c) menyusun kode etik profesi; dan d) memantau mutu pelayanan pasien[cite: 12].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 8.a",
+                    "pernyataan": "Terdapat struktur organisasi Komite Medik, Komite Keperawatan, dan Komite Tenaga Kesehatan Lain yang ditetapkan Direktur sesuai peraturan perundang-undangan yang berlaku.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan tentang Komite Medik, Komite Keperawatan, Komite Tenaga Kesehatan lain oleh Direktur sesuai peraturan perundangan yang berlaku[cite: 12]."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 8.b",
+                    "pernyataan": "Komite Medik, Komite Keperawatan dan Komite Tenaga Kesehatan Lain melaksanakan tanggung jawabnya mencakup a) - d) dalam maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti Laporan Komite Medik, Komite Keperawatan, Komite Tenaga Kesehatan lainnya memuat tentang tanggung jawab mencakup a) - d) dalam maksud dan tujuan[cite: 12]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 8.c",
+                    "pernyataan": "Untuk melaksanakan tanggung jawabnya Komite Medik, Komite Keperawatan, dan Komite Tenaga Kesehatan Lain menyusun Program kerja setiap tahun dan ditetapkan oleh Direktur.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Program kerja Komite Medik, Komite Keperawatan, Komite Tenaga Kesehatan Lain, yang ditetapkan oleh Direktur setiap tahunnya[cite: 12]."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 9",
+            "deskripsi": "Unit layanan di rumah sakit dipimpin oleh kepala unit yang ditetapkan oleh Direktur sesuai dengan kompetensinya untuk mengarahkan kegiatan di unitnya.",
+            "maksud_tujuan": "Kinerja baik di unit layanan membutuhkan kepemimpinan kompeten yang dituangkan dalam uraian tugas[cite: 13]. Kepala unit merencanakan kebutuhan staf/sumber daya, menyusun kriteria PPA, bekerja sama dalam seleksi staf, memastikan orientasi staf baru, menyusun program kerja tahunan, serta melakukan koordinasi dan integrasi antar unit untuk mencegah duplikasi pelayanan[cite: 13].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 9.a",
+                    "pernyataan": "Kepala unit kerja diangkat sesuai kualifikasi dalam persyaratan jabatan yang ditetapkan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan Kepala unit kerja, sesuai dengan persyaratan jabatan yang ditetapkan rumah sakit[cite: 13]."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 9.b",
+                    "pernyataan": "Kepala unit kerja menyusun pedoman pengorganisasian, pedoman pelayanan dan prosedur sesuai proses bisnis di unit kerja.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "1. Pedoman Pengorganisasian Unit; 2. Pedoman pelayanan Unit; 3. SPO Unit[cite: 13]."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 9.c",
+                    "pernyataan": "Kepala unit kerja menyusun program kerja yang termasuk di dalamnya kegiatan peningkatan mutu dan keselamatan pasien serta manajemen risiko setiap tahun.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Program Kerja Unit setiap tahun, memasukkan kegiatan peningkatan mutu dan keselamatan pasien serta manajemen resiko[cite: 13]."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 9.d",
+                    "pernyataan": "Kepala unit kerja mengusulkan kebutuhan sumber daya mencakup ruangan, peralatan medis, teknologi informasi dan sumber daya lain yang diperlukan unit layanan serta terdapat mekanisme untuk menanggapi kondisi jika terjadi kekurangan tenaga.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "1. Bukti usulan kebutuhan sumber daya (ruangan, alat, IT, dll); 2. Bukti mekanisme menanggapi kekurangan tenaga; Wawancara Kepala unit kerja[cite: 13]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 9.e",
+                    "pernyataan": "Kepala unit kerja telah melakukan koordinasi dan integrasi baik dalam unitnya maupun antar unit layanan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti rapat koordinasi intern unit dan antar unit; Wawancara Kepala unit kerja[cite: 13]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 10",
+            "deskripsi": "Kepala unit layanan berpartisipasi dalam meningkatkan mutu dan keselamatan pasien dengan melakukan pengukuran indikator mutu rumah sakit yang dapat diterapkan di unitnya dan memantau serta memperbaiki pelayanan pasien di unit layanannya.",
+            "maksud_tujuan": "Kepala unit melibatkan staf dalam pengukuran indikator prioritas rumah sakit yang berdampak luas[cite: 14]. Indikator mencakup: a) Indikator Nasional Mutu (INM); b) Indikator Mutu Prioritas RS (IMP-RS); dan c) Indikator Mutu Prioritas Unit (IMP-unit) untuk mengurangi variasi dan meningkatkan kepuasan pasien[cite: 14]. Kepala unit juga bertanggung jawab atas penilaian kinerja staf di unitnya[cite: 14].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 10.a",
+                    "pernyataan": "Kepala unit klinis/non klinis melakukan pengukuran INM yang sesuai dengan pelayanan yang diberikan oleh unitnya.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pengukuran INM oleh Kepala unit klinis/non klinis; Wawancara Komite mutu dan Kepala unit kerja[cite: 14]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 10.b",
+                    "pernyataan": "Kepala unit klinis/non klinis melakukan pengukuran IMP-RS yang sesuai dengan pelayanan yang diberikan oleh unitnya, termasuk semua layanan kontrak yang menjadi tanggung jawabnya.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pengukuran IMP-RS dan mutu layanan kontrak oleh Unit Klinis/non klinis; Wawancara Komite mutu dan Kepala unit kerja[cite: 14]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 10.c",
+                    "pernyataan": "Kepala unit klinis/non klinis menerapkan pengukuran IMP-Unit untuk mengurangi variasi dan memperbaiki proses dalam unitnya.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pengukuran IMP Unit oleh unit klinis/non klinis; Wawancara Komite mutu dan Kepala unit kerja[cite: 14]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 10.d",
+                    "pernyataan": "Kepala unit klinis/non klinis memilih prioritas perbaikan yang baru bila perbaikan sebelumnya sudah dapat dipertahankan dalam waktu 1 (satu) tahun.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti IMP Unit baru telah dipilih, bila perbaikan sebelumnya telah dapat dipertahankan 1 tahun[cite: 14]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0,
+                        "TDD"
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 11",
+            "deskripsi": "Kepala unit klinis mengevaluasi kinerja para dokter, perawat dan tenaga kesehatan profesional lainnya menggunakan indikator mutu yang diukur di unitnya.",
+            "maksud_tujuan": "Kepala unit klinis bertanggung jawab memastikan mutu pelayanan konsisten melalui evaluasi kinerja staf[cite: 15]. Ia terlibat dalam rekomendasi penunjukan, delineasi kewenangan, Ongoing Professional Practice Evaluation (OPPE), serta penugasan kembali staf medis, perawat, dan nakes lainnya[cite: 15].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 11.a",
+                    "pernyataan": "Penilaian praktik profesional berkelanjutan (OPPE) para dokter dalam memberikan pelayanan untuk meningkatkan mutu dan keselamatan pasien menggunakan indikator mutu yang diukur di unit tersebut.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti penilaian praktik profesional berkelanjutan (OPPE) para dokter[cite: 15]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 11.b",
+                    "pernyataan": "Penilaian kinerja para perawat dalam memberikan pelayanan untuk meningkatkan mutu dan keselamatan pasien menggunakan indikator mutu yang diukur di unit tersebut.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti penilaian kinerja perawat[cite: 15]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 11.c",
+                    "pernyataan": "Penilaian kinerja tenaga kesehatan lainnya memberikan pelayanan untuk meningkatkan mutu dan keselamatan pasien menggunakan indikator mutu yang diukur di unit tersebut.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti penilaian kinerja tenaga kesehatan lainnya[cite: 15]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        }
+    ]
+},
+{
+    "pokja": "TKRS",
+    "nama_bab": "Tata Kelola Rumah Sakit",
+    "data_lanjutan_akhir": [
+        {
+            "kode_standar": "TKRS 12",
+            "deskripsi": "Pimpinan rumah sakit menetapkan kerangka kerja pengelolaan etik rumah sakit untuk menangani masalah etik rumah sakit.",
+            "maksud_tujuan": "Rumah sakit menghadapi dilema etik yang lazim terjadi akibat kemajuan teknologi dan pengaturan finansial. Pimpinan bertanggung jawab menciptakan budaya etik dan memastikan pelayanan mengindahkan norma bisnis, keuangan, etika, dan hukum. Direktur menetapkan Komite Etik untuk menangani masalah klinis (misal perselisihan pasien-dokter) dan bisnis (misal kesalahan tagihan). Komite Etik menyusun Kode Etik RS (mengacu KODERSI) dan kerangka kerja yang mencakup 12 poin penting termasuk kerahasiaan informasi, transparansi kinerja, dan perlindungan pelapor kesalahan (whistleblower).",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 12.a",
+                    "pernyataan": "Direktur rumah sakit menetapkan Komite Etik rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan Komite Etik Rumah Sakit dilengkapi uraian tugas."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 12.b",
+                    "pernyataan": "Komite Etik telah menyusun kode etik rumah sakit yang mengacu pada Kode Etik Rumah Sakit Indonesia (KODERSI) dan ditetapkan Direktur.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan Kode Etik Rumah Sakit yang mengacu pada KODERSI."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 12.c",
+                    "pernyataan": "Komite Etik telah menyusun kerangka kerja pelaporan dan pengelolaan etik rumah sakit serta pedoman pengelolaan kode etik yang meliputi poin (1) sampai (12) di maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Regulasi tentang kerangka kerja pelaporan dan pengelolaan etik rumah sakit meliputi poin 1) - 12) dalam maksud dan tujuan."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 12.d",
+                    "pernyataan": "Rumah sakit menyediakan sumber daya serta pelatihan kerangka pengelolaan etik bagi praktisi kesehatan dan staf lainnya.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pelatihan etik, bukti penyediaan sumber daya, dan bukti pelaporan masalah etik; Wawancara Ketua Komite Etik."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 13",
+            "deskripsi": "Pimpinan rumah sakit menerapkan, memantau dan mengambil tindakan serta mendukung Budaya Keselamatan di seluruh area rumah sakit.",
+            "maksud_tujuan": "Budaya keselamatan adalah lingkungan kolaboratif di mana staf merasa aman secara psikologis untuk belajar dari insiden tanpa takut disalahkan (just culture). Pimpinan harus menunjukkan komitmen tanpa intimidasi. Program mencakup identifikasi perilaku tidak diinginkan (sembrono/reckless), evaluasi budaya secara berkala (FGD/survei), dan menanggapi perilaku tidak layak (seperti memaki atau pelecehan). Rumah sakit harus membedakan antara human error (tidak sengaja), perilaku berisiko, dan perilaku sembrono yang tidak ditoleransi.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 13.a",
+                    "pernyataan": "Pimpinan rumah sakit menetapkan program budaya keselamatan yang mencakup poin a) sampai h) dalam maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D",
+                        "keterangan": "Penetapan program budaya keselamatan; Bukti laporan pelaksanaan program secara akuntabel."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 13.b",
+                    "pernyataan": "Pimpinan rumah sakit menyelenggarakan pendidikan dan menyediakan informasi (kepustakaan) terkait budaya keselamatan bagi semua staf.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pendidikan budaya keselamatan, bukti kepustakaan, dan laporan perilaku tidak diinginkan; Wawancara staf."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 13.d",
+                    "pernyataan": "Pimpinan rumah sakit mengembangkan sistem yang rahasia, sederhana dan mudah diakses untuk melaporkan perilaku tidak diinginkan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, O, W",
+                        "keterangan": "Bukti tindak lanjut laporan; Observasi sistem pelaporan rahasia; Wawancara Pimpinan dan Komite Etik."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 13.f",
+                    "pernyataan": "Pimpinan rumah sakit menerapkan budaya adil (just culture) terhadap staf terkait laporan budaya keselamatan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti penerapan budaya adil; Wawancara Pimpinan SDM."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 14",
+            "deskripsi": "Program manajemen risiko yang terintegrasi digunakan untuk mencegah terjadinya cedera dan kerugian di rumah sakit.",
+            "maksud_tujuan": "Manajemen risiko adalah proses proaktif meliputi identifikasi, analisis, dan mitigasi risiko. Kategori risiko meliputi: Operasional (Klinis & Non-Klinis seperti PPI/MFK), Reputasi, Strategis, Keuangan, dan Kepatuhan hukum. Program harus disusun setiap tahun berdasarkan profil risiko yang diprioritaskan, mencakup integrasi manajemen risiko dan pengelolaan klaim tuntutan.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 14.a",
+                    "pernyataan": "Pimpinan rumah sakit berpartisipasi dan menetapkan program manajemen risiko tingkat rumah sakit meliputi poin a) sampai d) dalam maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Regulasi Program manajemen risiko yang mencakup proses integrasi, pelaporan, dan pengelolaan klaim."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 14.b",
+                    "pernyataan": "Pimpinan rumah sakit memantau penyusunan daftar risiko yang diprioritaskan menjadi profil risiko tingkat rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti rapat penyusunan daftar risiko yang dihadiri pimpinan; Bukti dokumen Profil Risiko RS."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 15",
+            "deskripsi": "Pimpinan rumah sakit bertanggung jawab terhadap mutu dan keamanan dalam program penelitian bersubjek manusia.",
+            "maksud_tujuan": "Penelitian bersubjek manusia adalah proses signifikan yang memerlukan pengawasan ketat. Direktur menetapkan penanggung jawab penelitian (Komite Penelitian). Pimpinan wajib melindungi pasien yang ikut penelitian, memastikan adanya informed consent tanpa paksaan, dan menyelesaikan konflik kepentingan (finansial/non-finansial). Jika penelitian dilakukan pihak ketiga (kontrak), RS tetap bertanggung jawab atas pemantauan etika dan keamanan.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 15.a",
+                    "pernyataan": "Pimpinan menetapkan penanggung jawab program penelitian yang memastikan proses sesuai kode etik dan peraturan perundang-undangan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D, W",
+                        "keterangan": "SK Penanggung jawab penelitian; Penetapan kode etik penelitian; Bukti pelaksanaan sesuai regulasi."
+                    },
+                    "skoring": [
+                        10,
+                        0,
+                        "TDD"
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 15.b",
+                    "pernyataan": "Terdapat proses untuk menyelesaikan konflik kepentingan yang terjadi akibat penelitian.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D",
+                        "keterangan": "Regulasi proses penyelesaian konflik kepentingan; Bukti dokumen penyelesaian konflik."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0,
+                        "TDD"
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 15.d",
+                    "pernyataan": "Terdapat proses yang memastikan seluruh pasien penelitian telah melalui informed consent yang lengkap dan tanpa paksaan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti formulir informed consent pasien penelitian yang berisi informasi risiko dan alternatif; Wawancara pasien/Komite Etik."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0,
+                        "TDD"
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 15.f",
+                    "pernyataan": "Penanggung jawab penelitian melakukan kajian dan evaluasi terhadap seluruh penelitian setidaknya 1 tahun sekali.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti laporan kajian tahunan penelitian yang ditandatangani penanggung jawab; Wawancara Komite Penelitian."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0,
+                        "TDD"
+                    ]
+                }
+            ]
+        }
+    ]
+},
+{
+    "pokja": "TKRS",
+    "nama_bab": "Tata Kelola Rumah Sakit",
+    "data_lanjutan_akhir": [
+        {
+            "kode_standar": "TKRS 12",
+            "deskripsi": "Pimpinan rumah sakit menetapkan kerangka kerja pengelolaan etik rumah sakit untuk menangani masalah etik rumah sakit.",
+            "maksud_tujuan": "Rumah sakit menghadapi dilema etik yang lazim terjadi akibat kemajuan teknologi dan pengaturan finansial. Pimpinan bertanggung jawab menciptakan budaya etik dan memastikan pelayanan mengindahkan norma bisnis, keuangan, etika, dan hukum. Direktur menetapkan Komite Etik untuk menangani masalah klinis (misal perselisihan pasien-dokter) dan bisnis (misal kesalahan tagihan). Komite Etik menyusun Kode Etik RS (mengacu KODERSI) dan kerangka kerja yang mencakup 12 poin penting termasuk kerahasiaan informasi, transparansi kinerja, dan perlindungan pelapor kesalahan (whistleblower).",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 12.a",
+                    "pernyataan": "Direktur rumah sakit menetapkan Komite Etik rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan Komite Etik Rumah Sakit dilengkapi uraian tugas."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 12.b",
+                    "pernyataan": "Komite Etik telah menyusun kode etik rumah sakit yang mengacu pada Kode Etik Rumah Sakit Indonesia (KODERSI) dan ditetapkan Direktur.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan Kode Etik Rumah Sakit yang mengacu pada KODERSI."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 12.c",
+                    "pernyataan": "Komite Etik telah menyusun kerangka kerja pelaporan dan pengelolaan etik rumah sakit serta pedoman pengelolaan kode etik yang meliputi poin (1) sampai (12) di maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Regulasi tentang kerangka kerja pelaporan dan pengelolaan etik rumah sakit meliputi poin 1) - 12) dalam maksud dan tujuan."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 12.d",
+                    "pernyataan": "Rumah sakit menyediakan sumber daya serta pelatihan kerangka pengelolaan etik bagi praktisi kesehatan dan staf lainnya.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pelatihan etik, bukti penyediaan sumber daya, dan bukti pelaporan masalah etik; Wawancara Ketua Komite Etik."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 13",
+            "deskripsi": "Pimpinan rumah sakit menerapkan, memantau dan mengambil tindakan serta mendukung Budaya Keselamatan di seluruh area rumah sakit.",
+            "maksud_tujuan": "Budaya keselamatan adalah lingkungan kolaboratif di mana staf merasa aman secara psikologis untuk belajar dari insiden tanpa takut disalahkan (just culture). Pimpinan harus menunjukkan komitmen tanpa intimidasi. Program mencakup identifikasi perilaku tidak diinginkan (sembrono/reckless), evaluasi budaya secara berkala (FGD/survei), dan menanggapi perilaku tidak layak (seperti memaki atau pelecehan). Rumah sakit harus membedakan antara human error (tidak sengaja), perilaku berisiko, dan perilaku sembrono yang tidak ditoleransi.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 13.a",
+                    "pernyataan": "Pimpinan rumah sakit menetapkan program budaya keselamatan yang mencakup poin a) sampai h) dalam maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D",
+                        "keterangan": "Penetapan program budaya keselamatan; Bukti laporan pelaksanaan program secara akuntabel."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 13.b",
+                    "pernyataan": "Pimpinan rumah sakit menyelenggarakan pendidikan dan menyediakan informasi (kepustakaan) terkait budaya keselamatan bagi semua staf.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pendidikan budaya keselamatan, bukti kepustakaan, dan laporan perilaku tidak diinginkan; Wawancara staf."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 13.d",
+                    "pernyataan": "Pimpinan rumah sakit mengembangkan sistem yang rahasia, sederhana dan mudah diakses untuk melaporkan perilaku tidak diinginkan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, O, W",
+                        "keterangan": "Bukti tindak lanjut laporan; Observasi sistem pelaporan rahasia; Wawancara Pimpinan dan Komite Etik."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 13.f",
+                    "pernyataan": "Pimpinan rumah sakit menerapkan budaya adil (just culture) terhadap staf terkait laporan budaya keselamatan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti penerapan budaya adil; Wawancara Pimpinan SDM."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 14",
+            "deskripsi": "Program manajemen risiko yang terintegrasi digunakan untuk mencegah terjadinya cedera dan kerugian di rumah sakit.",
+            "maksud_tujuan": "Manajemen risiko adalah proses proaktif meliputi identifikasi, analisis, dan mitigasi risiko. Kategori risiko meliputi: Operasional (Klinis & Non-Klinis seperti PPI/MFK), Reputasi, Strategis, Keuangan, dan Kepatuhan hukum. Program harus disusun setiap tahun berdasarkan profil risiko yang diprioritaskan, mencakup integrasi manajemen risiko dan pengelolaan klaim tuntutan.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 14.a",
+                    "pernyataan": "Pimpinan rumah sakit berpartisipasi dan menetapkan program manajemen risiko tingkat rumah sakit meliputi poin a) sampai d) dalam maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Regulasi Program manajemen risiko yang mencakup proses integrasi, pelaporan, dan pengelolaan klaim."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 14.b",
+                    "pernyataan": "Pimpinan rumah sakit memantau penyusunan daftar risiko yang diprioritaskan menjadi profil risiko tingkat rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti rapat penyusunan daftar risiko yang dihadiri pimpinan; Bukti dokumen Profil Risiko RS."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "TKRS 15",
+            "deskripsi": "Pimpinan rumah sakit bertanggung jawab terhadap mutu dan keamanan dalam program penelitian bersubjek manusia.",
+            "maksud_tujuan": "Penelitian bersubjek manusia adalah proses signifikan yang memerlukan pengawasan ketat. Direktur menetapkan penanggung jawab penelitian (Komite Penelitian). Pimpinan wajib melindungi pasien yang ikut penelitian, memastikan adanya informed consent tanpa paksaan, dan menyelesaikan konflik kepentingan (finansial/non-finansial). Jika penelitian dilakukan pihak ketiga (kontrak), RS tetap bertanggung jawab atas pemantauan etika dan keamanan.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "TKRS 15.a",
+                    "pernyataan": "Pimpinan menetapkan penanggung jawab program penelitian yang memastikan proses sesuai kode etik dan peraturan perundang-undangan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D, W",
+                        "keterangan": "SK Penanggung jawab penelitian; Penetapan kode etik penelitian; Bukti pelaksanaan sesuai regulasi."
+                    },
+                    "skoring": [
+                        10,
+                        0,
+                        "TDD"
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 15.b",
+                    "pernyataan": "Terdapat proses untuk menyelesaikan konflik kepentingan yang terjadi akibat penelitian.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D",
+                        "keterangan": "Regulasi proses penyelesaian konflik kepentingan; Bukti dokumen penyelesaian konflik."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0,
+                        "TDD"
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 15.d",
+                    "pernyataan": "Terdapat proses yang memastikan seluruh pasien penelitian telah melalui informed consent yang lengkap dan tanpa paksaan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti formulir informed consent pasien penelitian yang berisi informasi risiko dan alternatif; Wawancara pasien/Komite Etik."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0,
+                        "TDD"
+                    ]
+                },
+                {
+                    "ep_kode": "TKRS 15.f",
+                    "pernyataan": "Penanggung jawab penelitian melakukan kajian dan evaluasi terhadap seluruh penelitian setidaknya 1 tahun sekali.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti laporan kajian tahunan penelitian yang ditandatangani penanggung jawab; Wawancara Komite Penelitian."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0,
+                        "TDD"
+                    ]
+                }
+            ]
+        }
+    ]
+},
+
+{
+    "pokja": "KPS",
+    "nama_bab": "Kualifikasi dan Pendidikan Staf",
+    "data_lanjutan": [
+        {
+            "kode_standar": "KPS 7",
+            "deskripsi": "Semua staf diberikan orientasi mengenai rumah sakit dan unit tempat mereka ditugaskan serta tanggung jawab pekerjaannya pada saat pengangkatan staf.",
+            "maksud_tujuan": "Orientasi umum mencakup informasi tentang rumah sakit, program mutu, keselamatan pasien, dan PPI. Orientasi khusus mencakup tugas spesifik di unit kerja. Hal ini berlaku juga bagi staf paruh waktu, sukarelawan, dan mahasiswa/trainee. Hasil orientasi dicatat dalam file kepegawaian.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 7.a",
+                    "pernyataan": "Rumah sakit telah menetapkan regulasi tentang orientasi bagi staf baru.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Regulasi tentang orientasi staf baru di rumah sakit."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "KPS 7.b",
+                    "pernyataan": "Tenaga medis dan tenaga kesehatan baru telah diberikan orientasi umum dan khusus sesuai.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti orientasi umum dan khusus tenaga medis/nakes baru; Wawancara tenaga terkait."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "KPS 8",
+            "deskripsi": "Tiap staf diberikan pendidikan dan pelatihan yang berkelanjutan untuk mendukung atau meningkatkan keterampilan dan pengetahuannya.",
+            "maksud_tujuan": "Rumah sakit menggunakan data mutu, laporan insiden, survei budaya keselamatan, dan teknologi baru untuk menentukan kebutuhan pendidikan staf. Pimpinan menyediakan sarana, prasarana, anggaran, dan waktu bagi staf.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 8.a",
+                    "pernyataan": "Rumah sakit telah mengidentifikasi kebutuhan pendidikan staf berdasarkan berbagai sumber informasi.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti identifikasi kebutuhan pendidikan staf (poin a-h di maksud tujuan)."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "KPS 8.d",
+                    "pernyataan": "Rumah sakit menyediakan waktu, anggaran, sarana, dan prasarana yang memadai bagi semua staf untuk pendidikan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, O",
+                        "keterangan": "Bukti ketersediaan waktu, anggaran, dan fasilitas pendidikan; Observasi sarana."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "KPS 8.1",
+            "deskripsi": "Staf yang memberikan asuhan pasien dilatih dan dapat mendemonstrasikan teknik resusitasi jantung paru dengan benar.",
+            "maksud_tujuan": "Rumah sakit menentukan tingkat pelatihan (BHD atau bantuan hidup lanjut) sesuai peran staf. Pelatihan diulang setiap 2 tahun atau sesuai program pelatihan yang diakui.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 8.1.a",
+                    "pernyataan": "Rumah sakit telah menetapkan pelatihan teknik resusitasi jantung paru tingkat dasar (BHD) dan lanjut.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan jenis pelatihan resusitasi untuk setiap kategori staf."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "KPS 8.1.b",
+                    "pernyataan": "Terdapat bukti staf yang mengikuti pelatihan lulus pelatihan tersebut.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, S",
+                        "keterangan": "Sertifikat kelulusan; Simulasi resusitasi jantung paru (BHD/BHL)."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "KPS 9",
+            "deskripsi": "Rumah sakit menyelenggarakan pelayanan kesehatan dan keselamatan staf.",
+            "maksud_tujuan": "Program mencakup skrining kesehatan awal, penanganan pajanan (B3/infeksi), vaksinasi, penanganan kekerasan di tempat kerja, serta pengelolaan kesehatan mental staf terutama saat pandemi.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 9.a",
+                    "pernyataan": "Rumah sakit telah menetapkan program kesehatan dan keselamatan staf.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Regulasi program K3 Staf (terintegrasi dengan MFK)."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "KPS 9.f",
+                    "pernyataan": "Rumah sakit mengidentifikasi area berpotensi kekerasan (workplace violence) dan menerapkan upaya pencegahan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, O",
+                        "keterangan": "Daftar area berisiko kekerasan; Observasi upaya keamanan di area tersebut."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "KPS 10",
+            "deskripsi": "Rumah sakit menyelenggarakan proses kredensial yang seragam dan transparan bagi tenaga medis.",
+            "maksud_tujuan": "Kredensial melibatkan evaluasi dokumen (ijazah, STR, SIP) dan wawancara untuk menentukan penugasan dan kewenangan klinis (SPK/RKK). Verifikasi harus dilakukan ke sumber utama (Primary Source Verification).",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 10.a",
+                    "pernyataan": "Rumah sakit menetapkan peraturan internal tenaga medis (medical staff bylaws).",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Dokumen MSBL yang mengatur kredensial, penilaian kinerja, dan rekredensial."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "KPS 10.e",
+                    "pernyataan": "Rumah sakit melaksanakan verifikasi ke Lembaga/Badan/Instansi yang mengeluarkan izin/sertifikat.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti verifikasi ijazah/STR ke sumber asli (KKI/Kemendikbudristek)."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "KPS 12",
+            "deskripsi": "Rumah sakit menerapkan evaluasi praktik profesional berkelanjutan (OPPE) tenaga medis secara seragam.",
+            "maksud_tujuan": "OPPE memantau 3 area: Perilaku (budaya keselamatan), Pengembangan Profesional, dan Kinerja Klinis. Hasil dikaji minimal setiap 12 bulan oleh pimpinan medis dan kepala unit.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 12.a",
+                    "pernyataan": "Rumah sakit menetapkan proses penilaian kinerja OPPE tenaga medis.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D",
+                        "keterangan": "Regulasi dan bukti penerapan penilaian kinerja menggunakan instrumen OPPE."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "KPS 12.f",
+                    "pernyataan": "Jika ada insiden keselamatan pasien atau pelanggaran etik, dilakukan tindakan secara adil (just culture).",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Laporan insiden; Bukti tindak lanjut/pembinaan tenaga medis berdasarkan analisis insiden."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0,
+                        "TDD"
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "KPS 13",
+            "deskripsi": "Rumah sakit paling sedikit setiap 3 (tiga) tahun melakukan rekredensial.",
+            "maksud_tujuan": "Proses peninjauan file tenaga medis untuk verifikasi izin, riwayat etik/disiplin, dan kemampuan fisik/mental. Keputusan kelanjutan kewenangan klinis didasarkan pada hasil OPPE.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 13.a",
+                    "pernyataan": "Rumah sakit menentukan kewenangan klinis dilanjutkan/dimodifikasi setiap 3 tahun.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti pelaksanaan rekredensial tenaga medis berdasarkan hasil OPPE."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        }
+    ]
+},
+{
+    "pokja": "KPS",
+    "nama_bab": "Kualifikasi dan Pendidikan Staf",
+    "data_lanjutan_akhir": [
+        {
+            "kode_standar": "KPS 14",
+            "deskripsi": "Rumah sakit mempunyai proses yang efektif untuk melakukan kredensial tenaga perawat dengan mengumpulkan, verifikasi pendidikan, registrasi, izin, kewenangan, pelatihan, dan pengalamannya.",
+            "maksud_tujuan": "Rumah sakit memastikan perawat kompeten sesuai misi dan kebutuhan pasien. Proses kredensial meliputi verifikasi pendidikan, registrasi (STR), izin (SIP), pelatihan, dan pengalaman terbaru dari sumber aslinya (Primary Source Verification). Perawat yang akan dan sedang bekerja harus melalui proses ini untuk menjamin keamanan asuhan pasien[cite: 22].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 14.a",
+                    "pernyataan": "Rumah sakit telah menetapkan dan menerapkan proses kredensial yang efektif terhadap tenaga perawat meliputi poin a) - c) dalam maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D",
+                        "keterangan": "Regulasi penetapan proses kredensial; Bukti penerapan proses kredensial sesuai regulasi[cite: 23]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "KPS 14.c",
+                    "pernyataan": "Terdapat pelaksanaan verifikasi ke sumber Badan/Lembaga/ institusi penyelenggara pendidikan/ pelatihan yang seragam.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti verifikasi dokumen ke sumber utama[cite: 23]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "KPS 15",
+            "deskripsi": "Rumah sakit melakukan identifikasi tanggung jawab pekerjaan dan memberikan penugasan klinis berdasar atas hasil kredensial tenaga perawat sesuai dengan peraturan perundang-undangan.",
+            "maksud_tujuan": "Hasil kredensial perawat berupa Rincian Kewenangan Klinis (RKK) menjadi landasan untuk pembuatan Surat Penugasan Klinis (SPK)[cite: 24].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 15.a",
+                    "pernyataan": "Rumah sakit telah menetapkan rincian kewenangan klinis perawat berdasar hasil kredensial terhadap perawat.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan RKK berdasarkan hasil kredensial perawat[cite: 26]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "KPS 15.b",
+                    "pernyataan": "Rumah sakit telah menetapkan Surat Penugasan Klinis tenaga perawat sesuai dengan peraturan perundang-undangan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan SPK perawat sesuai regulasi[cite: 27]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "KPS 16",
+            "deskripsi": "Rumah sakit telah melakukan penilaian kinerja tenaga perawat termasuk perannya dalam kegiatan peningkatan mutu dan keselamatan pasien serta program manajemen risiko rumah sakit.",
+            "maksud_tujuan": "Penilaian kinerja perawat dilakukan secara periodik, mencakup pemenuhan uraian tugas dan kontribusi pada target mutu unit. Jika ada insiden keselamatan pasien, pimpinan harus berlaku adil (just culture)[cite: 27].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 16.b",
+                    "pernyataan": "Penilaian kinerja tenaga perawat meliputi pemenuhan uraian tugasnya dan perannya dalam pencapaian target indikator mutu yang diukur di unit tempatnya bekerja.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti penilaian kinerja mencakup uraian tugas dan target mutu[cite: 28]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "KPS 16.c",
+                    "pernyataan": "Pimpinan rumah sakit dan kepala unit telah berlaku adil (just culture) ketika ada temuan dalam kegiatan peningkatan mutu, laporan insiden keselamatan pasien atau manajemen risiko.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Laporan insiden; Bukti tindak lanjut yang adil (just culture)[cite: 28]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "KPS 17",
+            "deskripsi": "Rumah sakit mempunyai proses yang efektif untuk melakukan kredensial tenaga kesehatan lain dengan mengumpulkan dan melakukan verifikasi pendidikan, registrasi, izin, kewenangan, pelatihan, dan pengalamannya.",
+            "maksud_tujuan": "Berlaku untuk PPA (bidan, apoteker, dietisien, dsb) dan staf klinis lainnya. Meliputi pengumpulan kredensial, verifikasi sumber asli, dan pemeliharaan file kredensial secara berkala[cite: 29].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 17.a",
+                    "pernyataan": "Rumah sakit telah menetapkan dan menerapkan proses kredensial yang efektif terhadap tenaga kesehatan lainnya meliputi poin a) - c) dalam maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D",
+                        "keterangan": "Regulasi kredensial nakes lain; Bukti penerapan sesuai regulasi[cite: 30]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "KPS 18",
+            "deskripsi": "Rumah sakit melakukan identifikasi tanggung jawab pekerjaan dan memberikan penugasan klinis berdasar atas hasil kredensial tenaga kesehatan lainnya sesuai dengan peraturan perundang-undangan.",
+            "maksud_tujuan": "Identifikasi kewenangan untuk nakes lain yang memberikan asuhan atau berpartisipasi dalam proses asuhan pasien[cite: 31].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 18.a",
+                    "pernyataan": "Rumah sakit telah menetapkan rincian kewenangan klinis PPA lainnya dan staf klinis lainnya berdasar atas hasil kredensial.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan RKK berdasarkan hasil kredensial[cite: 32]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "KPS 19",
+            "deskripsi": "Rumah sakit telah melakukan penilaian kinerja tenaga kesehatan lainnya termasuk perannya dalam kegiatan peningkatan mutu dan keselamatan pasien serta program manajemen risiko rumah sakit.",
+            "maksud_tujuan": "Nakes lain berperan proaktif dalam mutu dan manajemen risiko. Kinerja dinilai secara periodik menggunakan format yang ditetapkan RS[cite: 33].",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "KPS 19.b",
+                    "pernyataan": "Penilaian kinerja tenaga kesehatan lainnya meliputi pemenuhan uraian tugasnya dan perannya dalam pencapaian target indikator mutu yang diukur di unit tempatnya bekerja.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti penilaian kinerja (uraian tugas dan target mutu unit)[cite: 34]."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+
+{
+    "pokja": "MFK",
+    "nama_bab": "Manajemen Fasilitas dan Keselamatan",
+    "data": [
+        {
+            "kode_standar": "MFK 1",
+            "deskripsi": "Rumah sakit mematuhi persyaratan sesuai dengan peraturan perundang-undangan yang berkaitan dengan bangunan, prasarana dan peralatan medis rumah sakit.",
+            "maksud_tujuan": "Rumah sakit harus mematuhi peraturan perundang-undangan termasuk mengenai bangunan dan proteksi kebakaran. Pimpinan RS bertanggung jawab mengetahui dan menerapkan hukum, perizinan, dan lisensi/sertifikat yang masih berlaku untuk fasilitas rumah sakit.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "MFK 1.a",
+                    "pernyataan": "Rumah sakit menetapkan regulasi terkait Manajemen Fasilitas dan Keselamatan (MFK) yang meliputi poin a) - j) pada gambaran umum.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Pedoman Manajemen Fasilitas dan Keselamatan (MFK)."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "MFK 1.b",
+                    "pernyataan": "Rumah sakit telah melengkapi izin-izin dan sertifikasi yang masih berlaku sesuai persyaratan peraturan perundang-undangan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Izin berusaha, izin pembuangan limbah cair (IPLC), izin radiologi, dan kerja sama pihak ketiga pengolah limbah B3."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "MFK 2",
+            "deskripsi": "Rumah Sakit menetapkan penanggung jawab yang kompeten untuk mengawasi penerapan manajemen fasilitas dan keselamatan di rumah sakit.",
+            "maksud_tujuan": "Direktur menetapkan penanggung jawab MFK (Unit, Tim, atau Komite) yang kompeten dan berpengalaman untuk mengelola keselamatan, keamanan, B3, proteksi kebakaran, peralatan medis, dan sistem utilitas.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "MFK 2.a",
+                    "pernyataan": "Rumah sakit telah menetapkan Penanggung jawab MFK yang memiliki kompetensi dan pengalaman dalam melakukan pengelolaan pada fasilitas dan keselamatan di lingkungan rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan penanggung jawab MFK dilengkapi uraian tugas dan tanggung jawab."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "MFK 2.b",
+                    "pernyataan": "Penanggungjawab MFK telah menyusun Program Manajemen Fasilitas dan Keselamatan (MFK) yang meliputi poin a) - j) dalam maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Dokumen Program MFK Tahunan."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "MFK 2.d",
+                    "pernyataan": "Penerapan program Manajemen Fasilitas dan Keselamatan (MFK) pada tenant/penyewa lahan yang berada di lingkungan rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, O, W",
+                        "keterangan": "Bukti penerapan program MFK pada penyewa lahan (misal: kantin, toko souvenir); Observasi kepatuhan tenant."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0,
+                        "TDD"
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "MFK 3",
+            "deskripsi": "Rumah sakit menerapkan Program Manajemen Fasilitas dan Keselamatan (MFK) terkait keselamatan di rumah sakit.",
+            "maksud_tujuan": "Memberikan jaminan bahwa bangunan, prasarana, lingkungan, dan peralatan tidak menimbulkan risiko fisik bagi pasien, staf, dan pengunjung. Mencakup inspeksi fisik berkala dan ronde fasilitas.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "MFK 3.a",
+                    "pernyataan": "Rumah Sakit menerapkan proses pengelolaan keselamatan rumah sakit meliputi poin a) - c) pada maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, O, W",
+                        "keterangan": "Bukti penerapan pengelolaan keselamatan; Observasi kondisi fisik bangunan (lantai tidak licin, tidak bergelombang)."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "MFK 3.c",
+                    "pernyataan": "Rumah sakit telah membuat pengkajian risiko secara proaktif terkait keselamatan di rumah sakit setiap tahun yang didokumentasikan dalam daftar risiko/risk register.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Daftar risiko/risk register keselamatan RS."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "MFK 4",
+            "deskripsi": "Rumah sakit menerapkan Program Manajemen Fasilitas dan Keselamatan (MFK) terkait keamanan di rumah sakit.",
+            "maksud_tujuan": "Perlindungan terhadap properti, pasien, dan staf dari kehilangan atau akses orang yang tidak berwenang. Area berisiko (IGD, ruang bayi, IT) harus dipantau dengan identitas pengenal atau CCTV.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "MFK 4.a",
+                    "pernyataan": "Rumah sakit menerapkan proses pengelolaan keamanan di lingkungan rumah sakit meliputi poin a) - e) pada maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, O, W",
+                        "keterangan": "Bukti identitas (badge) untuk staf/pengunjung; Observasi CCTV di area berisiko."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "MFK 4.d",
+                    "pernyataan": "Rumah sakit telah melakukan pemantauan risiko keamanan dan dilaporkan setiap 6 (enam) bulan kepada Direktur rumah sakit.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Laporan berkala pemantauan risiko keamanan."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        }
+    ]
+},
+
+{
+    "pokja": "MFK",
+    "nama_bab": "Manajemen Fasilitas dan Keselamatan",
+    "data_lanjutan": [
+        {
+            "kode_standar": "MFK 5",
+            "deskripsi": "Rumah sakit menetapkan dan menerapkan pengelolaan Bahan Berbahaya dan Beracun (B3) serta limbah B3 sesuai dengan peraturan perundang-undangan.",
+            "maksud_tujuan": "Rumah sakit melakukan identifikasi menyeluruh area penyimpanan B3, jumlah, dan lokasinya. Kategori B3 meliputi: infeksius, patologis, farmasi, bahan kimia, logam berat, kontainer bertekanan, benda tajam, genotoksik, dan radioaktif. Proses pengelolaan mencakup inventarisasi, penanganan, penggunaan APD, pelabelan, hingga prosedur tumpahan.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "MFK 5.a",
+                    "pernyataan": "Rumah sakit telah melaksanakan proses pengelolaan B3 meliputi poin a) – h) pada maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pelaksanaan pengelolaan B3; Wawancara Pengelola B3."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "MFK 5.c",
+                    "pernyataan": "Di area tertentu yang rawan pajanan telah dilengkapi eye washer/body washer dan spill kit.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, O, W",
+                        "keterangan": "Daftar lokasi eye washer; Observasi kelengkapan sarana; Wawancara staf."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "MFK 6",
+            "deskripsi": "Rumah sakit menerapkan proses untuk pencegahan, penanggulangan bahaya kebakaran dan penyediaan sarana jalan keluar yang aman.",
+            "maksud_tujuan": "Rumah sakit melakukan pengkajian risiko kebakaran (Fire Safety Risk Assessment) yang mencakup kompartemen bangunan, emergency exit, peralatan dapur, sistem listrik darurat, dan gas medis. Proteksi meliputi pencegahan, peringatan dini (smoke detector), hingga fasilitas pemadaman aktif (APAR, hidran, sprinkler).",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "MFK 6.a",
+                    "pernyataan": "Rumah sakit telah melakukan pengkajian risiko kebakaran secara proaktif setiap tahun.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti dokumen FSRA; Wawancara Penanggung jawab MFK."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "MFK 6.e",
+                    "pernyataan": "Rumah sakit memastikan semua staf memahami proses proteksi kebakaran termasuk simulasi kebakaran setiap tahun.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, S, W",
+                        "keterangan": "Laporan pelatihan dan simulasi kebakaran tahunan; Simulasi penggunaan APAR/Hidran."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "MFK 7",
+            "deskripsi": "Rumah sakit menetapkan dan menerapkan proses pengelolaan peralatan medik.",
+            "maksud_tujuan": "Pengelolaan alat medik mencakup identifikasi kebutuhan, uji fungsi alat baru, inventarisasi (termasuk alat KSO), pemeriksaan berkala, pemeliharaan preventif, dan kalibrasi. Rumah sakit juga harus memiliki sistem penarikan kembali (recall) peralatan yang membahayakan.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "MFK 7.a",
+                    "pernyataan": "Rumah sakit telah menerapkan proses pengelolaan peralatan medik meliputi poin a)-e) pada maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, O, W",
+                        "keterangan": "Bukti penerapan manajemen alat medis; Observasi fisik alat; Wawancara operator/Kepala IPSRS."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "MFK 7.e",
+                    "pernyataan": "Rumah sakit telah menerapkan pemantauan, pemberitahuan kerusakan (malfungsi) dan penarikan (recall) peralatan medis.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pemantauan alat; Bukti dokumen recall alat."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "MFK 8",
+            "deskripsi": "Rumah sakit memastikan semua sistem utilitas (listrik, air, gas medik) berfungsi efisien dan efektif.",
+            "maksud_tujuan": "Utilitas utama harus tersedia 24 jam sehari, 7 hari seminggu. Pengelolaan mencakup inventarisasi komponen kritikal (perpipaan, saklar), pemeriksaan berkala, pemeliharaan, serta pelabelan tuas kontrol untuk pemadaman darurat.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "MFK 8.b",
+                    "pernyataan": "Rumah sakit telah melakukan pengkajian risiko sistem utilitas dan komponen kritikalnya secara proaktif setiap tahun.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Risk register sistem utilitas tahunan."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "MFK 8.2.1.a",
+                    "pernyataan": "Rumah sakit melaksanakan uji coba sumber air bersih dan listrik cadangan sekurangnya 6 bulan sekali.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, O, W, S",
+                        "keterangan": "Bukti uji beban genset/uji air cadangan; Simulasi response time genset saat listrik padam."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "MFK 9",
+            "deskripsi": "Rumah sakit menerapkan proses penanganan bencana untuk menanggapi potensi bencana di wilayahnya.",
+            "maksud_tujuan": "Proses dimulai dengan identifikasi jenis bencana melalui Hazard Vulnerability Analysis (HVA) tahunan. Strategi mencakup komunikasi, pengelolaan sumber daya alternatif, kegiatan klinis di tempat alternatif, serta penyiapan area dekontaminasi di IGD.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "MFK 9.b",
+                    "pernyataan": "Rumah sakit mengidentifikasi risiko bencana internal dan eksternal dalam analisa kerentanan bahaya (HVA) setiap tahun.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Dokumen hasil HVA yang terintegrasi dengan profil risiko."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "MFK 9.d",
+                    "pernyataan": "Rumah sakit telah melakukan simulasi penanggulangan bencana (disaster drill) minimal setahun sekali.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Laporan simulasi bencana termasuk debriefing."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "MFK 10",
+            "deskripsi": "Rumah sakit melakukan penilaian risiko prakonstruksi (PCRA) pada waktu merencanakan pembangunan baru, renovasi, atau pembongkaran.",
+            "maksud_tujuan": "PCRA menilai dampak konstruksi terhadap kualitas udara, PPI (ICRA konstruksi), utilitas, kebisingan, getaran, dan prosedur darurat. Rumah sakit wajib memastikan kontraktor mematuhi rencana mitigasi risiko yang ditetapkan.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "MFK 10.b",
+                    "pernyataan": "Rumah sakit melakukan penilaian risiko prakonstruksi (PCRA) bila ada rencana renovasi/pembangunan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti dokumen asesmen PCRA; Wawancara tim PPI/IPSRS/Kontraktor."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0,
+                        "TDD"
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "MFK 11",
+            "deskripsi": "Seluruh staf telah dilatih dan memiliki pengetahuan tentang pengelolaan fasilitas, program keselamatan, dan peran mereka.",
+            "maksud_tujuan": "Pelatihan diberikan setiap tahun mencakup semua program MFK (keselamatan, keamanan, B3, kebakaran, alat medis, utilitas, bencana). Pelatihan juga mencakup pihak luar seperti vendor, relawan, dan peserta didik.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "MFK 11.a-g",
+                    "pernyataan": "Semua staf diberikan pelatihan program MFK (Keselamatan, Keamanan, B3, Kebakaran, Alat Medis, Utilitas, Bencana) setiap tahun.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W, S",
+                        "keterangan": "Bukti sertifikat/daftar hadir pelatihan; Wawancara staf; Simulasi prosedur darurat."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        }
+    ]
+},
+
+{
+    "pokja": "PMKP",
+    "nama_bab": "Peningkatan Mutu dan Keselamatan Pasien",
+    "data": [
+        {
+            "kode_standar": "PMKP 1",
+            "deskripsi": "Rumah sakit mempunyai Komite/Tim penyelenggara Mutu yang kompeten untuk mengelola kegiatan Peningkatan Mutu dan Keselamatan Pasien (PMKP) sesuai dengan peraturan perundang-undangan.",
+            "maksud_tujuan": "PMKP adalah proses berkelanjutan yang memerlukan koordinasi antar unit dan komite (Medis, Keperawatan, PPI, K3, Etik, dsb). Direktur menetapkan Komite/Tim Mutu untuk membantu pengelolaan kegiatan ini. Direktur juga menetapkan Kepala Unit sebagai penanggung jawab mutu di tingkat unit, staf pengumpul data, dan validator. Komite Mutu melaporkan hasil pelaksanaan PMKP ke Direktur setiap 3 bulan, yang kemudian diteruskan ke Dewan Pengawas. Laporan mencakup pencapaian indikator mutu, validasi, perbaikan, serta laporan insiden keselamatan pasien.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "PMKP 1.a",
+                    "pernyataan": "Direktur telah menetapkan regulasi terkait Peningkatan mutu dan keselamatan pasien serta manajemen risiko.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan Pedoman Peningkatan Mutu dan Keselamatan Pasien serta manajemen risiko."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 1.b",
+                    "pernyataan": "Direktur rumah sakit telah membentuk komite/tim mutu untuk mengelola kegiatan PMKP serta uraian tugasnya sesuai dengan peraturan perundang-undangan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Regulasi tentang penetapan Komite/ Tim Mutu RS dan uraian tugasnya (SK Penetapan, Pedoman Kerja, Program Kerja)."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 1.c",
+                    "pernyataan": "Komite Mutu menyusun program PMKP rumah sakit meliputi poin a) – i) yang telah ditetapkan Direktur rumah sakit dan disahkan oleh representatif pemilik/dewan pengawas.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Penetapan program PMKP RS (poin a-i) oleh Direktur dan disahkan oleh Pemilik/Dewas."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 1.d",
+                    "pernyataan": "Program PMKP dievaluasi dalam Rapat koordinasi melibatkan komite-komite, pimpinan rumah sakit dan Kepala unit setiap triwulan untuk menjamin perbaikan mutu yang berkesinambungan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti evaluasi rapat koordinasi triwulanan; Wawancara Pimpinan RS, Komite Mutu, dan Kepala Unit."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "PMKP 2",
+            "deskripsi": "Komite/Tim mutu mendukung proses pemilihan indikator dan melaksanakan koordinasi serta integrasi kegiatan pengukuran data indikator mutu dan keselamatan pasien di rumah sakit.",
+            "maksud_tujuan": "Pemilihan indikator mutu prioritas RS adalah tanggung jawab pimpinan, sedangkan indikator unit dipilih oleh kepala unit. Komite Mutu mengintegrasikan semua kegiatan pengukuran, termasuk budaya keselamatan dan pelaporan insiden, untuk menghasilkan solusi perbaikan yang terpadu.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "PMKP 2.a",
+                    "pernyataan": "Komite/Tim Penyelenggara Mutu terlibat dalam pemilihan indikator mutu prioritas baik ditingkat rumah sakit maupun tingkat unit layanan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti rapat pemilihan indikator mutu prioritas RS dan Unit; Wawancara Komite Mutu dan Pimpinan."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 2.b",
+                    "pernyataan": "Komite/Tim Penyelenggara Mutu melaksanakan koordinasi dan integrasi kegiatan pengukuran serta melakukan supervisi ke unit layanan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti rapat koordinasi pengukuran; Bukti hasil supervisi Komite Mutu ke unit layanan."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 2.c",
+                    "pernyataan": "Komite/Tim Penyelenggara Mutu mengintegrasikan laporan insiden keselamatan pasien, pengukuran budaya keselamatan, dan lainnya untuk mendapatkan solusi dan perbaikan terintegrasi.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti integrasi laporan IKP, budaya keselamatan, dsb; Bukti dokumen solusi/perbaikan terintegrasi."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "PMKP 3",
+            "deskripsi": "Pengumpulan data indikator mutu dilakukan oleh staf pengumpul data yang sudah mendapatkan pelatihan tentang pengukuran data indikator mutu.",
+            "maksud_tujuan": "Pengumpulan data mencakup Indikator Nasional Mutu (INM), Indikator Mutu Prioritas RS (IMP-RS), dan Indikator Mutu Prioritas Unit (IMP-Unit). Indikator yang sudah tercapai dan dipertahankan 1 tahun dapat diganti. Setiap indikator wajib dilengkapi profil indikator (poin a-t) seperti judul, definisi operasional, numerator, denominator, target, dsb.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "PMKP 3.a",
+                    "pernyataan": "Rumah sakit melakukan pengumpulan data mencakup (poin a-c) dalam maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pengumpulan data INM, IMP-RS, dan IMP-Unit; Wawancara Komite Mutu dan Pengumpul data unit."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 3.b",
+                    "pernyataan": "Indikator mutu prioritas rumah sakit (IMP-RS) dan indikator mutu prioritas unit (IMP- Unit) telah dibuat profil indikator mencakup (poin a-t) dalam maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Dokumen Profil Indikator mutu (poin a-t) untuk IMP-RS dan IMP-Unit."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "PMKP 4",
+            "deskripsi": "Agregasi dan analisis data dilakukan untuk mendukung program peningkatan mutu dan keselamatan pasien serta mendukung partisipasi dalam pengumpulan database eksternal.",
+            "maksud_tujuan": "Data diagregasi dan dianalisis untuk melihat pola/tren capaian kinerja. RS wajib lapor INM ke Kemenkes dan IKP ke KNKP. Analisis mencakup perbandingan internal (waktu ke waktu), eksternal (RS setara), standar akreditasi, dan praktik terbaik. Analisis juga harus mengkaji dampak perbaikan terhadap efisiensi biaya dan sumber daya minimal setahun sekali.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "PMKP 4.a",
+                    "pernyataan": "Telah dilakukan agregasi dan Analisa data menggunakan metode dan teknik statistik terhadap semua indikator mutu yang telah diukur oleh staf yang kompeten.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti agregasi dan analisis statistik indikator mutu; Wawancara staf pengumpul data."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 4.b",
+                    "pernyataan": "Hasil analisis digunakan untuk membuat rekomendasi tindakan perbaikan dan serta menghasilkan efisiensi penggunaan sumber daya.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti hasil analisis dalam laporan triwulan (rekomendasi perbaikan dan efisiensi)."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 4.d",
+                    "pernyataan": "Memiliki bukti hasil Analisa berupa informasi INM dan e report IKP diwajibkan lapor kepada Kementerian kesehatan sesuai peraturan yang berlaku.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti e-report INM ke Kemenkes dan e-report IKP ke KNKP."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 4.g",
+                    "pernyataan": "Telah menganalisa efisiensi berdasarkan biaya dan jenis sumber daya yang digunakan (sebelum dan sesudah perbaikan) terhadap satu proyek prioritas perbaikan yang dipilih setiap tahun.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti analisis efisiensi biaya/sumber daya (kendali mutu & biaya) pada satu proyek prioritas per tahun."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "PMKP 4.1",
+            "deskripsi": "Staf dengan pengalaman, pengetahuan, dan keterampilan yang bertugas mengumpulkan dan menganalisis data rumah sakit secara sistematis.",
+            "maksud_tujuan": "Analisis melibatkan staf yang paham manajemen informasi dan teknik statistik (run charts, control charts, Pareto, dsb). Hasil dilaporkan kepada PIC indikator mutu untuk ditindaklanjuti guna memperbaiki proses klinis dan non-klinis.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "PMKP 4.1.b",
+                    "pernyataan": "Staf yang kompeten melakukan proses pengukuran menggunakan alat dan teknik statistik.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti sertifikat pelatihan PMKP bagi staf pengukur data/validator."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 4.1.c",
+                    "pernyataan": "Hasil analisis data dilaporkan kepada penanggung jawab indikator mutu yang akan melakukan perbaikan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterations": "Bukti pelaporan hasil analisis kepada PIC indikator mutu terkait."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        }
+    ]
+},
+
+{
+    "pokja": "PMKP",
+    "nama_bab": "Peningkatan Mutu dan Keselamatan Pasien",
+    "data_lanjutan": [
+        {
+            "kode_standar": "PMKP 5",
+            "deskripsi": "Rumah sakit melakukan proses validasi data terhadap indikator mutu yang diukur.",
+            "maksud_tujuan": "Validasi data adalah alat penting untuk memahami mutu data dan menetapkan tingkat kepercayaan para pengambil keputusan. Rumah sakit wajib melakukan validasi terutama pada: indikator mutu baru, data yang akan dipublikasikan, adanya perubahan profil indikator/instrumen, perubahan hasil tanpa sebab jelas, perubahan sumber data (misal dari manual ke elektronik), serta perubahan subjek data.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "PMKP 5.a",
+                    "pernyataan": "Rumah sakit telah melakukan validasi yang berbasis bukti meliputi poin a)-f) yang ada pada maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti pelaksanaan validasi data sesuai ketentuan; Wawancara Komite Mutu dan Validator."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 5.b",
+                    "pernyataan": "Pimpinan Rumah sakit bertanggung jawab atas validitas dan kualitas data serta hasil yang dipublikasikan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti validasi data pada data yang dipublikasikan; Wawancara Pimpinan RS."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "PMKP 6",
+            "deskripsi": "Rumah sakit mencapai perbaikan mutu dan dipertahankan.",
+            "maksud_tujuan": "Rencana perbaikan diuji coba (misal dengan metode PDCA/PDSA). Perubahan yang efektif distandarisasi melalui regulasi (SPO/Kebijakan) dan disosialisasikan untuk memastikan perbaikan berkelanjutan.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "PMKP 6.a",
+                    "pernyataan": "Rumah sakit telah membuat rencana perbaikan dan melakukan uji coba menggunakan metode yang telah teruji.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti siklus PDCA/PDSA (Plan, Do, Study, Action) pada proyek perbaikan mutu."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 6.b",
+                    "pernyataan": "Tersedia kesinambungan data mulai dari pengumpulan data sampai perbaikan yang dilakukan dan dapat dipertahankan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Bukti kesinambungan data (koleksi, validasi, analisis, hingga implementasi perbaikan)."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "PMKP 7",
+            "deskripsi": "Dilakukan evaluasi proses pelaksanaan standar pelayanan kedokteran untuk menunjang pengukuran mutu pelayanan klinis prioritas.",
+            "maksud_tujuan": "Penerapan standar pelayanan kedokteran dievaluasi menggunakan Clinical Pathway (CP). Direktur menetapkan minimal 5 evaluasi pelayanan prioritas melalui audit medis/klinis untuk mengurangi variasi asuhan.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "PMKP 7.a",
+                    "pernyataan": "Rumah sakit melakukan evaluasi clinical pathway sesuai yang tercantum dalam maksud dan tujuan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti evaluasi minimal 5 clinical pathway; Wawancara Komite Medik."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 7.c",
+                    "pernyataan": "Rumah sakit telah melaksanakan audit klinis dan atau audit medis pada penerapan prioritas standar pelayanan kedokteran.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Laporan hasil audit medis/klinis."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "PMKP 8",
+            "deskripsi": "Rumah sakit mengembangkan Sistem Pelaporan dan Pembelajaran Keselamatan Pasien Rumah Sakit (SP2KP-RS).",
+            "maksud_tujuan": "Sistem mencakup definisi insiden (Sentinel, KTD, KNC, KTC, KPCS), grading risiko, serta investigasi. Kejadian sentinel harus di-RCA (Root Cause Analysis) dalam waktu maksimal 45 hari.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "PMKP 8.a",
+                    "pernyataan": "Direktur menetapkan Sistem Pelaporan dan Pembelajaran Keselamatan Pasien (SP2KP RS) sesuai peraturan.",
+                    "bukti_kelengkapan": {
+                        "kode": "R",
+                        "keterangan": "Regulasi/Pedoman SP2KP RS."
+                    },
+                    "skoring": [
+                        10,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 8.b",
+                    "pernyataan": "Komite Mutu membentuk tim investigator untuk melakukan RCA pada kejadian sentinel dalam waktu ≤ 45 hari.",
+                    "bukti_kelengkapan": {
+                        "kode": "R, D",
+                        "keterangan": "SK Tim Investigator Ad-hoc; Laporan RCA sentinel."
+                    },
+                    "skoring": [
+                        10,
+                        0,
+                        "TDD"
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "PMKP 9",
+            "deskripsi": "Data laporan insiden keselamatan pasien selalu dianalisis setiap 3 bulan.",
+            "maksud_tujuan": "Analisis mendalam dilakukan pada reaksi transfusi, reaksi obat serius (ADR), medication error signifikan, perbedaan diagnosis pra-pasca operasi, insiden sedasi/anestesi, dan kesalahan identifikasi pasien.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "PMKP 9.b",
+                    "pernyataan": "Analisis data mendalam dilakukan ketika terjadi tingkat, pola atau tren yang tak diharapkan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Bukti RCA atau Simple RCA pada tren insiden yang tidak diharapkan."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "PMKP 10",
+            "deskripsi": "Rumah sakit melakukan pengukuran dan evaluasi budaya keselamatan pasien.",
+            "maksud_tujuan": "Survei budaya keselamatan dilakukan setiap tahun untuk mendorong staf melaporkan kekhawatiran tanpa rasa takut.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "PMKP 10.a",
+                    "pernyataan": "Rumah sakit telah melaksanakan pengukuran budaya keselamatan pasien dengan survei setiap tahun.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Hasil survei budaya keselamatan tahunan; Wawancara Komite Mutu."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        },
+        {
+            "kode_standar": "PMKP 11",
+            "deskripsi": "Komite/Tim Penyelenggara Mutu memandu penerapan program manajemen risiko.",
+            "maksud_tujuan": "Komite Mutu menyusun Daftar Risiko dan Profil Risiko RS. Dilakukan analisis risiko proaktif (FMEA, HVA, ICRA) minimal sekali setahun.",
+            "elemen_penilaian": [
+                {
+                    "ep_kode": "PMKP 11.c",
+                    "pernyataan": "Komite/Tim Penyelenggara Mutu telah membuat profil risiko dan rencana penanganan.",
+                    "bukti_kelengkapan": {
+                        "kode": "D",
+                        "keterangan": "Dokumen Profil Risiko dan Strategi Penanganan Risiko."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                },
+                {
+                    "ep_kode": "PMKP 11.f",
+                    "pernyataan": "Memandu pemilihan minimal satu analisa proaktif proses berisiko tinggi (FMEA) setiap tahun.",
+                    "bukti_kelengkapan": {
+                        "kode": "D, W",
+                        "keterangan": "Laporan FMEA pada satu proses berisiko tinggi."
+                    },
+                    "skoring": [
+                        10,
+                        5,
+                        0
+                    ]
+                }
+            ]
+        }
+    ]
+}]

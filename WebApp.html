@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Akreditasi RS - Dashboard</title>
+  <title>SMART AKRE - Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,8 +20,11 @@
               50: '#F0FFFF'
             },
             navy: {
-              DEFAULT: '#1e293b',
-              dark: '#0f172a'
+              DEFAULT: '#1f2937',
+              dark: '#111827'
+            },
+            brand: {
+              yellow: '#eab308'
             }
           },
           fontFamily: {
@@ -35,97 +38,26 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: #F4F7F6; overflow: hidden; }
     
+    .neo-border { border: 3px solid #1f2937; }
+    .neo-shadow { shadow: 5px 5px 0px #1f2937; }
+    .neo-card { background: white; border: 3px solid #1f2937; box-shadow: 5px 5px 0px #1f2937; transition: all 0.2s; }
+    .neo-card:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0px #1f2937; }
+    .neo-btn { border: 3px solid #1f2937; box-shadow: 4px 4px 0px #1f2937; transition: all 0.1s; }
+    .neo-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0px #1f2937; }
+
     /* Sidebar Transitions */
-    .sidebar {
-      width: 260px;
-      min-width: 260px;
-      transition: all 0.3s ease;
-      overflow: hidden;
-      position: relative;
-    }
-    .sidebar.collapsed {
-      width: 70px;
-      min-width: 70px;
-    }
+    .sidebar { width: 260px; min-width: 260px; transition: all 0.3s ease; overflow: hidden; position: relative; }
+    .sidebar.collapsed { width: 75px; min-width: 75px; }
+    .sidebar.collapsed .menu-text, .sidebar.collapsed .logo-text, .sidebar.collapsed .sidebar-footer-text, .sidebar.collapsed .section-header { display: none; }
     
-    /* Hide all text when collapsed */
-    .sidebar.collapsed .menu-text,
-    .sidebar.collapsed .logo-text,
-    .sidebar.collapsed .sidebar-footer-text {
-      display: none;
-    }
+    .menu-item.active { background: #eab308; color: #1f2937; border: 3px solid #1f2937; box-shadow: 3px 3px 0px #1f2937; margin: 4px 12px; border-radius: 0; }
+    .menu-item:not(.active) { margin: 4px 12px; }
     
-    /* Logo icon centered when collapsed */
-    .sidebar.collapsed .logo-wrapper {
-      justify-content: center;
-    }
-    .sidebar.collapsed .logo-icon-only {
-      display: flex;
-      margin: 0 auto;
-    }
-    .logo-icon-only {
-      display: none;
-    }
-    
-    /* Menu items centered when collapsed */
-    .sidebar.collapsed .menu-item {
-      justify-content: center;
-      padding-left: 0;
-      padding-right: 0;
-    }
-    .sidebar.collapsed .menu-item svg {
-      margin: 0;
-    }
-    
-    /* Section headers hidden when collapsed */
-    .sidebar.collapsed .section-header {
-      display: none;
-    }
-    
-    /* Sidebar Toggle Button in Top Bar */
-    .hamburger-btn {
-      padding: 8px;
-      cursor: pointer;
-      color: white;
-      transition: background 0.2s;
-    }
-    .hamburger-btn:hover {
-      background: rgba(255,255,255,0.1);
-    }
-    
-    /* Sidebar Active State */
-    .menu-item.active {
-      background: #E6F7F7;
-      color: #008080;
-      border-right: 3px solid #008080;
-    }
-    .sidebar.collapsed .menu-item.active {
-      border-right: none;
-      border-left: 3px solid #008080;
-    }
-    .menu-item.active svg { stroke: #008080; }
-    
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #f1f1f1; }
-    ::-webkit-scrollbar-thumb { background: #008080; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: #1f2937; }
     
-    /* Card Hover */
-    .card { transition: all 0.2s ease; }
-    .card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-    
-    /* Table Row Hover */
-    .table-row-hover:hover { background: #F0FFFF; }
-    
-    /* Loading Animation */
-    .spinner {
-      border: 3px solid #f3f3f3;
-      border-top: 3px solid #008080;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-    }
+    .spinner { border: 4px solid #f3f3f3; border-top: 4px solid #eab308; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
   </style>
 </head>
@@ -134,67 +66,49 @@
     
     <!-- SIDEBAR -->
     <aside id="sidebar" class="sidebar bg-white border-r border-gray-200 flex flex-col">
-      <!-- Logo -->
-      <div class="p-4 border-b border-gray-200 logo-wrapper flex items-center gap-3">
-        <div class="w-8 h-8 bg-teal rounded-lg flex items-center justify-center flex-shrink-0 logo-icon-only">
-          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
-          </svg>
+      <div class="p-4 border-b-[3px] border-navy logo-wrapper flex items-center gap-3 bg-teal text-white">
+        <div class="w-10 h-10 bg-white neo-border flex items-center justify-center flex-shrink-0">
+          <span class="text-navy font-black text-xl">SA</span>
         </div>
         <div class="logo-text">
-          <div class="font-bold text-gray-800 text-sm">AKREDITASI RS</div>
-          <div class="text-[10px] text-gray-500">Manajemen Mutu</div>
+          <div class="font-black text-white text-lg tracking-tighter leading-none">SMART AKRE</div>
+          <div class="text-[10px] text-brand-yellow font-bold uppercase">Professional Dashboard</div>
         </div>
       </div>
 
-      <!-- Navigation Menu -->
-      <nav class="flex-1 py-4 overflow-y-auto">
-        <div class="px-4 mb-2 section-header text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Menu Utama</div>
+      <!-- Side Navigation -->
+      <nav class="flex-1 py-6 space-y-2">
+        <div class="px-6 mb-2 section-header text-[11px] font-black text-gray-400 uppercase tracking-widest">Main Menu</div>
         
-        <button onclick="showPage('dashboard')" id="menu-dashboard" class="menu-item active w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
-          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-          </svg>
-          <span class="menu-text">Dashboard</span>
+        <button onclick="showPage('dashboard')" id="menu-dashboard" class="menu-item active group flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-gray-100 transition">
+          <svg class="w-5 h-5 group-hover:scale-110 transition" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          <span class="menu-text">DASHBOARD</span>
         </button>
 
-        <button onclick="showPage('list')" id="menu-list" class="menu-item w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
-          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-          </svg>
-          <span class="menu-text">Data Dokumen</span>
+        <button onclick="showPage('list')" id="menu-list" class="menu-item group flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-gray-100 transition">
+          <svg class="w-5 h-5 group-hover:scale-110 transition" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          <span class="menu-text">DATA DOKUMEN</span>
         </button>
 
-        <button onclick="showPage('tambah')" id="menu-tambah" class="menu-item w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
-          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path>
-          </svg>
-          <span class="menu-text">Tambah Dokumen</span>
+        <button onclick="showPage('tambah')" id="menu-tambah" class="menu-item group flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-gray-100 transition">
+          <svg class="w-5 h-5 group-hover:scale-110 transition" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4"></path></svg>
+          <span class="menu-text">TAMBAH DOKUMEN</span>
         </button>
 
-        <div class="px-4 mt-6 mb-2 section-header text-[10px] font-semibold text-gray-400 uppercase tracking-wider">Laporan</div>
+        <div class="px-6 mt-8 mb-2 section-header text-[11px] font-black text-gray-400 uppercase tracking-widest">Reports</div>
 
-        <button onclick="exportLaporan()" class="menu-item w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
-          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-          </svg>
-          <span class="menu-text">Export Laporan</span>
-        </button>
-
-        <button onclick="checkReminders()" class="menu-item w-full flex items-center gap-3 px-4 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition">
-          <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
-          </svg>
-          <span class="menu-text">Cek Reminder</span>
+        <button onclick="exportLaporan()" class="menu-item group flex items-center gap-3 px-4 py-3 text-sm font-bold text-gray-700 hover:bg-gray-100 transition">
+          <svg class="w-5 h-5 group-hover:scale-110 transition" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          <span class="menu-text">EXPORT LAPORAN</span>
         </button>
       </nav>
 
-      <!-- Sidebar Footer -->
-      <div class="p-4 border-t border-gray-200">
-        <div class="text-[10px] text-gray-500 text-center sidebar-footer-text">
-          Template Akreditasi RS v1.0<br>© 2026 All Rights Reserved
+      <div class="p-6 border-t-[3px] border-navy bg-gray-50">
+        <div class="text-[10px] font-black text-navy text-center sidebar-footer-text italic uppercase">
+          SMART AKRE v1.0<br>© 2026 PMIK CREATOR
         </div>
       </div>
+    </aside>
     </aside>
 
     <!-- MAIN CONTENT -->
@@ -642,33 +556,49 @@
       const tbody = document.getElementById('dokumenTableBody');
       tbody.innerHTML = '';
 
-      if (dokumen.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-8 text-center text-gray-500">Tidak ada data dokumen</td></tr>';
+      if (!dokumen || dokumen.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="px-6 py-12 text-center text-gray-500 font-bold uppercase tracking-widest bg-gray-50">❌ Tidak ada data ditemukan</td></tr>';
         return;
       }
 
       dokumen.forEach(doc => {
+        if (!doc || !doc.id) return; // Skip empty/invalid rows
+
         const statusColor = {
-          'Belum Mulai': 'bg-red-100 text-red-700',
-          'Draft': 'bg-yellow-100 text-yellow-700',
-          'Review': 'bg-blue-100 text-blue-700',
-          'Lengkap': 'bg-green-100 text-green-700'
-        }[doc.status] || 'bg-gray-100 text-gray-700';
+          'Belum Mulai': 'bg-red-500 text-white border-2 border-navy',
+          'Draft': 'bg-yellow-400 text-navy border-2 border-navy font-bold',
+          'Review': 'bg-blue-400 text-white border-2 border-navy font-bold',
+          'Lengkap': 'bg-green-500 text-white border-2 border-navy font-bold'
+        }[doc.status] || 'bg-gray-200 text-gray-800 border-2 border-navy';
+
+        // Safe Date Formatting
+        let deadlineStr = 'No Date';
+        try {
+          if (doc.deadline) {
+            const d = new Date(doc.deadline);
+            if (!isNaN(d.getTime())) {
+              deadlineStr = d.toLocaleDateString('id-ID', {day: '2-digit', month: 'short', year: 'numeric'});
+            }
+          }
+        } catch(e) { console.error('Date error:', e); }
 
         tbody.innerHTML += `
-          <tr class="table-row-hover">
-            <td class="px-6 py-4 text-sm font-mono text-gray-700">${doc.id}</td>
-            <td class="px-6 py-4 text-sm text-gray-800 font-medium">${doc.nama}</td>
-            <td class="px-6 py-4 text-sm text-gray-700">BAB ${doc.bab}</td>
-            <td class="px-6 py-4">
-              <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${statusColor}">
-                ${doc.status}
+          <tr class="hover:bg-brand-yellow/10 transition">
+            <td class="px-6 py-4 text-xs font-black text-navy uppercase tracking-tighter border-b-2 border-gray-100">${doc.id}</td>
+            <td class="px-6 py-4 border-b-2 border-gray-100">
+              <div class="text-sm font-black text-navy uppercase tracking-tight">${doc.nama || 'Tanpa Nama'}</div>
+              <div class="text-[10px] text-gray-500 font-bold uppercase">${doc.standar || '-'} | ${doc.kriteria || '-'}</div>
+            </td>
+            <td class="px-6 py-4 text-xs font-bold text-navy border-b-2 border-gray-100 bg-gray-50/50">BAB ${doc.bab || '?'}</td>
+            <td class="px-6 py-4 border-b-2 border-gray-100">
+              <span class="px-3 py-1 text-[10px] uppercase font-black ${statusColor} shadow-[2px_2px_0px_#1f2937]">
+                ${doc.status || 'BELUM MULAI'}
               </span>
             </td>
-            <td class="px-6 py-4 text-sm text-gray-700">${doc.pic}</td>
-            <td class="px-6 py-4 text-sm text-gray-700">${new Date(doc.deadline).toLocaleDateString('id-ID', {day: '2-digit', month: 'short', year: 'numeric'})}</td>
-            <td class="px-6 py-4">
-              <button class="bg-navy hover:bg-navy-dark text-white text-xs font-medium py-1.5 px-4 rounded transition">
+            <td class="px-6 py-4 text-xs font-bold text-navy border-b-2 border-gray-100">${doc.pic || '-'}</td>
+            <td class="px-6 py-4 text-xs font-bold text-red-600 border-b-2 border-gray-100">${deadlineStr}</td>
+            <td class="px-6 py-4 border-b-2 border-gray-100">
+              <button class="bg-navy hover:bg-brand-yellow hover:text-navy text-white text-[10px] font-black py-2 px-4 neo-btn uppercase tracking-widest transition-all">
                 Lihat
               </button>
             </td>
