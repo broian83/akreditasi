@@ -24,10 +24,24 @@
   </script>
   <style>
     :root {
-      --primary: #0d9488;
-      --primary-dark: #0f766e;
-      --primary-light: #ccfbf1;
-      --accent: #6366f1;
+      --bg-page: #f9fafb;
+      --bg-white: #ffffff;
+      --border-color: #e5e7eb;
+      --text-primary: #1f2937;
+      --text-secondary: #4b5563;
+      --text-muted: #6b7280;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #dbeafe;
+      --accent: #eab308;
+      --green: #16a34a;
+      --green-light: #dcfce7;
+      --purple: #9333ea;
+      --purple-light: #f3e8ff;
+      --gray-800: #1f2937;
+      --gray-100: #f3f4f6;
+      --border-w: 3px;
+      --shadow-hard: 5px 5px 0px var(--gray-800);
     }
     * { font-family: 'Inter', sans-serif; }
     
@@ -112,15 +126,246 @@
       font-weight: 700;
     }
     .ep-r { background: #dbeafe; color: #2563eb; }
-    .ep-d { background: #ccfbf1; color: #0d9488; }
-    .ep-o { background: #fef3c7; color: #d97706; }
+    .ep-d { background: #dcfce7; color: #16a34a; }
+    .ep-o { background: #fef9c3; color: #a16207; }
     .ep-w { background: #f3e8ff; color: #9333ea; }
+
+    body.edu-page {
+      background: var(--bg-page) !important;
+      color: var(--text-primary);
+    }
+
+    .edu-nav {
+      background: var(--bg-white) !important;
+      border-bottom: var(--border-w) solid var(--gray-800) !important;
+      backdrop-filter: none !important;
+      box-shadow: none;
+    }
+
+    .edu-nav .group img {
+      border-radius: 0 !important;
+      border-width: 2px !important;
+      border-color: var(--gray-800) !important;
+    }
+
+    .edu-nav a,
+    .edu-nav span {
+      border-radius: 0 !important;
+    }
+
+    .edu-nav a:hover {
+      background: var(--gray-100) !important;
+    }
+
+    .edu-nav span {
+      background: var(--gray-800) !important;
+      box-shadow: none !important;
+    }
+
+    .edu-hero {
+      background: var(--gray-800);
+      color: var(--bg-white);
+      border-bottom: var(--border-w) solid var(--gray-800);
+    }
+
+    .edu-hero > div:first-child {
+      background-image: none !important;
+    }
+
+    .edu-hero .inline-flex.items-center.gap-2.px-4.py-2.bg-primary-100 {
+      background: var(--primary) !important;
+      color: var(--bg-white) !important;
+      border: 2px solid var(--bg-white);
+      border-radius: 0 !important;
+      box-shadow: 4px 4px 0 rgba(0,0,0,.25);
+    }
+
+    .edu-hero h1 {
+      color: var(--bg-white) !important;
+      letter-spacing: -1.5px;
+    }
+
+    .edu-hero .gradient-text {
+      background: none;
+      -webkit-text-fill-color: initial;
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-thickness: 6px;
+      text-underline-offset: 6px;
+    }
+
+    .edu-hero p {
+      color: #e5e7eb !important;
+    }
+
+    .edu-hero .mt-5 > div {
+      border-radius: 0 !important;
+      border: var(--border-w) solid var(--gray-800);
+      box-shadow: 4px 4px 0 var(--bg-white);
+      background: var(--bg-white) !important;
+    }
+
+    .edu-progress-card {
+      border-radius: 0 !important;
+      border: var(--border-w) solid var(--gray-800);
+      box-shadow: 12px 12px 0 var(--accent) !important;
+      background: var(--bg-white) !important;
+    }
+
+    .edu-progress-card .gradient-text {
+      background: none;
+      -webkit-text-fill-color: initial;
+      color: var(--primary);
+    }
+
+    .edu-progress-card #progressBar {
+      background: linear-gradient(90deg, var(--primary), var(--purple)) !important;
+      border-radius: 0 !important;
+    }
+
+    .edu-main {
+      padding-top: 48px;
+      padding-bottom: 72px;
+    }
+
+    .edu-tabs button {
+      border-radius: 0 !important;
+      border: var(--border-w) solid var(--gray-800) !important;
+      background: var(--bg-white) !important;
+      color: var(--gray-800) !important;
+      box-shadow: none !important;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      font-weight: 800;
+    }
+
+    .edu-tabs button.is-active {
+      background: var(--accent) !important;
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--gray-800) !important;
+    }
+
+    .edu-panel,
+    .edu-view {
+      border-radius: 0 !important;
+      border: var(--border-w) solid var(--gray-800) !important;
+      box-shadow: var(--shadow-hard) !important;
+      background: var(--bg-white) !important;
+    }
+
+    .edu-panel .border-b,
+    .edu-view .border-b {
+      border-color: var(--gray-800) !important;
+      border-bottom-width: var(--border-w) !important;
+    }
+
+    .edu-panel .bg-gradient-to-r,
+    .edu-view .bg-gradient-to-r {
+      background: var(--gray-100) !important;
+    }
+
+    #searchInput {
+      border-radius: 0 !important;
+      border: 2px solid var(--gray-800) !important;
+      background: var(--bg-page) !important;
+    }
+
+    #searchInput:focus {
+      box-shadow: 4px 4px 0 var(--primary);
+    }
+
+    .cat-btn {
+      border-radius: 0 !important;
+      border: 2px solid var(--gray-800) !important;
+      background: var(--gray-100) !important;
+      color: var(--gray-800) !important;
+    }
+
+    .cat-btn.is-active {
+      background: var(--primary) !important;
+      color: var(--bg-white) !important;
+      box-shadow: 4px 4px 0 var(--gray-800);
+      transform: translate(-2px, -2px);
+    }
+
+    #materiList > button {
+      border-bottom: 2px solid var(--gray-100);
+    }
+
+    #materiList > button:hover {
+      background: var(--yellow-100, #fef9c3) !important;
+    }
+
+    #materiContent > div,
+    #quizContent > div,
+    #bookmarkContent > div {
+      animation: fadeIn .35s ease-out forwards;
+    }
+
+    #materiContent .bg-gradient-to-r.from-primary-50,
+    #bookmarkContent .bg-gradient-to-r.from-slate-50,
+    #view-quiz .text-lg.font-semibold.text-slate-700.mb-6.p-4.bg-slate-50.rounded-xl {
+      background: var(--primary-light) !important;
+      border: var(--border-w) solid var(--gray-800);
+      border-radius: 0 !important;
+      box-shadow: 4px 4px 0 var(--primary);
+    }
+
+    #materiContent .rounded-xl,
+    #quizContent .rounded-xl,
+    #bookmarkContent .rounded-xl,
+    #materiEmpty .rounded-full,
+    #quizEmpty .rounded-full,
+    #bookmarkEmpty .rounded-full {
+      border-radius: 0 !important;
+    }
+
+    #materiContent .border,
+    #quizContent .border,
+    #bookmarkContent .border {
+      border-color: var(--gray-800) !important;
+    }
+
+    .quiz-option {
+      border-color: var(--gray-800) !important;
+      border-width: var(--border-w) !important;
+      border-radius: 0 !important;
+    }
+
+    .quiz-option:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--gray-800);
+    }
+
+    .quiz-correct {
+      background: var(--green-light) !important;
+      border-color: var(--green) !important;
+      box-shadow: 4px 4px 0 var(--green) !important;
+    }
+
+    .quiz-wrong {
+      background: #fee2e2 !important;
+      border-color: var(--red-600) !important;
+      box-shadow: 4px 4px 0 var(--red-600) !important;
+    }
+
+    .edu-footer {
+      background: var(--gray-800) !important;
+      border-top: 5px solid var(--accent);
+      margin-top: 0 !important;
+    }
+
+    @media (max-width: 768px) {
+      .edu-nav {
+        position: sticky;
+      }
+    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 via-primary-50 to-indigo-50 min-h-screen">
+<body class="edu-page bg-gradient-to-br from-slate-50 via-primary-50 to-indigo-50 min-h-screen">
   
   <!-- Navbar -->
-  <nav class="glass sticky top-0 z-50 border-b border-slate-200/50">
+  <nav class="glass sticky top-0 z-50 border-b border-slate-200/50 edu-nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 sm:h-20">
         <a href="index.html" class="flex items-center gap-2 sm:gap-3 group">
@@ -140,7 +385,7 @@
   </nav>
 
   <!-- Hero Section -->
-  <header class="relative overflow-hidden">
+  <header class="relative overflow-hidden edu-hero">
     <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230d9488\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative">
       <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
@@ -172,7 +417,7 @@
         </div>
         
         <!-- Progress Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-sm animate-slide-in">
+        <div class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-sm animate-slide-in edu-progress-card">
           <div class="flex items-center justify-between mb-4">
             <h3 class="font-bold text-slate-800">Progress Belajar</h3>
             <span class="text-2xl font-extrabold gradient-text" id="progressText">0%</span>
@@ -187,9 +432,9 @@
   </header>
 
   <!-- Main Content -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 edu-main">
     <!-- Tab Navigation -->
-    <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+    <div class="flex gap-2 mb-6 overflow-x-auto pb-2 edu-tabs">
       <button onclick="switchTab('materi')" id="tab-materi" class="flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-xl font-semibold shadow-lg shadow-primary-500/30">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.586.477 5 1.253m0-13C14.168 5.477 15.754 5 17.5 5S20.832 5.477 22 6.253v13C20.832 18.477 19.246 18 17.5 18s-3.586.477-5 1.253"/></svg>
         <span>Materi</span>
@@ -208,7 +453,7 @@
       <!-- Sidebar -->
       <div class="lg:col-span-1 space-y-4">
         <!-- Search -->
-        <div class="bg-white rounded-xl shadow-lg border border-slate-100 p-4">
+        <div class="bg-white rounded-xl shadow-lg border border-slate-100 p-4 edu-panel">
           <div class="relative">
             <svg class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
             <input type="text" id="searchInput" oninput="searchMateri()" placeholder="Cari materi..." class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
@@ -216,19 +461,19 @@
         </div>
 
         <!-- Categories -->
-        <div class="bg-white rounded-xl shadow-lg border border-slate-100 p-4">
+        <div class="bg-white rounded-xl shadow-lg border border-slate-100 p-4 edu-panel">
           <h3 class="font-bold text-slate-700 mb-3 text-sm">Kategori</h3>
           <div class="flex flex-wrap gap-2">
-            <button onclick="filterByCategory('all')" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white" data-cat="all">All</button>
-            <button onclick="filterByCategory('Manajemen Informasi')" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-primary-50 hover:text-primary-700" data-cat="Manajemen Informasi">M. Info</button>
-            <button onclick="filterByCategory('Pengelolaan Dokumen')" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-primary-50 hover:text-primary-700" data-cat="Pengelolaan Dokumen">Dokumen</button>
-            <button onclick="filterByCategory('Rekam Medis Elektronik')" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-primary-50 hover:text-primary-700" data-cat="Rekam Medis Elektronik">RME</button>
-            <button onclick="filterByCategory('Teknologi Informasi')" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-primary-50 hover:text-primary-700" data-cat="Teknologi Informasi">TI</button>
+            <button onclick="filterByCategory('all', this)" class="cat-btn is-active px-3 py-2 text-xs font-semibold rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white" data-cat="all">All</button>
+            <button onclick="filterByCategory('Manajemen Informasi', this)" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-primary-50 hover:text-primary-700" data-cat="Manajemen Informasi">M. Info</button>
+            <button onclick="filterByCategory('Pengelolaan Dokumen', this)" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-primary-50 hover:text-primary-700" data-cat="Pengelolaan Dokumen">Dokumen</button>
+            <button onclick="filterByCategory('Rekam Medis Elektronik', this)" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-primary-50 hover:text-primary-700" data-cat="Rekam Medis Elektronik">RME</button>
+            <button onclick="filterByCategory('Teknologi Informasi', this)" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-primary-50 hover:text-primary-700" data-cat="Teknologi Informasi">TI</button>
           </div>
         </div>
 
         <!-- Materi List -->
-        <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden">
+        <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden edu-panel">
           <div class="p-4 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-slate-100">
             <h3 class="font-bold text-slate-700 text-sm">Daftar Materi</h3>
           </div>
@@ -241,7 +486,7 @@
       <!-- Content Area -->
       <div class="lg:col-span-3">
         <!-- Materi View -->
-        <div id="view-materi" class="bg-white rounded-2xl shadow-xl border border-slate-100 min-h-[60vh]">
+        <div id="view-materi" class="bg-white rounded-2xl shadow-xl border border-slate-100 min-h-[60vh] edu-view">
           <div id="materiEmpty" class="flex flex-col items-center justify-center h-[60vh] text-slate-400">
             <div class="w-24 h-24 mb-6 rounded-full bg-slate-100 flex items-center justify-center">
               <svg class="w-12 h-12 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.586.477 5 1.253m0-13C14.168 5.477 15.754 5 17.5 5S20.832 5.477 22 6.253v13C20.832 18.477 19.246 18 17.5 18s-3.586.477-5 1.253"/></svg>
@@ -255,7 +500,7 @@
         </div>
 
         <!-- Quiz View -->
-        <div id="view-quiz" class="hidden bg-white rounded-2xl shadow-xl border border-slate-100 min-h-[60vh] p-6 lg:p-8">
+        <div id="view-quiz" class="hidden bg-white rounded-2xl shadow-xl border border-slate-100 min-h-[60vh] p-6 lg:p-8 edu-view">
           <div id="quizEmpty" class="flex flex-col items-center justify-center h-[50vh]">
             <div class="w-20 h-20 mb-4 rounded-full bg-primary-50 flex items-center justify-center">
               <svg class="w-10 h-10 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
@@ -268,7 +513,7 @@
         </div>
 
         <!-- Bookmark View -->
-        <div id="view-bookmark" class="hidden bg-white rounded-2xl shadow-xl border border-slate-100 min-h-[60vh] p-6 lg:p-8">
+        <div id="view-bookmark" class="hidden bg-white rounded-2xl shadow-xl border border-slate-100 min-h-[60vh] p-6 lg:p-8 edu-view">
           <div id="bookmarkEmpty" class="flex flex-col items-center justify-center h-[50vh]">
             <div class="w-20 h-20 mb-4 rounded-full bg-amber-50 flex items-center justify-center">
               <svg class="w-10 h-10 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
@@ -285,9 +530,9 @@
   </main>
 
   <!-- Footer -->
-  <footer class="bg-slate-800 text-white py-8 mt-12">
+  <footer class="bg-slate-800 text-white py-8 mt-12 edu-footer">
     <div class="max-w-7xl mx-auto px-4 text-center">
-      <p class="font-semibold">© 2026 SMART AKRE</p>
+      <p class="font-semibold">&copy; 2026 SMART AKRE</p>
       <p class="text-sm text-slate-400 mt-1">Akreditasi RS Menjadi Lebih Mudah</p>
     </div>
   </footer>
@@ -508,13 +753,9 @@
       renderMateriList(filteredData);
     }
 
-    function filterByCategory(cat) {
-      document.querySelectorAll('.cat-btn').forEach(btn => { 
-        btn.classList.remove('from-primary-600', 'to-primary-700', 'text-white'); 
-        btn.classList.add('bg-slate-100', 'text-slate-600');
-      });
-      event.target.classList.remove('bg-slate-100', 'text-slate-600');
-      event.target.classList.add('from-primary-600', 'to-primary-700', 'text-white');
+    function filterByCategory(cat, el) {
+      document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('is-active'));
+      if (el) el.classList.add('is-active');
       if (cat === 'all') { filteredData = null; renderMateriList(eduData.bab); }
       else { filteredData = eduData.bab.filter(m => m.kategori === cat); renderMateriList(filteredData); }
     }
@@ -525,12 +766,10 @@
         const btn = document.getElementById('tab-' + t);
         const view = document.getElementById('view-' + t);
         if (t === tab) {
-          btn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
-          btn.classList.add('from-primary-600', 'to-primary-700', 'text-white', 'shadow-lg', 'shadow-primary-500/30');
+          btn.classList.add('is-active');
           view.classList.remove('hidden');
         } else {
-          btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
-          btn.classList.remove('from-primary-600', 'to-primary-700', 'text-white', 'shadow-lg', 'shadow-primary-500/30');
+          btn.classList.remove('is-active');
           view.classList.add('hidden');
         }
       });
