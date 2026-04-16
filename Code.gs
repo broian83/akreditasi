@@ -332,26 +332,43 @@ function getAllDokumen() {
   try {
     const ss = SpreadsheetApp.getActiveSpreadsheet();
     const sheet = ss.getSheetByName(CONFIG.SHEET_NAMES.DATA_DOKUMEN);
-    if (!sheet) return [];
+    if (!sheet) {
+      Logger.log('Sheet not found: ' + CONFIG.SHEET_NAMES.DATA_DOKUMEN);
+      return [];
+    }
     
     const dataRange = sheet.getDataRange().getValues();
     if (dataRange.length <= 1) return []; 
     
     const dokumen = [];
     for (let i = 1; i < dataRange.length; i++) {
+      const row = dataRange[i];
+      // Pastikan baris memiliki data minimal (cek kolom B/Nama Dokumen jika ID DOC-XXX belum ada)
+      if (!row[0] && !row[1]) continue; 
+
+      // Konversi Date ke String di backend agar lebih aman saat dikirim ke frontend
+      let deadlineValue = '';
+      if (row[8] instanceof Date) {
+        deadlineValue = row[8].toISOString();
+      } else {
+        deadlineValue = row[8] ? String(row[8]) : '';
+      }
+
       dokumen.push({
-        id: dataRange[i][0] || '(No ID)',
-        nama: dataRange[i][1] || '(Tanpa Nama)',
-        bab: dataRange[i][2] || '-',
-        standar: dataRange[i][3] || '-',
-        kriteria: dataRange[i][4] || '-',
-        status: dataRange[i][5] || 'Belum Mulai',
-        skor: dataRange[i][6] || '-',
-        pic: dataRange[i][7] || '-',
-        deadline: dataRange[i][8],
-        link: dataRange[i][9] || '#'
+        id: row[0] ? String(row[0]) : '(No ID)',
+        nama: row[1] ? String(row[1]) : '(Tanpa Nama)',
+        bab: row[2] !== undefined ? String(row[2]) : '-',
+        standar: row[3] || '-',
+        kriteria: row[4] || '-',
+        status: row[5] || 'Belum Mulai',
+        skor: row[6] || '-',
+        pic: row[7] || '-',
+        deadline: deadlineValue,
+        link: row[9] || '#'
       });
     }
+    
+    Logger.log('Success: Fetched ' + dokumen.length + ' documents');
     return dokumen;
   } catch (e) {
     Logger.log('Error in getAllDokumen: ' + e.message);
