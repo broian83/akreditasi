@@ -4,145 +4,263 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edukasi MRMIK - SMART AKRE</title>
-  <meta name="description" content="Belajar standar akreditasi MRMIK (Manajemen Rekam Medis dan Informasi Kesehatan) dengan materi interaktif">
+  <meta name="description" content="Belajar standar akreditasi MRMIK dengan materi interaktif">
   <link rel="icon" type="image/png" href="smart_akre_logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config({
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'Poppins', 'sans-serif'] },
+          colors: {
+            primary: { 50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4', 400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 800: '#115e59', 900: '#134e4a', 950: '#042f2e' }
+          }
+        }
+      }
+    })
+  </script>
   <style>
+    :root {
+      --primary: #0d9488;
+      --primary-dark: #0f766e;
+      --primary-light: #ccfbf1;
+      --accent: #6366f1;
+    }
     * { font-family: 'Inter', sans-serif; }
-    :root { --teal: #0d9488; --teal-dark: #0f766e; --teal-light: #ccfbf1; }
-    .bg-teal { background-color: var(--teal); }
-    .bg-teal-dark { background-color: var(--teal-dark); }
-    .text-teal { color: var(--teal); }
-    .hover\:bg-teal:hover { background-color: var(--teal); }
     
-    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: #f1f5f9; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
     
-    .animate-in { animation: fadeIn 0.3s ease-out; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .glass {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
     
-    .quiz-option { transition: all 0.2s; }
-    .quiz-option:hover { transform: translateX(4px); }
-    .quiz-option.correct { background-color: #dcfce7; border-color: #22c55e; }
-    .quiz-option.wrong { background-color: #fee2e2; border-color: #ef4444; }
+    .gradient-text {
+      background: linear-gradient(135deg, #0d9488, #6366f1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     
-    .tree-item { transition: all 0.2s; }
-    .tree-item:hover { background-color: #f0fdfa; }
-    .tree-item.active { background-color: var(--teal-light); border-left: 3px solid var(--teal); }
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
     
-    .bookmark-star { transition: all 0.2s; }
-    .bookmark-star:hover { transform: scale(1.2); }
-    .bookmark-star.active { color: #eab308; }
+    .animate-fade-in {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-slide-in {
+      animation: slideIn 0.4s ease-out forwards;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    .quiz-option {
+      transition: all 0.2s ease;
+    }
+    .quiz-option:hover {
+      transform: translateX(8px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .quiz-correct {
+      background: linear-gradient(135deg, #dcfce7, #bbf7d0) !important;
+      border-color: #22c55e !important;
+      animation: pulse 0.5s ease;
+    }
+    .quiz-wrong {
+      background: linear-gradient(135deg, #fee2e2, #fecaca) !important;
+      border-color: #ef4444 !important;
+      animation: shake 0.5s ease;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+    
+    .progress-fill {
+      transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .ep-badge {
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+    .ep-r { background: #dbeafe; color: #2563eb; }
+    .ep-d { background: #ccfbf1; color: #0d9488; }
+    .ep-o { background: #fef3c7; color: #d97706; }
+    .ep-w { background: #f3e8ff; color: #9333ea; }
   </style>
 </head>
-<body class="bg-slate-50 min-h-screen">
+<body class="bg-gradient-to-br from-slate-50 via-primary-50 to-indigo-50 min-h-screen">
+  
   <!-- Navbar -->
-  <nav class="bg-white border-b-4 border-slate-800 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3">
-        <img src="smart_akre_logo.png" alt="Logo" class="h-10 border-2 border-slate-800 bg-white">
-        <span class="text-lg font-extrabold tracking-tight">SMART AKRE</span>
-      </a>
-      <div class="flex items-center gap-2">
-        <a href="index.html#demo" class="px-3 py-2 text-sm font-bold text-slate-600 hover:text-slate-800">Demo</a>
-        <a href="index.html#fitur" class="px-3 py-2 text-sm font-bold text-slate-600 hover:text-slate-800">Fitur</a>
-        <a href="index.html#harga" class="px-3 py-2 text-sm font-bold text-slate-600 hover:text-slate-800">Harga</a>
-        <span class="px-3 py-2 text-sm font-bold text-teal">📚 Edukasi</span>
+  <nav class="glass sticky top-0 z-50 border-b border-slate-200/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 sm:h-20">
+        <a href="index.html" class="flex items-center gap-2 sm:gap-3 group">
+          <img src="smart_akre_logo.png" alt="Logo" class="h-8 sm:h-10 border-2 border-slate-800 bg-white rounded-lg group-hover:scale-105 transition-transform">
+          <div class="hidden sm:block">
+            <span class="text-lg sm:text-xl font-extrabold tracking-tight text-slate-800">SMART AKRE</span>
+            <p class="text-[10px] text-slate-500 -mt-1">Akreditasi RS Menjadi Lebih Mudah</p>
+          </div>
+        </a>
+        <div class="flex items-center gap-1 sm:gap-2">
+          <a href="index.html" class="px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition">Beranda</a>
+          <a href="index.html#harga" class="hidden sm:block px-4 py-2 text-sm font-semibold text-slate-600 hover:text-slate-800 hover:bg-slate-100 rounded-lg transition">Harga</a>
+          <span class="px-3 sm:px-4 py-2 text-xs sm:text-sm font-bold bg-gradient-to-r from-primary-600 to-indigo-600 text-white rounded-lg shadow-lg">📚 Edukasi</span>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-teal to-teal-dark text-white py-8">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex items-center justify-between">
-        <div>
-          <h1 class="text-2xl font-extrabold">EDUKASI AKREDITASI RS</h1>
-          <p class="text-teal-100 text-sm mt-1">standar MRMIK (Manajemen Rekam Medis & Informasi Kesehatan)</p>
-        </div>
-        <div class="flex items-center gap-4">
-          <div class="text-right">
-            <p class="text-xs text-teal-200">Progress Belajar</p>
-            <p class="text-xl font-bold" id="progressText">0%</p>
+  <!-- Hero Section -->
+  <header class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%230d9488\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="text-center lg:text-left animate-fade-in">
+          <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary-100 rounded-full mb-4">
+            <span class="w-2 h-2 bg-primary-500 rounded-full animate-pulse"></span>
+            <span class="text-sm font-semibold text-primary-700">Standar Akreditasi 2022</span>
           </div>
-          <svg class="w-12 h-12 transform -rotate-90">
-            <circle cx="24" cy="24" r="20" stroke="rgba(255,255,255,0.3)" stroke-width="4" fill="none"/>
-            <circle id="progressRing" cx="24" cy="24" r="20" stroke="white" stroke-width="4" fill="none" stroke-dasharray="125.6" stroke-dashoffset="125.6"/>
-          </svg>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-800 leading-tight">
+            Edukasi <span class="gradient-text">MRMIK</span>
+          </h1>
+          <p class="text-base sm:text-lg text-slate-600 mt-3 max-w-xl">
+            Pelajari standar <strong>Manajemen Rekam Medis & Informasi Kesehatan</strong> dengan materi interaktif dan quiz.
+          </p>
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-5">
+            <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-md">
+              <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span class="text-sm font-semibold text-slate-700">15 Materi</span>
+            </div>
+            <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-md">
+              <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.167 2.03-2 3.772-2 2.213 0 4 1.79 4 4s-1.787 4-4 4c-1.742 0-3.223-.833-3.772-2m-9.228 2c.47-1.167 2.03-2 3.772-2 2.213 0 4 1.79 4 4s-1.787 4-4 4c-1.742 0-3.223-.833-3.772-2m0 0V21"/></svg>
+              <span class="text-sm font-semibold text-slate-700">30+ Quiz</span>
+            </div>
+            <div class="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-md">
+              <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+              <span class="text-sm font-semibold text-slate-700">Bookmark</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Progress Card -->
+        <div class="bg-white rounded-2xl shadow-xl p-6 w-full max-w-sm animate-slide-in">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="font-bold text-slate-800">Progress Belajar</h3>
+            <span class="text-2xl font-extrabold gradient-text" id="progressText">0%</span>
+          </div>
+          <div class="h-3 bg-slate-100 rounded-full overflow-hidden">
+            <div id="progressBar" class="h-full bg-gradient-to-r from-primary-500 to-indigo-500 rounded-full progress-fill" style="width: 0%"></div>
+          </div>
+          <p class="text-sm text-slate-500 mt-3 text-center" id="progressLabel">0 dari 15 materi sudah dibaca</p>
         </div>
       </div>
     </div>
   </header>
 
-  <div class="max-w-7xl mx-auto px-4 py-6">
-    <!-- Tabs -->
-    <div class="flex gap-2 mb-6">
-      <button onclick="switchTab('materi')" id="tab-materi" class="px-4 py-2 bg-teal text-white rounded-lg font-semibold text-sm shadow-md">
-        📚 Materi
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <!-- Tab Navigation -->
+    <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+      <button onclick="switchTab('materi')" id="tab-materi" class="flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-xl font-semibold shadow-lg shadow-primary-500/30">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.586.477 5 1.253m0-13C14.168 5.477 15.754 5 17.5 5S20.832 5.477 22 6.253v13C20.832 18.477 19.246 18 17.5 18s-3.586.477-5 1.253"/></svg>
+        <span>Materi</span>
       </button>
-      <button onclick="switchTab('quiz')" id="tab-quiz" class="px-4 py-2 bg-white text-slate-600 rounded-lg font-semibold text-sm hover:bg-slate-100">
-        ✏️ Quiz
+      <button onclick="switchTab('quiz')" id="tab-quiz" class="flex items-center gap-2 px-5 py-3 bg-white text-slate-600 rounded-xl font-semibold hover:bg-slate-50 border border-slate-200 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        <span>Quiz</span>
       </button>
-      <button onclick="switchTab('bookmark')" id="tab-bookmark" class="px-4 py-2 bg-white text-slate-600 rounded-lg font-semibold text-sm hover:bg-slate-100">
-        ⭐ Bookmark
+      <button onclick="switchTab('bookmark')" id="tab-bookmark" class="flex items-center gap-2 px-5 py-3 bg-white text-slate-600 rounded-xl font-semibold hover:bg-slate-50 border border-slate-200 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+        <span>Bookmark</span>
       </button>
     </div>
 
-    <div class="flex gap-6">
+    <div class="grid lg:grid-cols-4 gap-6">
       <!-- Sidebar -->
-      <div class="w-72 flex-shrink-0">
+      <div class="lg:col-span-1 space-y-4">
         <!-- Search -->
-        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 mb-4">
-          <input type="text" id="searchInput" oninput="searchMateri()" placeholder="🔍 Cari materi..." 
-            class="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm focus:outline-none focus:border-teal">
+        <div class="bg-white rounded-xl shadow-lg border border-slate-100 p-4">
+          <div class="relative">
+            <svg class="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <input type="text" id="searchInput" oninput="searchMateri()" placeholder="Cari materi..." class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+          </div>
         </div>
 
-        <!-- Category -->
-        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 mb-4">
-          <h3 class="text-xs font-black text-slate-500 uppercase tracking-widest mb-3">Kategori</h3>
+        <!-- Categories -->
+        <div class="bg-white rounded-xl shadow-lg border border-slate-100 p-4">
+          <h3 class="font-bold text-slate-700 mb-3 text-sm">Kategori</h3>
           <div class="flex flex-wrap gap-2">
-            <button onclick="filterByCategory('all')" class="cat-btn px-3 py-1 text-xs font-semibold rounded-full bg-teal text-white" data-cat="all">All</button>
-            <button onclick="filterByCategory('Manajemen Informasi')" class="cat-btn px-3 py-1 text-xs font-semibold rounded-full bg-slate-100" data-cat="Manajemen Informasi">M. Info</button>
-            <button onclick="filterByCategory('Pengelolaan Dokumen')" class="cat-btn px-3 py-1 text-xs font-semibold rounded-full bg-slate-100" data-cat="Pengelolaan Dokumen">Dokumen</button>
-            <button onclick="filterByCategory('Rekam Medis Elektronik')" class="cat-btn px-3 py-1 text-xs font-semibold rounded-full bg-slate-100" data-cat="Rekam Medis Elektronik">RME</button>
-            <button onclick="filterByCategory('Teknologi Informasi')" class="cat-btn px-3 py-1 text-xs font-semibold rounded-full bg-slate-100" data-cat="Teknologi Informasi">TI</button>
+            <button onclick="filterByCategory('all')" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white" data-cat="all">All</button>
+            <button onclick="filterByCategory('Manajemen Informasi')" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-primary-50 hover:text-primary-700" data-cat="Manajemen Informasi">M. Info</button>
+            <button onclick="filterByCategory('Pengelolaan Dokumen')" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-primary-50 hover:text-primary-700" data-cat="Pengelolaan Dokumen">Dokumen</button>
+            <button onclick="filterByCategory('Rekam Medis Elektronik')" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-primary-50 hover:text-primary-700" data-cat="Rekam Medis Elektronik">RME</button>
+            <button onclick="filterByCategory('Teknologi Informasi')" class="cat-btn px-3 py-2 text-xs font-semibold rounded-xl bg-slate-100 text-slate-600 hover:bg-primary-50 hover:text-primary-700" data-cat="Teknologi Informasi">TI</button>
           </div>
         </div>
 
-        <!-- List -->
-        <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-          <div class="p-3 border-b border-slate-100 bg-slate-50">
-            <h3 class="text-xs font-black text-slate-500 uppercase tracking-widest">Daftar Materi</h3>
+        <!-- Materi List -->
+        <div class="bg-white rounded-xl shadow-lg border border-slate-100 overflow-hidden">
+          <div class="p-4 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-slate-100">
+            <h3 class="font-bold text-slate-700 text-sm">Daftar Materi</h3>
           </div>
-          <div id="materiList" class="max-h-[55vh] overflow-y-auto">
+          <div id="materiList" class="max-h-[50vh] overflow-y-auto divide-y divide-slate-50">
             <!-- JS Generated -->
           </div>
         </div>
       </div>
 
-      <!-- Main Content -->
-      <div class="flex-1">
+      <!-- Content Area -->
+      <div class="lg:col-span-3">
         <!-- Materi View -->
-        <div id="view-materi" class="bg-white rounded-xl shadow-sm border border-slate-200 min-h-[65vh]">
+        <div id="view-materi" class="bg-white rounded-2xl shadow-xl border border-slate-100 min-h-[60vh]">
           <div id="materiEmpty" class="flex flex-col items-center justify-center h-[60vh] text-slate-400">
-            <svg class="w-24 h-24 mb-4 opacity-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.586.477 5 1.253m0-13C14.168 5.477 15.754 5 17.5 5S20.832 5.477 22 6.253v13C20.832 18.477 19.246 18 17.5 18s-3.586.477-5 1.253"></path>
-            </svg>
-            <p class="font-bold uppercase tracking-widest text-sm">Pilih Materi untuk Memulai</p>
+            <div class="w-24 h-24 mb-6 rounded-full bg-slate-100 flex items-center justify-center">
+              <svg class="w-12 h-12 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.586.477 5 1.253m0-13C14.168 5.477 15.754 5 17.5 5S20.832 5.477 22 6.253v13C20.832 18.477 19.246 18 17.5 18s-3.586.477-5 1.253"/></svg>
+            </div>
+            <p class="font-semibold text-lg text-slate-500">Pilih materi untuk memulai belajar</p>
+            <p class="text-sm text-slate-400 mt-1">Klik salah satu materi di sidebar</p>
           </div>
-          <div id="materiContent" class="hidden p-6">
+          <div id="materiContent" class="hidden p-6 lg:p-8">
             <!-- JS Generated -->
           </div>
         </div>
 
         <!-- Quiz View -->
-        <div id="view-quiz" class="hidden bg-white rounded-xl shadow-sm border border-slate-200 min-h-[65vh] p-6">
-          <div id="quizEmpty" class="flex flex-col items-center justify-center h-[55vh] text-slate-400">
-            <p class="font-bold">Pilih Materi untuk Mulai Quiz</p>
+        <div id="view-quiz" class="hidden bg-white rounded-2xl shadow-xl border border-slate-100 min-h-[60vh] p-6 lg:p-8">
+          <div id="quizEmpty" class="flex flex-col items-center justify-center h-[50vh]">
+            <div class="w-20 h-20 mb-4 rounded-full bg-primary-50 flex items-center justify-center">
+              <svg class="w-10 h-10 text-primary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <p class="font-semibold text-slate-500">Pilih materi untuk memulai quiz</p>
           </div>
           <div id="quizContent" class="hidden">
             <!-- JS Generated -->
@@ -150,10 +268,13 @@
         </div>
 
         <!-- Bookmark View -->
-        <div id="view-bookmark" class="hidden bg-white rounded-xl shadow-sm border border-slate-200 min-h-[65vh] p-6">
-          <div id="bookmarkEmpty" class="flex flex-col items-center justify-center h-[55vh] text-slate-400">
-            <p class="font-bold">Belum Ada Bookmark</p>
-            <p class="text-xs mt-2">Klik ikon bintang untuk menyimpan</p>
+        <div id="view-bookmark" class="hidden bg-white rounded-2xl shadow-xl border border-slate-100 min-h-[60vh] p-6 lg:p-8">
+          <div id="bookmarkEmpty" class="flex flex-col items-center justify-center h-[50vh]">
+            <div class="w-20 h-20 mb-4 rounded-full bg-amber-50 flex items-center justify-center">
+              <svg class="w-10 h-10 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+            </div>
+            <p class="font-semibold text-slate-500">Belum ada bookmark</p>
+            <p class="text-sm text-slate-400 mt-1">Klik ikon bintang untuk menyimpan materi favorit</p>
           </div>
           <div id="bookmarkContent" class="hidden">
             <!-- JS Generated -->
@@ -161,40 +282,40 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 
   <!-- Footer -->
-  <footer class="bg-slate-800 text-white py-6 mt-8">
+  <footer class="bg-slate-800 text-white py-8 mt-12">
     <div class="max-w-7xl mx-auto px-4 text-center">
-      <p class="text-sm text-slate-400">© 2026 SMART AKRE | Akreditasi RS Menjadi Lebih Mudah</p>
+      <p class="font-semibold">© 2026 SMART AKRE</p>
+      <p class="text-sm text-slate-400 mt-1">Akreditasi RS Menjadi Lebih Mudah</p>
     </div>
   </footer>
 
   <script>
     // ============ DATA ============
     const eduData = {
-  "bab": [
-    {"id": "OVERVIEW", "title": "Gambaran Umum MRMIK", "kategori": "Pendahuluan", "summary": "Filosofi MRMIK", "standar": "", "maksud": "Setiap RS mengelola informasi untuk meningkatkan outcome.", "detail": "<p>Rumah sakit harus mengelola informasi untuk meningkatkan luaran (outcome) bagi pasien, kinerja staf, dan RS.</p><p><b>Fokus MRMIK:</b></p><ul class='list-disc ml-5'><li>Manajemen informasi</li><li>Pengelolaan dokumen</li><li>Rekam medis pasien</li><li>Teknologi Informasi Kesehatan</li></ul><p><b>Rekam Medis Elektronik</b> adalah RM yang dibuat dengan sistem elektronik sesuai peraturan.</p>", "elemenPenilaian": [{"kode": "INFO", "tipe": "INFO", "desc": "RME: registrasi, distribusi, pengisian klinis, pengolahan, klaim, penyimpanan."}], "bukti": [{"jenis": "D", "desc": "Kebijakan SI RS"}, {"jenis": "D", "desc": "Pedoman RME"}], "quiz": [{"soal": "Apa fokus utama MRMIK?", "opsi": ["Manajemen keuangan", "MRMIK", "Manajemen SDM", "Manajemen operasional"], "jawaban": 1}, {"soal": "RME harus dilaksanakan sesuai...?", "opsi": ["Standar internal", "Keputusan Direktur", "Peraturan perundang-undangan", "Rekomendasi KARS"], "jawaban": 2}]},
-    {"id": "MRMIK-1", "title": "Manajemen Informasi", "kategori": "Manajemen Informasi", "summary": "RS tetapkan proses manajemen informasi.", "standar": "Rumah sakit menetapkan proses manajemen informasi untuk memenuhi kebutuhan informasi internal maupun eksternal.", "maksud": "Informasi dalam RME harus dikelola dengan aman dan efektif.", "detail": "<p><b>Perencanaan melibatkan:</b></p><ul class='list-disc ml-5'><li>PPA</li><li>Pimpinan RS & Kepala Unit</li><li>Staf & pihak luar RS</li></ul><p>RS melakukan pemantauan & evaluasi secara berkala.</p>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Penetapan Kebijakan SI RS"}, {"kode": "EP-B", "tipe": "D", "desc": "Bukti penerapan untuk PPA, Pimpinan"}, {"kode": "EP-C", "tipe": "D", "desc": "Bukti penerapan sesuai ukuran RS"}, {"kode": "EP-D", "tipe": "D", "desc": "Pemantauan dan evaluasi berkala"}, {"kode": "EP-E", "tipe": "D", "desc": "Data riset/pendidikan (jika ada)"}], "bukti": [{"jenis": "R", "desc": "Kebijakan SI RS"}, {"jenis": "D", "desc": "Bukti penerapan"}], "quiz": [{"soal": "Siapa saja yang terlibat dalam perencanaan?", "opsi": ["Hanya pimpinan", "PPA, Pimpinan, pihak luar", "Hanya staf IT", "Hanya kepala unit"], "jawaban": 1}]},
-    {"id": "MRMIK-2", "title": "Pelatihan Staf", "kategori": "Manajemen Informasi", "summary": "Seluruh komponen RS dilatih prinsip manajemen & informasi.", "standar": "Seluruh komponen RS dilatih mengenai prinsip manajemen dan penggunaan informasi.", "maksud": "Staf harus dilatih tentang prinsip pengelolaan dan penggunaan informasi.", "detail": "<p><b>Fokus pelatihan:</b></p><ul class='list-disc ml-5'><li>Penggunaan SI & RME</li><li>Keamanan data</li><li>Strategi downtime</li><li>Penggunaan data untuk keputusan</li><li>Komunikasi dengan pasien</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "D/W", "desc": "Bukti pelatihan prinsip SI termasuk RME"}, {"kode": "EP-B", "tipe": "D/O", "desc": "Bukti integrasi data klinis & non-klinis"}], "bukti": [{"jenis": "D", "desc": "Riwayat pelatihan"}], "quiz": [{"soal": "Fokus utama pelatihan staf?", "opsi": ["Hanya komputer", "Prinsip manajemen informasi", "Hanya keamanan data", "Hanya dokumentasi"], "jawaban": 1}]},
-    {"id": "MRMIK-2.1", "title": "Kontrol Akses", "kategori": "Manajemen Informasi", "summary": "RS jaga keamanan data & RME melalui kontrol akses.", "standar": "RS menjaga keamanan, kerahasiaan, keutuhan, ketersediaan data melalui proses kontrol akses.", "maksud": "RS menjaga kerahasiaan, integritas, ketersediaan data pasien.", "detail": "<p><b>Hak akses:</b></p><ul class='list-disc ml-5'><li>Input data</li><li>Modifikasi data</li><li>Hapus data</li><li>Read-only</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "O/W", "desc": "Proses keamanan & integritas data"}, {"kode": "EP-B", "tipe": "O/W", "desc": "Pemberian akses staf berwenang"}, {"kode": "EP-C", "tipe": "D", "desc": "Pemantauan kepatuhan & tindak lanjut"}], "bukti": [{"jenis": "O", "desc": "Proses keamanan"}], "quiz": [{"soal": "Apa yang dilakukan RS untuk jaga keamanan?", "opsi": ["Kontrol akses", "Penghapusan data", "Pencadangan manual", "Monitoring jaringan"], "jawaban": 0}]},
-    {"id": "MRMIK-2.2", "title": "Proteksi Fisik Data", "kategori": "Manajemen Informasi", "summary": "RS lindungi data dari kehilangan, pencurian, kerusakan.", "standar": "RS menjaga kerahasiaan, keamanan, privasi, integritas data dari kehilangan & pencurian.", "maksud": "Perlindungan fisik infrastruktur sistem informasi.", "detail": "<p><b>Fasilitas keamanan:</b></p><ul class='list-disc ml-5'><li>Akses terbatas</li><li>Pintu terkunci</li><li>APAR</li><li>CCTV</li><li>Backup server</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "O", "desc": "Fasilitas aman"}, {"kode": "EP-B", "tipe": "D", "desc": "Hasil pemantauan keamanan"}, {"kode": "EP-C", "tipe": "D", "desc": "Tindakan perbaikan"}], "bukti": [{"jenis": "O", "desc": "Fisik: CCTV, APAR"}], "quiz": [{"soal": "Data harus dilindungi dari...?", "opsi": ["Hanya finansial", "Data pasien", "Hanya hardware", "Hanya software"], "jawaban": 1}]},
-    {"id": "MRMIK-3", "title": "Tata Naskah", "kategori": "Pengelolaan Dokumen", "summary": "RS terapkan pengelolaan dokumen secara konsisten.", "standar": "RS menerapkan proses pengelolaan dokumen secara konsisten dan seragam.", "maksud": "Kebijakan & prosedur give acuan seragam fungsi klinis & non-klinis.", "detail": "<p><b>Komponen kunci:</b></p><ul class='list-disc ml-5'><li>Peninjauan dokumen</li><li>Pengendalian versi</li><li>Identifikasi perubahan</li><li>Penyimpanan obsolete</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Penetapan Pedoman Tata Naskah"}, {"kode": "EP-B", "tipe": "D", "desc": "Format seragam dokumen"}, {"kode": "EP-C", "tipe": "D/W", "desc": "Dokumen internal"}], "bukti": [{"jenis": "R", "desc": "Pedoman Tata Naskah"}], "quiz": [{"soal": "Tujuan pengelolaan dokumen?", "opsi": ["Hemat biaya", "Acuan seragam", "Kurangi pekerjaan", "Layanan cepat"], "jawaban": 1}]},
-    {"id": "MRMIK-4", "title": "Penyebaran Data", "kategori": "Pengelolaan Dokumen", "summary": "Data internal & eksternal tepat waktu sesuai format.", "standar": "Kebutuhan data dari pihak dalam & luar RS dipenuhi tepat waktu dalam format sesuai harapan.", "maksud": "Penyebaran data adalah aspek penting manajemen informasi.", "detail": "<p><b>Penyebaran Internal:</b> Antar PPA</p><p><b>Eksternal:</b> Kemenkes, Dinas, BPJS</p>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "D", "desc": "Penyebaran sesuai kebutuhan"}, {"kode": "EP-B", "tipe": "D", "desc": "Data asuhan pasien ke PPA"}], "bukti": [{"jenis": "D", "desc": "Laporan distribusi"}], "quiz": [{"soal": "Siapa saja butuh data RS?", "opsi": ["Hanya pasien", "PPA, pimpinan, pihak luar", "Hanya pemerintah", "Hanya internal"], "jawaban": 1}]},
-    {"id": "MRMIK-5", "title": "Penyelenggaraan RME", "kategori": "Rekam Medis Elektronik", "summary": "RS tetapkan penyelenggarakan RME sesuai peraturan.", "standar": "RS menetapkan penyelenggarakan dan pengelolaan RME sesuai peraturan perundang-undangan.", "maksud": "Penyelenggaraan RME dari registrasi hingga transfer RM.", "detail": "<p><b>Kegiatan:</b></p><ul class='list-disc ml-5'><li>Penerimaan pasien</li><li>Assembling</li><li>Koding</li><li>Indeksing</li><li>Penyimpanan</li></ul><p><b>Disimpan di 3 tempat:</b> Server, Backup, Cloud</p>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Pedoman Penyelenggaraan RME"}, {"kode": "EP-B", "tipe": "R", "desc": "Unit RM & Kepala kompeten"}, {"kode": "EP-C", "tipe": "D", "desc": "Penerapan dari masuk sampai pulang"}, {"kode": "EP-D", "tipe": "D", "desc": "Audit RME berkala"}], "bukti": [{"jenis": "R", "desc": "Pedoman RME"}, {"jenis": "R", "desc": "SK Kepala RM"}], "quiz": [{"soal": "Berapa tempat simpan informasi RME?", "opsi": ["1 tempat", "2 tempat", "3 tempat", "4 tempat"], "jawaban": 2}]},
-    {"id": "MRMIK-6", "title": "Standarisasi RM", "kategori": "Rekam Medis Elektronik", "summary": "Setiap pasien punya RM terstandar format seragam.", "standar": "Setiap pasien memiliki RM terstandar format seragam dan selalu diperbarui.", "maksud": "Standardisasi formulir RM seringkannya PPA dalam dokumentasi.", "detail": "<p><b>Kriteria:</b></p><ul class='list-disc ml-5'><li>1 nomor RM per pasien</li><li>RM RJ/RI/IGD sesuai ketetapan</li><li>Evaluasi periodik formulir</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "O/W", "desc": "1 nomor RM"}, {"kode": "EP-B", "tipe": "D/O", "desc": "RM sesuai ketetapan"}, {"kode": "EP-C", "tipe": "D", "desc": "Evaluasi periodik"}], "bukti": [{"jenis": "O", "desc": "Sistem penomoran"}], "quiz": [{"soal": "Berapa nomor RM per pasien?", "opsi": ["Bebas", "1 nomor", "2 nomor", "Sesuai kunjungan"], "jawaban": 1}]},
-    {"id": "MRMIK-7", "title": "Isi Rekam Medis", "kategori": "Rekam Medis Elektronik", "summary": "RS tetapkan informasi dalam RM pasien.", "standar": "RS menetapkan informasi dalam RM pasien.", "maksud": "RS tetapkan data spesifik untuk pengkajian & pengobatan.", "detail": "<p><b>Isi wajib RM:</b></p><ul class='list-disc ml-5'><li>Identitas pasien</li><li>Diagnosis</li><li>Pengobatan</li><li>Hasil pemeriksaan</li><li>Resume pulang</li><li>Kesinambungan asuhan</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "D/O", "desc": "RM sesuai ketetapan"}, {"kode": "EP-B", "tipe": "D/O", "desc": "RM mengandung info memadai"}], "bukti": [{"jenis": "D", "desc": "RM pasien"}], "quiz": [{"soal": "Apa saja dalam RM?", "opsi": ["Hanya identitas", "Id, diagnosis, terapi, hasil", "Hanya diagnosis", "Nama saja"], "jawaban": 1}]},
-    {"id": "MRMIK-8", "title": "Otentifikasi Entry", "kategori": "Rekam Medis Elektronik", "summary": "Setiap catatan cantumkan identitas PPA & waktu.", "standar": "Setiap entry cantumkan identitas PPA & kapan ditulis.", "maksud": "Setiapisian harus ada tanggal, jam, nama PPA, TTE/Paraf.", "detail": "<p><b>Ketentuan:</b></p><ul class='list-disc ml-5'><li>Identitas jelas</li><li>Tanggal & waktu</li><li>Prosedur koreksi</li><li>Pemantauan</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "D", "desc": "Identitas jelas"}, {"kode": "EP-B", "tipe": "D/O", "desc": "Tanggal & waktu teridentifikasi"}, {"kode": "EP-C", "tipe": "R", "desc": "Prosedur koreksi"}, {"kode": "EP-D", "tipe": "D/W", "desc": "Pemantauan/reviu"}], "bukti": [{"jenis": "D", "desc": "RM dengan identitas"}], "quiz": [{"soal": "Apa yang dicantumkan di RM?", "opsi": ["Hanya nama", "Id PPA, tanggal, waktu", "Hanya tanda tangan", "Hanya waktu"], "jawaban": 1}]},
-    {"id": "MRMIK-9", "title": "Kode & Singkatan", "kategori": "Rekam Medis Elektronik", "summary": "RS gunakan kode diagnosis & singkatan baku.", "standar": "RS menggunakan kode diagnosis, prosedur, simbol, singkatan baku.", "maksud": "Kode & singkatan terstandarcegah kesalahan komunikasi.", "detail": "<p><b>Kode:</b></p><ul class='list-disc ml-5'><li>ICD-10 untuk penyakit</li><li>ICD-9-CM untuk tindakan</li><li>Daftar singkatan dilarang</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R/O", "desc": "Penetapan & bukti kode"}, {"kode": "EP-B", "tipe": "D", "desc": "Evaluasiberkala"}], "bukti": [{"jenis": "R", "desc": "Daftar kode"}], "quiz": [{"soal": "ICD-10 untuk...?", "opsi": ["Tindakan", "Penyakit", "Obat", "Pasien"], "jawaban": 1}]},
-    {"id": "MRMIK-10", "title": "Privasi & Hak Pasien", "kategori": "Rekam Medis Elektronik", "summary": "RS jaminan keamanan, kerahasiaan, & privasi pasien.", "standar": "RSjamin keamanan, kerahasiaan, kepemilikan RM & privasi pasien.", "maksud": "RM adalah pusat informasi untuk klinis, penelitian, hukum.", "detail": "<p><b>Jaminan:</b></p><ul class='list-disc ml-5'><li>Otoritas pengisian RM</li><li>Hak akses pelepasan</li><li>Otentifikasi & keamanan</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Otoritas pengisian RM"}, {"kode": "EP-B", "tipe": "R", "desc": "Hak akses informasi"}, {"kode": "EP-C", "tipe": "D", "desc": "Jaminan otentifikasi & keamanan"}], "bukti": [{"jenis": "R", "desc": "Kebijakan akses"}], "quiz": [{"soal": "Siapa bertanggung jawab keamanan RM?", "opsi": ["Pasien", "Pimpinan RS", "Staf IT saja", "Dokter saja"], "jawaban": 1}]},
-    {"id": "MRMIK-11", "title": "Retensi & Musnah", "kategori": "Rekam Medis Elektronik", "summary": "RS atur lama penyimpanan RM.", "standar": "RS mengatur lama penyimpanan RM, data, informasi pasien.", "maksud": "RS tentukan jangka waktu simpan sesuai peraturan.", "detail": "<p><b>Ketentuan:</b></p><ul class='list-disc ml-5'><li>Waktu simpan sesuai peraturan</li><li>Prosedur pemusnahan</li><li>Dokumen permanen</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Regulasi waktu simpan"}, {"kode": "EP-B", "tipe": "D", "desc": "Berita acara pemusnahan"}, {"kode": "EP-C", "tipe": "D", "desc": "Dokumen permanen"}], "bukti": [{"jenis": "R", "desc": "Kebijakan retensi"}], "quiz": [{"soal": "Berapa lama RM disimpan?", "opsi": ["Sesuai kebijakan RS", "Sesuai peraturan", "5 tahun", "10 tahun"], "jawaban": 1}]},
-    {"id": "MRMIK-12", "title": "Reviu Rekam Medis", "kategori": "Rekam Medis Elektronik", "summary": "RS lakukan evaluasi/pengkajian RM berkala.", "standar": "RSsecara teratur melakukan evaluasi/pengkajian RM.", "maksud": "Pengkajian berdasarkan sampel mewakili PPA & jenis pelayanan.", "detail": "<p><b>Ketentuan:</b></p><ul class='list-disc ml-5'><li>Setiap tahun</li><li>Sampel mewakili</li><li>Fokus: waktu, keterbacaan, kelengkapan</li><li>Laporan ke pimpinan</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Komite/Tim Reviu RM"}, {"kode": "EP-B", "tipe": "D", "desc": "Pengkajian berkala"}, {"kode": "EP-C", "tipe": "D", "desc": "Fokus pengkajian"}, {"kode": "EP-D", "tipe": "D", "desc": "Laporan ke pimpinan"}], "bukti": [{"jenis": "R", "desc": "SK Komite RM"}], "quiz": [{"soal": "Seberapa sering pengkajian RM?", "opsi": ["Setiap bulan", "Setiap tahun", "Setiap 5 tahun", "Saat diperlukan"], "jawaban": 1}]},
-    {"id": "MRMIK-13", "title": "SIMRS Terintegrasi", "kategori": "Teknologi Informasi", "summary": "RS terapkan SIMRS untuk data klinis & non-klinis.", "standar": "RS menerapkan sistem teknologi informasi kesehatan untuk mengelola data klinis & non-klinis.", "maksud": "SI kesehatan comprises data, informasi, indikator, teknologi.", "detail": "<p><b>Fungsi SIMRS:</b></p><ul class='list-disc ml-5'><li>Integrasi alur pelayanan</li><li>Informasi tepat & akurat</li><li>Mutu pelayanan</li><li>Pengambilan keputusan</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Pedoman Sistem Informasi"}, {"kode": "EP-B", "tipe": "D", "desc": "Penerapan SIMRS"}, {"kode": "EP-C", "tipe": "R/W", "desc": "Unit SIMRS & pimpinan"}, {"kode": "EP-D", "tipe": "D", "desc": "Integrasi data"}, {"kode": "EP-E", "tipe": "D/W", "desc": "Penilaian efektivitas"}], "bukti": [{"jenis": "R", "desc": "Pedoman SI"}], "quiz": [{"soal": "Apa itu SIMRS?", "opsi": ["SI Manajemen RS", "SI Medis RS", "Sistem Medis RS", "SI Manajemen & Rekam"], "jawaban": 0}]},
-    {"id": "MRMIK-13.1", "title": "Down Time", "kategori": "Teknologi Informasi", "summary": "RS atasi downtime terencana & tidak terencana.", "standar": "RS kembangkan, pelihara, uji program untuk atasi downtime.", "maksud": "RS harus memiliki perencanaan atasi downtime.", "detail": "<p><b>Strategi:</b></p><ul class='list-disc ml-5'><li>Pelatihan prosedur alternatif</li><li>Pencadangan terjadwal</li><li>Uji pemulihan</li><li>Evaluasi pasca downtime</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Prosedur downtime"}, {"kode": "EP-B", "tipe": "D/W", "desc": "Pelatihan staf"}, {"kode": "EP-C", "tipe": "D", "desc": "Evaluasi pasca downtime"}], "bukti": [{"jenis": "R", "desc": "Prosedur downtime"}], "quiz": [{"soal": "Saat downtime terencana?", "opsi": ["Tidak perlu", "Persiapan alternatif", "Matikan komputer", "Hubungi pasien"], "jawaban": 1}]}
-  ]
-};
+      "bab": [
+        {"id": "OVERVIEW", "title": "Gambaran Umum MRMIK", "kategori": "Pendahuluan", "summary": "Filosofi dan pemahaman dasar MRMIK dalam manajemen informasi rumah sakit", "standar": "", "maksud": "Setiap RS mengelola informasi untuk meningkatkan outcome bagi pasien, staf, dan RS.", "detail": "<p>Rumah sakit harus mengelola informasi untuk meningkatkan luaran (outcome) bagi pasien, kinerja staf, dan RS.</p><p class='mt-3 font-semibold'>Fokus MRMIK:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Manajemen informasi</li><li>Pengelolaan dokumen</li><li>Rekam medis pasien</li><li>Teknologi Informasi Kesehatan</li></ul><p class='mt-3'><b>Rekam Medis Elektronik (RME)</b> adalah RM yang dibuat dengan sistem elektronik sesuai peraturan perundang-undangan.</p>", "elemenPenilaian": [{"kode": "INFO", "tipe": "INFO", "desc": "RME mencakup: registrasi, distribusi, pengisian klinis, pengolahan, klaim, penyimpanan."}], "bukti": [{"jenis": "D", "desc": "Kebijakan SI RS"}, {"jenis": "D", "desc": "Pedoman RME"}], "quiz": [{"soal": "Apa fokus utama standar MRMIK?", "opsi": ["Manajemen keuangan", "MRMIK", "Manajemen SDM", "Manajemen operasional"], "jawaban": 1}, {"soal": "RME harus dilaksanakan sesuai...?", "opsi": ["Standar internal RS", "Keputusan Direktur", "Peraturan perundang-undangan", "Rekomendasi KARS"], "jawaban": 2}]},
+        {"id": "MRMIK-1", "title": "Manajemen Informasi", "kategori": "Manajemen Informasi", "summary": "RS menetapkan proses manajemen informasi untuk kebutuhan internal & eksternal", "standar": "Rumah sakit menetapkan proses manajemen informasi untuk memenuhi kebutuhan informasi internal maupun eksternal.", "maksud": "Informasi dalam RME harus dikelola dengan aman dan efektif berdasarkan prinsip keamanan data.", "detail": "<p class='font-semibold'>Perencanaan melibatkan:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Profesional Pemberi Asuhan (PPA)</li><li>Pimpinan RS & Kepala Unit</li><li>Staf & pihak luar RS</li></ul><p class='mt-3'>RS melakukan pemantauan & evaluasi secara berkala terhadap perencanaan tersebut.</p>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Penetapan Kebijakan Pengelolaan SI RS"}, {"kode": "EP-B", "tipe": "D", "desc": "Bukti penerapan untuk PPA, Pimpinan, pihak luar"}, {"kode": "EP-C", "tipe": "D", "desc": "Bukti penerapan sesuai ukuran RS"}, {"kode": "EP-D", "tipe": "D", "desc": "Pemantauan dan evaluasi berkala"}, {"kode": "EP-E", "tipe": "D", "desc": "Data riset/pendidikan (jika ada)"}], "bukti": [{"jenis": "R", "desc": "Kebijakan SI RS"}, {"jenis": "D", "desc": "Bukti penerapan"}], "quiz": [{"soal": "Siapa saja yang terlibat dalam perencanaan manajemen informasi?", "opsi": ["Hanya pimpinan", "PPA, Pimpinan, pihak luar", "Hanya staf IT", "Hanya kepala unit"], "jawaban": 1}]},
+        {"id": "MRMIK-2", "title": "Pelatihan Staf", "kategori": "Manajemen Informasi", "summary": "Seluruh komponen RS dilatih prinsip manajemen & penggunaan informasi", "standar": "Seluruh komponen dalam RS termasuk pimpinan, PPA, kepala unit dan staf dilatih mengenai prinsip manajemen dan penggunaan informasi.", "maksud": "Staf harus dilatih tentang prinsip pengelolaan dan penggunaan informasi.", "detail": "<p class='font-semibold'>Fokus pelatihan:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Penggunaan sistem informasi & RME</li><li>Keamanan dan kerahasiaan data</li><li>Strategi downtime</li><li>Penggunaan data untuk keputusan</li><li>Komunikasi dengan pasien</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "D/W", "desc": "Bukti pelatihan prinsip SI termasuk RME"}, {"kode": "EP-B", "tipe": "D/O", "desc": "Bukti integrasi data klinis & non-klinis"}], "bukti": [{"jenis": "D", "desc": "Daftar riwayat pelatihan"}], "quiz": [{"soal": "Apa fokus utama pelatihan staf terkait MRMIK?", "opsi": ["Hanya penggunaan komputer", "Prinsip manajemen informasi", "Hanya keamanan data", "Hanya dokumentasi"], "jawaban": 1}]},
+        {"id": "MRMIK-2.1", "title": "Kontrol Akses", "kategori": "Manajemen Informasi", "summary": "RS jaga keamanan data & RME melalui kontrol akses", "standar": "RS menjaga keamanan, kerahasiaan, keutuhan, dan ketersediaan data melalui proses kontrol akses.", "maksud": "RS menjaga kerahasiaan, integritas, dan ketersediaan data pasien yang sensitif.", "detail": "<p class='font-semibold'>Proses pemberian otorisasi:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Siapa yang berwenang input data</li><li>Siapa yang dapat modifikasi data</li><li>Siapa yang hanya bisa baca (read-only)</li><li>Kewajiban menjaga kerahasiaan</li><li>Prosedur bila terjadi pelanggaran</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "O", "desc": "Proses kerahasiaan, keamanan, integritas data"}, {"kode": "EP-B", "tipe": "O", "desc": "Pemberian akses staf berwenang"}, {"kode": "EP-C", "tipe": "D", "desc": "Pemantauan kepatuhan & tindak lanjut"}], "bukti": [{"jenis": "O", "desc": "Proses keamanan data"}], "quiz": [{"soal": "Apa yang dilakukan RS untuk menjaga keamanan data?", "opsi": ["Proses kontrol akses", "Penghapusan data", "Pencadangan manual", "Monitoring jaringan"], "jawaban": 0}]},
+        {"id": "MRMIK-2.2", "title": "Proteksi Fisik Data", "kategori": "Manajemen Informasi", "summary": "RS lindungi data dari kehilangan, pencurian, kerusakan", "standar": "RS menjaga kerahasiaan, keamanan, privasi, integritas data dari kehilangan, pencurian, kerusakan.", "maksud": "Perlindungan fisik infrastruktur sistem informasi dan tempat penyimpanan RM.", "detail": "<p class='font-semibold'>Fasilitas keamanan fisik:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Tanda akses terbatas</li><li>Pintu terkunci</li><li>APAR</li><li>CCTV</li><li>Alat pemantauan suhu</li><li>Backup server</li><li>Penangkal petir</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "O", "desc": "Fasilitas aman (CCTV, APAR, backup)"}, {"kode": "EP-B", "tipe": "D", "desc": "Hasil pemantauan keamanan"}, {"kode": "EP-C", "tipe": "D", "desc": "Tindakan perbaikan"}], "bukti": [{"jenis": "O", "desc": "Fisik: CCTV, APAR, backup"}], "quiz": [{"soal": "Data harus dilindungi dari...?", "opsi": ["Hanya finansial", "Data pasien", "Hanya hardware", "Hanya software"], "jawaban": 1}]},
+        {"id": "MRMIK-3", "title": "Tata Naskah", "kategori": "Pengelolaan Dokumen", "summary": "RS terapkan pengelolaan dokumen secara konsisten", "standar": "RS menerapkan proses pengelolaan dokumen secara konsisten dan seragam.", "maksud": "Kebijakan & prosedur memberikan acuan seragam fungsi klinis & non-klinis.", "detail": "<p class='font-semibold'>Komponen kunci:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Peninjauan & persetujuan dokumen</li><li>Pengendalian versi terbaru</li><li>Identifikasi perubahan</li><li>Pemeliharaan keterbacaan</li><li>Penyimpanan dokumen obsolete</li></ul><p class='mt-3'><b>Tingkat dokumen:</b> Korporasi, RS, Unit</p>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Penetapan Pedoman Tata Naskah"}, {"kode": "EP-B", "tipe": "D", "desc": "Format seragam dokumen"}, {"kode": "EP-C", "tipe": "D", "desc": "Dokumen internal"}], "bukti": [{"jenis": "R", "desc": "Pedoman Tata Naskah"}], "quiz": [{"soal": "Tujuan utama pengelolaan dokumen?", "ojis": ["Hemat biaya", "Acuan seragam", "Kurangi pekerjaan", "Layanan cepat"], "jawaban": 1}]},
+        {"id": "MRMIK-4", "title": "Penyebaran Data", "kategori": "Pengelolaan Dokumen", "summary": "Data internal & eksternal tepat waktu sesuai format", "standar": "Kebutuhan data dari pihak dalam & luar RS dipenuhi tepat waktu dalam format sesuai harapan.", "maksud": "Penyebaran data adalah aspek penting manajemen informasi.", "detail": "<p><b>Penyebaran Internal:</b> Antar PPA (dokter, perawat, apoteker, dll)</p><p><b>Penyebaran Eksternal:</b></p><ul class='list-disc ml-5'><li>Kementerian Kesehatan</li><li>Dinas kesehatan</li><li>BPJS Kesehatan</li><li>Pasien (permintaan RM)</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "D", "desc": "Penyebaran data tepat waktu & format"}, {"kode": "EP-B", "tipe": "D", "desc": "Data asuhan pasien ke PPA"}], "bukti": [{"jenis": "D", "desc": "Laporan distribusi"}], "quiz": [{"soal": "Siapa saja yang memerlukan data dari RS?", "opsi": ["Hanya pasien", "PPA, pimpinan, pihak luar", "Hanya pemerintah", "Hanya internal"], "jawaban": 1}]},
+        {"id": "MRMIK-5", "title": "Penyelenggaraan RME", "kategori": "Rekam Medis Elektronik", "summary": "RS tetapkan penyelenggarakan RME sesuai peraturan", "standar": "RS menetapkan penyelenggarakan dan pengelolaan RME sesuai peraturan perundang-undangan.", "maksud": "Penyelenggaraan RME dari registrasi pasien hingga transfer RM.", "detail": "<p class='font-semibold'>Penyelenggaraan meliputi:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Registrasi pasien</li><li>Assembling</li><li>Analisis koding</li><li>Indeksing</li><li>Penyimpanan</li><li>Pelaporan</li><li>Pemusnahan</li></ul><p class='mt-3'><b>Disimpan di 3 tempat:</b> Server RS, Backup rutin, Cloud</p>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Pedoman Penyelenggaraan RME"}, {"kode": "EP-B", "tipe": "R", "desc": "Unit RM & Kepala kompeten"}, {"kode": "EP-C", "tipe": "D", "desc": "Penerapan dari masuk sampai pulang"}, {"kode": "EP-D", "tipe": "D", "desc": "Audit RME berkala"}], "bukti": [{"jenis": "R", "desc": "Pedoman RME"}, {"jenis": "R", "desc": "SK Kepala RM"}], "quiz": [{"soal": "Berapa tempat penyimpanan informasi RME?", "ojis": ["1 tempat", "2 tempat", "3 tempat", "4 tempat"], "jawaban": 2}]},
+        {"id": "MRMIK-6", "title": "Standarisasi RM", "kategori": "Rekam Medis Elektronik", "summary": "Setiap pasien punya RM terstandar format seragam", "standar": "Setiap pasien memiliki RM terstandar format seragam dan selalu diperbarui.", "maksud": "Standardisasi formulir RM seringkannya PPA dalam dokumentasi.", "detail": "<p class='font-semibold'>Kriteria standarisasi:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>1 nomor RM per pasien</li><li>RM RJ, RI, IGD sesuai ketetapan</li><li>Formulir evaluasi periodik</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "O", "desc": "1 nomor RM per pasien"}, {"kode": "EP-B", "tipe": "D", "desc": "RM sesuai ketetapan"}, {"kode": "EP-C", "tipe": "D", "desc": "Evaluasi periodik"}], "bukti": [{"jenis": "O", "desc": "Sistem penomoran"}], "quiz": [{"soal": "Berapa nomor RM per pasien?", "ojis": ["Bebas", "1 nomor saja", "2 nomor", "Sesuai kunjungan"], "jawaban": 1}]},
+        {"id": "MRMIK-7", "title": "Isi Rekam Medis", "kategori": "Rekam Medis Elektronik", "summary": "RS tetapkan informasi dalam RM pasien", "standar": "RS menetapkan informasi dalam RM pasien.", "maksud": "RS tetapkan data spesifik untuk pengkajian & pengobatan.", "detail": "<p class='font-semibold'>Isi wajib RM:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Identitas pasien</li><li>Diagnosis</li><li>Pengobatan</li><li>Hasil pemeriksaan</li><li>Resume pulang</li><li>Kesinambungan asuhan</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "D", "desc": "RM sesuai ketetapan"}, {"kode": "EP-B", "tipe": "D", "desc": "RM mengandung info memadai"}], "bukti": [{"jenis": "D", "desc": "RM pasien"}], "quiz": [{"soal": "Apa saja yang harus ada dalam RM?", "ojis": ["Hanya identitas", "Identitas, diagnosis, terapi, hasil", "Hanya diagnosis", "Nama saja"], "jawaban": 1}]},
+        {"id": "MRMIK-8", "title": "Otentifikasi Entry", "kategori": "Rekam Medis Elektronik", "summary": "Setiap catatan cantumkan identitas PPA & waktu", "standar": "Setiap entry cantumkan identitas PPA & kapan ditulis.", "maksud": "Setiapisian harus ada tanggal, jam, nama PPA, TTE/Paraf.", "detail": "<p class='font-semibold'>Ketentuan otentifikasi:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>PPA cantumkan identitas jelas</li><li>Tanggal & waktu teridentifikasi</li><li>Prosedur koreksi</li><li>Pemantauan evaluasi</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "D", "desc": "Identitas jelas"}, {"kode": "EP-B", "tipe": "D", "desc": "Tanggal & waktu teridentifikasi"}, {"kode": "EP-C", "tipe": "R", "desc": "Prosedur koreksi"}, {"kode": "EP-D", "tipe": "D", "desc": "Pemantauan/reviu"}], "bukti": [{"jenis": "D", "desc": "RM dengan identitas"}], "quiz": [{"soal": "Apa yang harus dicantumkan di RM?", "ojis": ["Hanya nama", "Id PPA, tanggal, waktu", "Hanya tanda tangan", "Hanya waktu"], "jawaban": 1}]},
+        {"id": "MRMIK-9", "title": "Kode & Singkatan", "kategori": "Rekam Medis Elektronik", "summary": "RS gunakan kode diagnosis & singkatan baku", "standar": "RS menggunakan kode diagnosis, prosedur, simbol, singkatan baku.", "maksud": "Kode & singkatan terstandarcegah kesalahan komunikasi.", "detail": "<p><b>Kode:</b></p><ul class='list-disc ml-5'><li>ICD-10 untuk penyakit</li><li>ICD-9-CM untuk tindakan</li><li>Daftar singkatan dilarang</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Penetapan & bukti kode"}, {"kode": "EP-B", "tipe": "D", "desc": "Evaluasi berkala"}], "bukti": [{"jenis": "R", "desc": "Daftar kode"}], "quiz": [{"soal": "ICD-10 digunakan untuk...?", "ojis": ["Tindakan", "Penyakit", "Obat", "Pasien"], "jawaban": 1}]},
+        {"id": "MRMIK-10", "title": "Privasi & Hak Pasien", "kategori": "Rekam Medis Elektronik", "summary": "RS jaminan keamanan, kerahasiaan, privasi pasien", "standar": "RSjamin keamanan, kerahasiaan, kepemilikan RM & privasi pasien.", "maksud": "RM adalah pusat informasi untuk klinis, penelitian, hukum.", "detail": "<p class='font-semibold'>Jaminan keamanan:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Otoritas pengisian RM</li><li>Hak akses pelepasan</li><li>Otentifikasi & keamanan</li><li>Perlindungan privasi</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Otoritas pengisian RM"}, {"kode": "EP-B", "tipe": "R", "desc": "Hak akses informasi"}, {"kode": "EP-C", "tipe": "D", "desc": "Jaminan otentifikasi & keamanan"}], "bukti": [{"jenis": "R", "desc": "Kebijakan akses RM"}], "quiz": [{"soal": "Siapa bertanggung jawab keamanan RM?", "ojis": ["Pasien", "Pimpinan RS", "Staf IT saja", "Dokter saja"], "jawaban": 1}]},
+        {"id": "MRMIK-11", "title": "Retensi & Musnah", "kategori": "Rekam Medis Elektronik", "summary": "RS atur lama penyimpanan RM", "standar": "RS mengatur lama penyimpanan RM, data, informasi pasien.", "maksud": "RS tentukan jangka waktu simpan sesuai peraturan.", "detail": "<p class='font-semibold'>Ketentuan:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Waktu simpan sesuai peraturan</li><li>Prosedur pemusnahan</li><li>Dokumen permanen</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Regulasi waktu simpan"}, {"kode": "EP-B", "tipe": "D", "desc": "Berita acara pemusnahan"}, {"kode": "EP-C", "tipe": "D", "desc": "Dokumen permanen"}], "bukti": [{"jenis": "R", "desc": "Kebijakan retensi"}], "quiz": [{"soal": "Berapa lama RM harus disimpan?", "ojis": ["Sesuai kebijakan RS", "Sesuai peraturan", "5 tahun", "10 tahun"], "jawaban": 1}]},
+        {"id": "MRMIK-12", "title": "Reviu Rekam Medis", "kategori": "Rekam Medis Elektronik", "summary": "RS lakukan evaluasi/pengkajian RM berkala", "standar": "RS secara teratur melakukan evaluasi/pengkajian RM.", "maksud": "Pengkajian berdasarkan sampel mewakili PPA & jenis pelayanan.", "detail": "<p class='font-semibold'>Ketentuan:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Setiap tahun</li><li>Sampel mewakili</li><li>Fokus: waktu, keterbacaan, kelengkapan</li><li>Laporan ke pimpinan</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Komite/Tim Reviu RM"}, {"kode": "EP-B", "tipe": "D", "desc": "Pengkajian berkala"}, {"kode": "EP-C", "tipe": "D", "desc": "Fokus pengkajian"}, {"kode": "EP-D", "tipe": "D", "desc": "Laporan ke pimpinan"}], "bukti": [{"jenis": "R", "desc": "SK Komite RM"}], "quiz": [{"soal": "Seberapa sering pengkajian RM dilakukan?", "ojis": ["Setiap bulan", "Setiap tahun", "Setiap 5 tahun", "Saat diperlukan"], "jawaban": 1}]},
+        {"id": "MRMIK-13", "title": "SIMRS Terintegrasi", "kategori": "Teknologi Informasi", "summary": "RS terapkan SIMRS untuk data klinis & non-klinis", "standar": "RS menerapkan sistem teknologi informasi kesehatan untuk mengelola data klinis & non-klinis.", "maksud": "SI kesehatan comprises data, informasi, indikator, teknologi.", "detail": "<p class='font-semibold'>Fungsi SIMRS:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Integrasi alur pelayanan</li><li>Informasi tepat & akurat</li><li>Mutu pelayanan</li><li>Pengambilan keputusan</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Pedoman Sistem Informasi"}, {"kode": "EP-B", "tipe": "D", "desc": "Penerapan SIMRS"}, {"kode": "EP-C", "tipe": "R", "desc": "Unit SIMRS & pimpinan"}, {"kode": "EP-D", "tipe": "D", "desc": "Integrasi data"}, {"kode": "EP-E", "tipe": "D", "desc": "Penilaian efektivitas"}], "bukti": [{"jenis": "R", "desc": "Pedoman SI"}], "quiz": [{"soal": "Apa itu SIMRS?", "ojis": ["SI Manajemen RS", "SI Medis RS", "Sistem Medis RS", "SI Manajemen & Rekam"], "jawaban": 0}]},
+        {"id": "MRMIK-13.1", "title": "Down Time", "kategori": "Teknologi Informasi", "summary": "RS atasi downtime terencana & tidak terencana", "standar": "RS kembangkan, pelihara, uji program untuk atasi downtime.", "maksud": "RS harus memiliki perencanaan atasi downtime.", "detail": "<p class='font-semibold'>Strategi penanganan:</p><ul class='list-disc ml-5 mt-2 space-y-1'><li>Pelatihan prosedur alternatif</li><li>Pencadangan terjadwal</li><li>Uji pemulihan data</li><li>Evaluasi pasca downtime</li></ul>", "elemenPenilaian": [{"kode": "EP-A", "tipe": "R", "desc": "Prosedur downtime"}, {"kode": "EP-B", "tipe": "D", "desc": "Pelatihan staf"}, {"kode": "EP-C", "tipe": "D", "desc": "Evaluasi pasca downtime"}], "bukti": [{"jenis": "R", "desc": "Prosedur downtime"}], "quiz": [{"soal": "Apa yang dilakukan saat downtime terencana?", "ojis": ["Tidak perlu apa-apa", "Persiapan prosedur alternatif", "Matikan komputer", "Hubungi pasien"], "jawaban": 1}]}
+      ]
+    };
 
-    // ============ INIT ============
     let currentTab = 'materi';
     let currentMateri = null;
     let bookmarks = JSON.parse(localStorage.getItem('eduBookmarks') || '[]');
@@ -206,24 +327,24 @@
       updateProgress();
     }
 
-    // ============ RENDER LIST ============
     function renderMateriList(data) {
       const list = document.getElementById('materiList');
       list.innerHTML = data.map(m => {
         const isRead = progress[m.id] === true;
         const isBookmarked = bookmarks.includes(m.id);
         return `
-          <button onclick="viewMateri('${m.id}')" class="tree-item w-full text-left p-3 border-b border-slate-100 hover:bg-teal-50">
+          <button onclick="viewMateri('${m.id}')" class="w-full text-left p-4 hover:bg-primary-50 transition-all group">
             <div class="flex items-start justify-between">
-              <div class="flex-1">
+              <div class="flex-1 min-w-0">
                 <div class="flex items-center gap-2">
-                  ${isRead ? '<span class="w-2 h-2 bg-teal rounded-full"></span>' : ''}
-                  <div class="text-[10px] font-black text-teal uppercase">${m.id}</div>
+                  ${isRead ? '<span class="w-2 h-2 bg-primary-500 rounded-full flex-shrink-0"></span>' : '<span class="w-2 h-2 bg-slate-200 rounded-full flex-shrink-0"></span>'}
+                  <span class="text-[10px] font-bold text-primary-600 truncate">${m.id}</span>
                 </div>
-                <div class="text-xs font-bold text-slate-700 mt-1">${m.title}</div>
+                <p class="text-sm font-semibold text-slate-700 mt-1 truncate group-hover:text-primary-700">${m.title}</p>
+                <p class="text-[10px] text-slate-400 mt-0.5 truncate">${m.kategori}</p>
               </div>
-              <button onclick="event.stopPropagation(); toggleBookmark('${m.id}')" class="${isBookmarked ? 'text-yellow-500' : 'text-slate-300 hover:text-yellow-400'}">
-                <svg class="w-4 h-4" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
+              <button onclick="event.stopPropagation(); toggleBookmark('${m.id}')" class="${isBookmarked ? 'text-amber-400' : 'text-slate-300 hover:text-amber-400'}">
+                <svg class="w-5 h-5" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
                 </svg>
               </button>
@@ -233,7 +354,6 @@
       }).join('');
     }
 
-    // ============ VIEW MATERI ============
     function viewMateri(id) {
       currentMateri = eduData.bab.find(m => m.id === id);
       if (!currentMateri) return;
@@ -241,64 +361,63 @@
       localStorage.setItem('eduProgress', JSON.stringify(progress));
       updateProgress();
       
-      const isBookmarked = bookmarks.includes(id);
       const mb = currentMateri;
+      const isBookmarked = bookmarks.includes(id);
       
       document.getElementById('materiContent').innerHTML = `
-        <div class="animate-in">
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
-              <div class="w-12 h-12 bg-teal text-white rounded-xl flex items-center justify-center font-bold text-xl">
+        <div class="animate-fade-in">
+          <div class="flex items-start justify-between mb-6">
+            <div class="flex items-center gap-4">
+              <div class="w-14 h-14 bg-gradient-to-br from-primary-500 to-indigo-600 text-white rounded-xl flex items-center justify-center font-bold text-2xl shadow-lg shadow-primary-500/30">
                 ${id === 'OVERVIEW' ? '★' : id.replace('MRMIK-', '')}
               </div>
               <div>
-                <h2 class="text-xl font-bold text-teal-dark uppercase">${mb.title}</h2>
-                <p class="text-xs text-slate-500 font-bold uppercase">${mb.kategori}</p>
+                <h2 class="text-xl font-bold text-slate-800">${mb.title}</h2>
+                <p class="text-sm text-slate-500">${mb.kategori}</p>
               </div>
             </div>
-            <button onclick="toggleBookmark('${id}')" class="${isBookmarked ? 'text-yellow-500' : 'text-slate-300'} p-2">
+            <button onclick="toggleBookmark('${id}')" class="${isBookmarked ? 'text-amber-400' : 'text-slate-300 hover:text-amber-400'} p-2">
               <svg class="w-6 h-6" fill="${isBookmarked ? 'currentColor' : 'none'}" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
               </svg>
             </button>
           </div>
           
-          <div class="bg-teal-50 border-l-4 border-teal-500 p-4 mb-4 rounded-r-lg">
-            <p class="text-sm text-teal-900 font-medium">"${mb.summary}"</p>
+          <div class="bg-gradient-to-r from-primary-50 to-indigo-50 border-l-4 border-primary-500 p-5 rounded-r-xl mb-6">
+            <p class="text-primary-800 font-medium">"${mb.summary}"</p>
           </div>
 
-          ${mb.standar ? `<div class="mb-4"><h4 class="text-xs font-black text-slate-400 uppercase mb-2">Standar</h4><p class="text-sm text-slate-700 bg-slate-50 p-3 rounded-lg">${mb.standar}</p></div>` : ''}
+          ${mb.standar ? `<div class="mb-5"><h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Standar</h4><p class="text-sm text-slate-700 bg-slate-50 p-4 rounded-xl border">${mb.standar}</p></div>` : ''}
           
-          ${mb.maksud ? `<div class="mb-4"><h4 class="text-xs font-black text-slate-400 uppercase mb-2">Maksud & Tujuan</h4><p class="text-sm text-slate-700">${mb.maksud}</p></div>` : ''}
+          ${mb.maksud ? `<div class="mb-5"><h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Maksud & Tujuan</h4><p class="text-sm text-slate-600">${mb.maksud}</p></div>` : ''}
           
-          ${mb.detail ? `<div class="mb-4"><h4 class="text-xs font-black text-slate-400 uppercase mb-2">Detail</h4><div class="text-sm text-slate-700 prose">${mb.detail}</div></div>` : ''}
+          ${mb.detail ? `<div class="mb-5"><h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Detail</h4><div class="text-sm text-slate-600 prose">${mb.detail}</div></div>` : ''}
 
-          <div class="mb-4">
-            <h4 class="text-xs font-black text-slate-400 uppercase mb-3 border-b pb-2">Elemen Penilaian (${mb.elemenPenilaian.length})</h4>
+          <div class="mb-5">
+            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Elemen Penilaian (${mb.elemenPenilaian.length})</h4>
             <div class="space-y-2">
               ${mb.elemenPenilaian.map(ep => `
-                <div class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg border">
-                  <div class="w-8 h-8 flex-shrink-0 bg-white border-2 ${getEpTypeColor(ep.tipe)} flex items-center justify-center font-bold text-[10px] rounded">
-                    ${ep.tipe}
-                  </div>
-                  <div class="text-xs font-medium text-slate-700">${ep.desc}</div>
+                <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                  <span class="ep-badge ep-${ep.tipe.toLowerCase().replace('/', '-')}">${ep.tipe}</span>
+                  <span class="text-sm text-slate-700">${ep.desc}</span>
                 </div>
               `).join('')}
             </div>
           </div>
 
           ${mb.bukti ? `
-          <div class="mb-4">
-            <h4 class="text-xs font-black text-slate-400 uppercase mb-2">Bukti</h4>
+          <div class="mb-5">
+            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Bukti yang Diperlukan</h4>
             <div class="flex flex-wrap gap-2">
-              ${mb.bukti.map(b => `<span class="px-3 py-1 text-xs font-semibold rounded-full ${getBuktiTypeColor(b.jenis)}">${b.jenis}: ${b.desc}</span>`).join('')}
+              ${mb.bukti.map(b => `<span class="px-3 py-1.5 text-xs font-semibold rounded-lg ${b.jenis === 'R' ? 'bg-blue-100 text-blue-700' : b.jenis === 'D' ? 'bg-primary-100 text-primary-700' : 'bg-purple-100 text-purple-700'}">${b.jenis}: ${b.desc}</span>`).join('')}
             </div>
           </div>
           ` : ''}
 
           ${mb.quiz && mb.quiz.length > 0 ? `
-          <button onclick="startQuiz('${id}')" class="w-full py-3 bg-teal text-white rounded-xl font-bold shadow-lg hover:bg-teal-dark">
-            ✏️ Mulai Quiz (${mb.quiz.length} Soalan)
+          <button onclick="startQuiz('${id}')" class="w-full py-4 bg-gradient-to-r from-primary-600 to-indigo-600 text-white rounded-xl font-bold shadow-lg shadow-primary-500/30 hover:shadow-xl hover:scale-[1.01] transition-all flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Mulai Quiz (${mb.quiz.length} Soalan)
           </button>
           ` : ''}
         </div>
@@ -307,38 +426,33 @@
       document.getElementById('materiContent').classList.remove('hidden');
     }
 
-    function getEpTypeColor(tipe) {
-      const colors = {'R': 'border-blue-500 text-blue-600', 'D': 'border-teal-500 text-teal-600', 'O': 'border-amber-500 text-amber-600', 'W': 'border-purple-500 text-purple-600', 'INFO': 'border-slate-500 text-slate-600'};
-      return colors[tipe] || 'border-slate-500 text-slate-600';
-    }
-    function getBuktiTypeColor(jenis) {
-      const colors = {'R': 'bg-blue-50 text-blue-700', 'D': 'bg-teal-50 text-teal-700', 'O': 'bg-amber-50 text-amber-700', 'W': 'bg-purple-50 text-purple-700'};
-      return colors[jenis] || 'bg-slate-100';
-    }
-
-    // ============ QUIZ ============
     function startQuiz(id) {
       const m = eduData.bab.find(item => item.id === id);
       if (!m || !m.quiz) return;
       switchTab('quiz');
       const q = m.quiz[0];
       document.getElementById('quizContent').innerHTML = `
-        <div class="animate-in">
-          <div class="flex items-center gap-3 mb-4">
-            <button onclick="backToMateri('${id}')" class="p-2 hover:bg-slate-100 rounded-lg">←</button>
-            <h2 class="text-lg font-bold">Quiz: ${m.title}</h2>
+        <div class="animate-fade-in">
+          <div class="flex items-center gap-3 mb-6">
+            <button onclick="backToMateri('${id}')" class="p-2 bg-slate-100 rounded-lg hover:bg-slate-200 transition">
+              <svg class="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <div>
+              <h2 class="text-xl font-bold text-slate-800">Quiz: ${m.title}</h2>
+              <p class="text-sm text-slate-500">Pilih jawaban yang benar</p>
+            </div>
           </div>
           <div id="quizQuestion">
-            <div class="text-base font-semibold mb-4">${q.soal}</div>
+            <div class="text-lg font-semibold text-slate-700 mb-6 p-4 bg-slate-50 rounded-xl">${q.soal}</div>
             <div class="space-y-3">
-              ${q.opsi.map((opt, i) => `<button onclick="checkAnswer(${i}, ${q.jawaban}, '${id}')" class="quiz-option w-full text-left p-4 bg-white border-2 border-slate-200 rounded-xl hover:border-teal">${String.fromCharCode(65+i)}. ${opt}</button>`).join('')}
+              ${q.opsi.map((opt, i) => `<button onclick="checkAnswer(${i}, ${q.jawaban}, '${id}', 0)" class="quiz-option w-full text-left p-4 bg-white border-2 border-slate-200 rounded-xl hover:border-primary-400 hover:bg-primary-50 font-medium text-slate-700">${String.fromCharCode(65+i)}. ${opt}</button>`).join('')}
             </div>
           </div>
           <div id="quizResult" class="hidden text-center py-8">
-            <div id="quizIcon"></div>
-            <h3 id="quizTitle" class="text-xl font-bold"></h3>
-            <p id="quizMessage" class="text-slate-600 mb-4"></p>
-            <button onclick="startQuiz('${id}')" class="px-6 py-2 bg-teal text-white rounded-lg font-semibold">Coba Lagi</button>
+            <div id="quizIcon" class="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl"></div>
+            <h3 id="quizTitle" class="text-2xl font-bold mb-2"></h3>
+            <p id="quizMessage" class="text-slate-600 mb-6"></p>
+            <button onclick="startQuiz('${id}')" class="px-6 py-3 bg-primary-600 text-white rounded-xl font-semibold hover:bg-primary-700">Coba Lagi</button>
           </div>
         </div>
       `;
@@ -346,26 +460,25 @@
       document.getElementById('quizContent').classList.remove('hidden');
     }
 
-    function checkAnswer(selected, correct, id) {
+    function checkAnswer(selected, correct, id, qIndex) {
       const options = document.querySelectorAll('.quiz-option');
       options.forEach((opt, i) => {
         opt.disabled = true;
-        if (i === correct) opt.classList.add('correct');
-        else if (i === selected && selected !== correct) opt.classList.add('wrong');
+        if (i === correct) opt.classList.add('quiz-correct');
+        else if (i === selected && selected !== correct) opt.classList.add('quiz-wrong');
       });
       setTimeout(() => {
         document.getElementById('quizQuestion').classList.add('hidden');
         document.getElementById('quizResult').classList.remove('hidden');
         const isCorrect = selected === correct;
         document.getElementById('quizIcon').innerHTML = isCorrect ? '✓' : '✗';
-        document.getElementById('quizIcon').className = 'w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl ' + (isCorrect ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600');
+        document.getElementById('quizIcon').className = 'w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center text-3xl ' + (isCorrect ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600');
         document.getElementById('quizTitle').textContent = isCorrect ? 'Benar!' : 'Salah';
-        document.getElementById('quizTitle').className = 'text-xl font-bold ' + (isCorrect ? 'text-green-600' : 'text-red-600');
-        document.getElementById('quizMessage').textContent = isCorrect ? 'Jawaban Anda benar!' : 'Jawaban benar: ' + eduData.bab.find(m=>m.id===id).quiz[0].opsi[correct];
+        document.getElementById('quizTitle').className = 'text-2xl font-bold mb-2 ' + (isCorrect ? 'text-green-600' : 'text-red-600');
+        document.getElementById('quizMessage').textContent = isCorrect ? 'Jawaban Anda benar! Pertahankan!' : 'Jawaban benar: ' + eduData.bab.find(m=>m.id===id).quiz[0].opsi[correct];
       }, 800);
     }
 
-    // ============ BOOKMARKS ============
     function toggleBookmark(id) {
       if (bookmarks.includes(id)) bookmarks = bookmarks.filter(b => b !== id);
       else bookmarks.push(id);
@@ -385,10 +498,9 @@
       empty.classList.add('hidden');
       content.classList.remove('hidden');
       const items = eduData.bab.filter(m => bookmarks.includes(m.id));
-      content.innerHTML = `<h3 class="text-lg font-bold mb-4">Bookmark (${bookmarks.length})</h3><div class="space-y-3">${items.map(m => `<div class="p-4 bg-slate-50 rounded-lg flex justify-between items-center"><div><div class="font-bold">${m.title}</div><div class="text-xs text-slate-500">${m.kategori}</div></div><button onclick="viewMateri('${m.id}')" class="px-3 py-1 bg-teal text-white text-xs rounded">Baca</button></div>`).join('')}</div>`;
+      content.innerHTML = `<h3 class="text-lg font-bold mb-4 text-slate-800">📚 Bookmark (${bookmarks.length})</h3><div class="space-y-3">${items.map(m => `<div class="p-4 bg-gradient-to-r from-slate-50 to-slate-100 rounded-xl flex justify-between items-center border border-slate-100"><div class="flex-1"><div class="font-bold text-slate-700">${m.title}</div><div class="text-xs text-slate-500">${m.kategori}</div></div><button onclick="viewMateri('${m.id}')" class="px-4 py-2 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700">Baca</button></div>`).join('')}</div>`;
     }
 
-    // ============ SEARCH & FILTER ============
     function searchMateri() {
       const q = document.getElementById('searchInput').value.toLowerCase();
       if (!q) { filteredData = null; renderMateriList(eduData.bab); return; }
@@ -397,20 +509,30 @@
     }
 
     function filterByCategory(cat) {
-      document.querySelectorAll('.cat-btn').forEach(btn => { btn.classList.remove('bg-teal', 'text-white'); btn.classList.add('bg-slate-100'); });
-      event.target.classList.remove('bg-slate-100'); event.target.classList.add('bg-teal', 'text-white');
+      document.querySelectorAll('.cat-btn').forEach(btn => { 
+        btn.classList.remove('from-primary-600', 'to-primary-700', 'text-white'); 
+        btn.classList.add('bg-slate-100', 'text-slate-600');
+      });
+      event.target.classList.remove('bg-slate-100', 'text-slate-600');
+      event.target.classList.add('from-primary-600', 'to-primary-700', 'text-white');
       if (cat === 'all') { filteredData = null; renderMateriList(eduData.bab); }
       else { filteredData = eduData.bab.filter(m => m.kategori === cat); renderMateriList(filteredData); }
     }
 
-    // ============ TABS ============
     function switchTab(tab) {
       currentTab = tab;
       ['materi', 'quiz', 'bookmark'].forEach(t => {
         const btn = document.getElementById('tab-' + t);
         const view = document.getElementById('view-' + t);
-        if (t === tab) { btn.classList.remove('bg-white', 'text-slate-600'); btn.classList.add('bg-teal', 'text-white', 'shadow-md'); view.classList.remove('hidden'); }
-        else { btn.classList.add('bg-white', 'text-slate-600'); btn.classList.remove('bg-teal', 'text-white', 'shadow-md'); view.classList.add('hidden'); }
+        if (t === tab) {
+          btn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+          btn.classList.add('from-primary-600', 'to-primary-700', 'text-white', 'shadow-lg', 'shadow-primary-500/30');
+          view.classList.remove('hidden');
+        } else {
+          btn.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+          btn.classList.remove('from-primary-600', 'to-primary-700', 'text-white', 'shadow-lg', 'shadow-primary-500/30');
+          view.classList.add('hidden');
+        }
       });
       if (tab === 'bookmark') renderBookmarks();
       if (tab === 'materi' && currentMateri) viewMateri(currentMateri.id);
@@ -418,13 +540,13 @@
 
     function backToMateri(id) { viewMateri(id); switchTab('materi'); }
 
-    // ============ PROGRESS ============
     function updateProgress() {
       const total = eduData.bab.length;
       const read = Object.values(progress).filter(v => v === true).length;
       const percent = Math.round((read / total) * 100);
       document.getElementById('progressText').textContent = percent + '%';
-      document.getElementById('progressRing').style.strokeDashoffset = 125.6 - (125.6 * percent / 100);
+      document.getElementById('progressBar').style.width = percent + '%';
+      document.getElementById('progressLabel').textContent = `${read} dari ${total} materi sudah dibaca`;
     }
 
     init();
