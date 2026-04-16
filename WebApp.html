@@ -150,86 +150,88 @@
             <p class="text-sm text-gray-600 mt-1">Overview progress kelengkapan dokumen akreditasi</p>
           </div>
 
-          <!-- Success Alert Box -->
-          <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+          <!-- Alert Box Neo-Brutalist -->
+          <div class="bg-green-100 border-4 border-navy p-4 mb-8 shadow-[5px_5px_0px_#1f2937]">
             <div class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-green-600 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
+              <div class="p-1 bg-green-500 border-2 border-navy">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
               <div>
-                <div class="font-semibold text-green-800">Sistem Berjalan Normal</div>
-                <div class="text-sm text-green-700 mt-0.5">Semua dokumen akreditasi dapat dipantau melalui dashboard ini</div>
+                <div class="font-black text-navy uppercase tracking-tight">Sistem Berjalan Normal</div>
+                <div class="text-xs text-navy/70 font-bold uppercase mt-1">Semua dokumen akreditasi dapat dipantau melalui dashboard ini</div>
               </div>
             </div>
           </div>
 
           <!-- Stats Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <!-- Total Dokumen -->
-            <div class="card bg-white rounded-lg p-5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-              <div class="flex items-center justify-between mb-3">
-                <div class="text-sm text-gray-600 font-medium">Total Dokumen</div>
-                <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center">
+            <div class="bg-white border-4 border-navy p-6 shadow-[5px_5px_0px_#1f2937]">
+              <div class="flex items-center justify-between mb-4">
+                <div class="text-xs font-black text-gray-500 uppercase tracking-widest">Total Dokumen</div>
+                <div class="w-10 h-10 bg-blue-50 border-2 border-navy flex items-center justify-center shadow-[2px_2px_0px_#1f2937]">
                   <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                   </svg>
                 </div>
               </div>
-              <div class="text-3xl font-bold text-gray-800" id="totalDokumen">-</div>
+              <div class="text-4xl font-black text-navy" id="totalDokumen">-</div>
             </div>
 
             <!-- Lengkap -->
-            <div class="card bg-white rounded-lg p-5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-              <div class="flex items-center justify-between mb-3">
-                <div class="text-sm text-gray-600 font-medium">Lengkap</div>
-                <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center">
+            <div class="bg-white border-4 border-navy p-6 shadow-[5px_5px_0px_#1f2937]">
+              <div class="flex items-center justify-between mb-4">
+                <div class="text-xs font-black text-gray-500 uppercase tracking-widest">Lengkap</div>
+                <div class="w-10 h-10 bg-green-50 border-2 border-navy flex items-center justify-center shadow-[2px_2px_0px_#1f2937]">
                   <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
               </div>
-              <div class="text-3xl font-bold text-green-600" id="lengkapDokumen">-</div>
+              <div class="text-4xl font-black text-green-600" id="lengkapDokumen">-</div>
             </div>
 
             <!-- Draft/Review -->
-            <div class="card bg-white rounded-lg p-5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-              <div class="flex items-center justify-between mb-3">
-                <div class="text-sm text-gray-600 font-medium">Draft / Review</div>
-                <div class="w-10 h-10 bg-yellow-50 rounded-lg flex items-center justify-center">
+            <div class="bg-white border-4 border-navy p-6 shadow-[5px_5px_0px_#1f2937]">
+              <div class="flex items-center justify-between mb-4">
+                <div class="text-xs font-black text-gray-500 uppercase tracking-widest">Draft / Review</div>
+                <div class="w-10 h-10 bg-yellow-50 border-2 border-navy flex items-center justify-center shadow-[2px_2px_0px_#1f2937]">
                   <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </div>
               </div>
-              <div class="text-3xl font-bold text-yellow-600" id="draftDokumen">-</div>
+              <div class="text-4xl font-black text-brand-yellow drop-shadow-[2px_2px_0px_rgba(31,41,55,1)]" id="draftDokumen">-</div>
             </div>
 
             <!-- Persentase -->
-            <div class="card bg-white rounded-lg p-5" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-              <div class="flex items-center justify-between mb-3">
-                <div class="text-sm text-gray-600 font-medium">Persentase</div>
-                <div class="w-10 h-10 bg-teal-50 rounded-lg flex items-center justify-center">
-                  <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <div class="bg-navy border-4 border-navy p-6 shadow-[5px_5px_0px_#facc15]">
+              <div class="flex items-center justify-between mb-4">
+                <div class="text-xs font-black text-white/70 uppercase tracking-widest">Persentase</div>
+                <div class="w-10 h-10 bg-white/10 border-2 border-white/20 flex items-center justify-center shadow-[2px_2px_0px_rgba(255,255,255,0.2)]">
+                  <svg class="w-5 h-5 text-brand-yellow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                   </svg>
                 </div>
               </div>
-              <div class="text-3xl font-bold text-teal-600" id="persentase">-</div>
+              <div class="text-4xl font-black text-brand-yellow" id="persentase">-</div>
             </div>
           </div>
 
           <!-- Progress Bar -->
-          <div class="card bg-white rounded-lg p-6 mb-6" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-            <h2 class="text-base font-semibold text-gray-800 mb-4">PROGRESS KESELURUHAN</h2>
-            <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
-              <div id="progressBar" class="bg-teal h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+          <div class="bg-white border-4 border-navy p-6 mb-8 shadow-[8px_8px_0px_#1f2937]">
+            <h3 class="text-sm font-black text-navy uppercase tracking-widest mb-4">Progress Keseluruhan</h3>
+            <div class="w-full bg-gray-100 border-2 border-navy h-8 mb-4 relative overflow-hidden">
+              <div id="progressBar" class="bg-teal h-full transition-all flex items-center justify-center text-[10px] font-black text-white uppercase" style="width: 0%"></div>
             </div>
-            <p class="text-sm text-gray-600" id="progressText">0% kelengkapan</p>
+            <p id="progressText" class="text-xs font-bold text-gray-500 uppercase tracking-tight">0% kelengkapan (0 dari 0 dokumen)</p>
           </div>
 
           <!-- Progress per BAB -->
-          <div class="card bg-white rounded-lg p-6 mb-6" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-            <h2 class="text-base font-semibold text-gray-800 mb-4">PROGRESS PER BAB</h2>
+          <div class="bg-white border-4 border-navy p-6 mb-6 shadow-[8px_8px_0px_#1f2937]">
+            <h2 class="text-sm font-black text-navy uppercase tracking-widest mb-4">PROGRESS PER BAB</h2>
             <div id="perBabContainer" class="space-y-4">
               <div class="text-center py-8 text-gray-500">
                 <div class="spinner mx-auto mb-3"></div>

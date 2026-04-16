@@ -381,44 +381,54 @@ function getAllDokumen() {
 // ============================================
 
 function getDashboardData() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheetByName(CONFIG.SHEET_NAMES.DATA_DOKUMEN);
-  const dataRange = sheet.getDataRange().getValues();
-  
-  let total = 0;
-  let lengkap = 0;
-  let draft = 0;
-  let review = 0;
-  let belumMulai = 0;
-  
-  const perBab = {};
-  
-  for (let i = 1; i < dataRange.length; i++) {
-    total++;
-    const status = dataRange[i][5];
-    const bab = dataRange[i][2];
+  try {
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = ss.getSheetByName(CONFIG.SHEET_NAMES.DATA_DOKUMEN);
+    if (!sheet) return { total: 0, lengkap: 0, draft: 0, review: 0, belumMulai: 0, persentase: 0, perBab: {} };
     
-    if (status === 'Lengkap') lengkap++;
-    else if (status === 'Draft') draft++;
-    else if (status === 'Review') review++;
-    else belumMulai++;
+    const dataRange = sheet.getDataRange().getValues();
     
-    if (!perBab[bab]) {
-      perBab[bab] = { total: 0, lengkap: 0 };
+    let total = 0;
+    let lengkap = 0;
+    let draft = 0;
+    let review = 0;
+    let belumMulai = 0;
+    
+    const perBab = {};
+    
+    for (let i = 1; i < dataRange.length; i++) {
+      const row = dataRange[i];
+      if (!row[0] && !row[1]) continue; // Skip empty rows
+      
+      total++;
+      const status = String(row[5] || 'Belum Mulai');
+      const bab = String(row[2] || 'Lainnya');
+      
+      if (status === 'Lengkap') lengkap++;
+      else if (status === 'Draft') draft++;
+      else if (status === 'Review') review++;
+      else belumMulai++;
+      
+      if (!perBab[bab]) {
+        perBab[bab] = { total: 0, lengkap: 0 };
+      }
+      perBab[bab].total++;
+      if (status === 'Lengkap') perBab[bab].lengkap++;
     }
-    perBab[bab].total++;
-    if (status === 'Lengkap') perBab[bab].lengkap++;
+    
+    return {
+      total: total,
+      lengkap: lengkap,
+      draft: draft,
+      review: review,
+      belumMulai: belumMulai,
+      persentase: total > 0 ? Math.round((lengkap / total) * 100) : 0,
+      perBab: perBab
+    };
+  } catch (e) {
+    Logger.log('Error in getDashboardData: ' + e.message);
+    return { total: 0, lengkap: 0, draft: 0, review: 0, belumMulai: 0, persentase: 0, perBab: {} };
   }
-  
-  return {
-    total: total,
-    lengkap: lengkap,
-    draft: draft,
-    review: review,
-    belumMulai: belumMulai,
-    persentase: total > 0 ? Math.round((lengkap / total) * 100) : 0,
-    perBab: perBab
-  };
 }
 
 function exportLaporan() {
