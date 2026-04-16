@@ -407,11 +407,24 @@
               </div>
 
               <!-- Row 5 -->
-              <div>
-                <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Link File (Google Drive)</label>
-                <input type="url" id="link"
-                  class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
-                  placeholder="https://drive.google.com/...">
+              <div class="grid grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Skor Self-Assessment</label>
+                  <select id="skor"
+                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all">
+                    <option value="">Pilih Skor</option>
+                    <option value="1">1 - Tidak ada</option>
+                    <option value="2">2 - Ada sebagian</option>
+                    <option value="3">3 - Ada sebagian besar</option>
+                    <option value="4">4 - Lengkap</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Link File (Google Drive)</label>
+                  <input type="url" id="link"
+                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
+                    placeholder="https://drive.google.com/...">
+                </div>
               </div>
 
               <!-- Row 6 -->
@@ -619,17 +632,22 @@
     function submitForm() {
       showLoading();
 
+      const getVal = (id) => {
+        const el = document.getElementById(id);
+        return el ? el.value : '';
+      };
+
       const data = {
-        nama: document.getElementById('nama').value,
-        bab: document.getElementById('bab').value,
-        standar: document.getElementById('standar').value,
-        kriteria: document.getElementById('kriteria').value,
-        pic: document.getElementById('pic').value,
-        deadline: document.getElementById('deadline').value,
-        status: document.getElementById('status').value,
-        skor: document.getElementById('skor').value,
-        link: document.getElementById('link').value,
-        catatan: document.getElementById('catatan').value
+        nama: getVal('nama'),
+        bab: getVal('bab'),
+        status: getVal('status'),
+        standar: getVal('standar'),
+        kriteria: getVal('kriteria'),
+        pic: getVal('pic'),
+        deadline: getVal('deadline'),
+        skor: getVal('skor'),
+        link: getVal('link'),
+        catatan: getVal('catatan')
       };
 
       const editId = document.getElementById('editId').value;
