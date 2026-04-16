@@ -488,16 +488,89 @@
         box-shadow: 8px 8px 0px var(--gray-800);
     }
 
-    /* ===== CTA ===== */
-    .cta__box {
-        border: var(--border-w) solid var(--gray-800);
-        box-shadow: 15px 15px 0px var(--yellow-500);
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--gray-800);
+      color: var(--bg-white);
+      padding-top: 80px;
+      border-top: 5px solid var(--yellow-500);
+    }
+    .footer__main {
+      padding-bottom: 60px;
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+    }
+    .footer__title {
+      color: white;
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      position: relative;
+      display: inline-block;
+    }
+    .footer__title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 30px;
+      height: 3px;
+      background: var(--yellow-500);
+    }
+    .footer__link {
+      display: block;
+      color: #9ca3af;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    .footer__link:hover {
+      color: var(--yellow-500);
+      transform: translateX(5px);
+    }
+    .footer__contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #9ca3af;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+    .footer__contact-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      color: var(--yellow-500);
+    }
+    .footer__bottom {
+      background: rgba(0,0,0,0.2);
+      padding: 24px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+    .footer__bottom-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .stats__grid { grid-template-columns: repeat(2, 1fr); }
       .features__grid, .pricing__grid { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr 1fr; }
       .pricing-card--featured { transform: none; margin: 40px 0; }
       .pricing-card--featured:hover { transform: translate(-8px, -8px); }
       .hero__title { font-size: 3rem; }
@@ -508,6 +581,8 @@
       .hero { padding: 80px 0 100px; }
       .hero__actions { flex-direction: column; }
       .btn { width: 100%; justify-content: center; }
+      .footer__grid { grid-template-columns: 1fr; }
+      .footer__bottom-flex { flex-direction: column; gap: 16px; text-align: center; }
     }
   </style>
 </head>
@@ -729,32 +804,75 @@
   <footer class="footer">
     <div class="footer__main">
       <div class="container">
-        <div style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:40px;">
-          <div style="max-width:350px;">
-            <div class="navbar__brand" style="margin-bottom:16px;">
-              <img src="akreditasirs_logo_1776348914650.png" alt="Logo" style="height:32px; border:2px solid white;">
-              <span style="color:white;">AkreditasiRS</span>
+        <div class="footer__grid">
+          <!-- Col 1: Brand -->
+          <div class="footer__brand">
+            <div class="navbar__brand" style="margin-bottom:24px;">
+              <img src="akreditasirs_logo_1776348914650.png" alt="Logo" style="height:40px; border:2px solid white;">
+              <span style="color:white; font-size:1.5rem;">AkreditasiRS</span>
             </div>
-            <p style="font-size:0.9rem; color:#9ca3af;">Produk digital pendukung tenaga kesehatan untuk mempermudah tata kelola dokumen di era digital.</p>
+            <p style="font-size:1rem; color:#9ca3af; line-height:1.7; margin-bottom:24px;">
+              Solusi digital nomor satu untuk pengelolaan dokumen akreditasi RS yang transparan, otomatis, dan akurat. Bangun budaya mutu bersama kami.
+            </p>
+            <div style="display:flex; gap:12px;">
+              <!-- Simple placeholder social icons using background -->
+              <div style="width:36px; height:36px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; cursor:pointer;" title="Instagram">📸</div>
+              <div style="width:36px; height:36px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; cursor:pointer;" title="YouTube">🎥</div>
+              <div style="width:36px; height:36px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; cursor:pointer;" title="LinkedIn">💼</div>
+            </div>
           </div>
-          <div style="display:flex; gap:60px;">
-            <div>
-              <h4 style="color:white; font-size:0.8rem; text-transform:uppercase; margin-bottom:16px;">Navigasi</h4>
-              <a href="#demo" class="footer__link">Preview</a>
-              <a href="#fitur" class="footer__link">Fitur</a>
-              <a href="#harga" class="footer__link">Harga</a>
+
+          <!-- Col 2: Navigation -->
+          <div>
+            <h4 class="footer__title">Navigasi</h4>
+            <nav>
+              <a href="#demo" class="footer__link">Lihat Demo</a>
+              <a href="#fitur" class="footer__link">Fitur Utama</a>
+              <a href="#harga" class="footer__link">Paket Harga</a>
+              <a href="#faq" class="footer__link">Bantuan (FAQ)</a>
+            </nav>
+          </div>
+
+          <!-- Col 3: Resources -->
+          <div>
+            <h4 class="footer__title">Produk</h4>
+            <nav>
+              <a href="#" class="footer__link">Update Terbaru</a>
+              <a href="#" class="footer__link">Dokumentasi</a>
+              <a href="#" class="footer__link">Komunitas</a>
+              <a href="#" class="footer__link">Mitra Kami</a>
+            </nav>
+          </div>
+
+          <!-- Col 4: Contact -->
+          <div>
+            <h4 class="footer__title">Hubungi Kami</h4>
+            <div class="footer__contact-item">
+              <div class="footer__contact-icon">📧</div>
+              <span>pmikcreator@gmail.com</span>
             </div>
-            <div>
-              <h4 style="color:white; font-size:0.8rem; text-transform:uppercase; margin-bottom:16px;">Kontak</h4>
-              <span class="footer__link">pmikcreator@gmail.com</span>
-              <span class="footer__link">Admin: +62 838-1309-8587</span>
+            <div class="footer__contact-item">
+              <div class="footer__contact-icon">💬</div>
+              <span>+62 838-1309-8587</span>
+            </div>
+            <div class="footer__contact-item" style="margin-top:24px;">
+              <span style="font-size:0.8rem; background:var(--green-600); color:white; padding:4px 10px; font-weight:800; text-transform:uppercase;">Online 24/7</span>
             </div>
           </div>
         </div>
       </div>
     </div>
+
     <div class="footer__bottom">
-      <div class="container">&copy; 2026 AkreditasiRS. Dibuat dengan Semangat Audit!</div>
+      <div class="container">
+        <div class="footer__bottom-flex">
+          <div>&copy; 2026 AkreditasiRS. Created by PMIK Creator.</div>
+          <div style="display:flex; gap:24px;">
+            <a href="#" style="hover:color:white; transition: 0.2s;">Terms of Service</a>
+            <a href="#" style="hover:color:white; transition: 0.2s;">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
 
