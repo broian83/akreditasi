@@ -331,43 +331,40 @@
           </div>
 
           <!-- Form Card -->
-          <div class="card bg-white rounded-lg max-w-3xl" style="box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-            <form id="formDokumen" class="p-6 space-y-5">
+          <div class="bg-white border-4 border-navy p-8 shadow-[10px_10px_0px_#1f2937]">
+            <h2 id="formTitle" class="text-xl font-black text-navy uppercase tracking-widest mb-8 border-b-4 border-brand-yellow pb-2 inline-block">TAMBAH DOKUMEN BARU</h2>
+            
+            <form id="formDokumen" class="space-y-6">
+              <input type="hidden" id="editId">
+              
               <!-- Row 1 -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">
-                  Nama Dokumen <span class="text-red-500">*</span>
-                </label>
+                <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Nama Dokumen / SOP <span class="text-red-500">*</span></label>
                 <input type="text" id="nama" required
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal"
-                  placeholder="Contoh: SOP Pengkajian Pasien">
+                  class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
+                  placeholder="Masukkan nama dokumen lengkap">
               </div>
 
               <!-- Row 2 -->
-              <div class="grid grid-cols-2 gap-4">
+              <div class="grid grid-cols-2 gap-6">
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">
-                    BAB <span class="text-red-500">*</span>
-                  </label>
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">BAB <span class="text-red-500">*</span></label>
                   <select id="bab" required
-                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal">
+                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all">
                     <option value="">Pilih BAB</option>
-                    <option value="1">BAB 1 - Hak Pasien & Keluarga</option>
-                    <option value="2">BAB 2 - Pelayanan Pasien</option>
-                    <option value="3">BAB 3 - Manajemen Risiko</option>
-                    <option value="4">BAB 4 - Sumber Daya Manusia</option>
-                    <option value="5">BAB 5 - Fasilitas & Peralatan</option>
-                    <option value="6">BAB 6 - Manajemen Informasi</option>
-                    <option value="7">BAB 7 - Pengukuran & Analisis</option>
-                    <option value="8">BAB 8 - Peningkatan Mutu</option>
-                    <option value="9">BAB 9 - Tata Kelola</option>
+                    <option value="1">BAB 1 - Tata Kelola</option>
+                    <option value="2">BAB 2 - Kualifikasi & Staf</option>
+                    <option value="3">BAB 3 - Manajemen Fasilitas</option>
+                    <option value="4">BAB 4 - Rekam Medis</option>
+                    <option value="5">BAB 5 - Pencegahan Infeksi</option>
+                    <option value="6">BAB 6 - Pelayanan Pasien</option>
                   </select>
                 </div>
 
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">Status</label>
-                  <select id="status"
-                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal">
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Status <span class="text-red-500">*</span></label>
+                  <select id="status" required
+                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all">
                     <option value="Belum Mulai">Belum Mulai</option>
                     <option value="Draft">Draft</option>
                     <option value="Review">Review</option>
@@ -377,83 +374,63 @@
               </div>
 
               <!-- Row 3 -->
-              <div class="grid grid-cols-2 gap-4">
+              <div class="grid grid-cols-2 gap-6">
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">Standar</label>
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Standar</label>
                   <input type="text" id="standar"
-                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal"
+                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
                     placeholder="Contoh: STK-01">
                 </div>
 
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">Kriteria</label>
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Kriteria</label>
                   <input type="text" id="kriteria"
-                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal"
+                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
                     placeholder="Contoh: KRT-01">
                 </div>
               </div>
 
               <!-- Row 4 -->
-              <div class="grid grid-cols-2 gap-4">
+              <div class="grid grid-cols-2 gap-6">
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">
-                    PIC (Penanggung Jawab) <span class="text-red-500">*</span>
-                  </label>
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">PIC <span class="text-red-500">*</span></label>
                   <input type="text" id="pic" required
-                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal"
+                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
                     placeholder="Nama penanggung jawab">
                 </div>
 
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 mb-2">
-                    Deadline <span class="text-red-500">*</span>
-                  </label>
+                  <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Deadline <span class="text-red-500">*</span></label>
                   <input type="date" id="deadline" required
-                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal">
+                    class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all">
                 </div>
               </div>
 
               <!-- Row 5 -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Skor Self-Assessment</label>
-                <select id="skor"
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal">
-                  <option value="">Pilih Skor</option>
-                  <option value="1">1 - Tidak ada</option>
-                  <option value="2">2 - Ada sebagian</option>
-                  <option value="3">3 - Ada sebagian besar</option>
-                  <option value="4">4 - Lengkap</option>
-                </select>
+                <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Link File (Google Drive)</label>
+                <input type="url" id="link"
+                  class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
+                  placeholder="https://drive.google.com/...">
               </div>
 
               <!-- Row 6 -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Link File (Google Drive)</label>
-                <input type="url" id="link"
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal"
-                  placeholder="https://drive.google.com/...">
-              </div>
-
-              <!-- Row 7 -->
-              <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">Catatan</label>
+                <label class="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Catatan Perbaikan</label>
                 <textarea id="catatan" rows="3"
-                  class="w-full px-4 py-2.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-teal focus:border-teal"
+                  class="w-full px-4 py-3 border-2 border-navy text-sm font-bold focus:bg-brand-yellow/5 focus:outline-none shadow-[4px_4px_0px_#1f2937] transition-all"
                   placeholder="Catatan tambahan..."></textarea>
               </div>
 
               <!-- Buttons -->
-              <div class="flex gap-3 pt-4 border-t border-gray-200">
-                <button type="submit"
-                  class="flex-1 bg-navy hover:bg-navy-dark text-white font-medium py-2.5 px-6 rounded-lg transition">
-                  <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                  Simpan Dokumen
+              <div class="flex gap-4 pt-6">
+                <button type="submit" id="btnSubmit"
+                  class="flex-1 bg-teal hover:bg-navy text-white font-black py-4 px-6 neo-btn uppercase tracking-widest transition-all">
+                  Simpan Data
                 </button>
-                <button type="button" onclick="resetForm()"
-                  class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2.5 px-6 rounded-lg transition">
-                  Reset
+                <button type="button" onclick="showPage('list')"
+                  class="bg-gray-200 hover:bg-red-500 hover:text-white text-navy font-black py-4 px-6 neo-btn uppercase tracking-widest transition-all">
+                  Batal
                 </button>
               </div>
             </form>
@@ -603,8 +580,8 @@
             <td class="px-6 py-4 text-xs font-bold text-navy border-b-2 border-gray-100">${doc.pic || '-'}</td>
             <td class="px-6 py-4 text-xs font-bold text-red-600 border-b-2 border-gray-100">${deadlineStr}</td>
             <td class="px-6 py-4 border-b-2 border-gray-100">
-              <button class="bg-navy hover:bg-brand-yellow hover:text-navy text-white text-[10px] font-black py-2 px-4 neo-btn uppercase tracking-widest transition-all">
-                Lihat
+              <button onclick="editDokumen('${doc.id}')" class="bg-navy hover:bg-brand-yellow hover:text-navy text-white text-[10px] font-black py-2 px-4 neo-btn uppercase tracking-widest transition-all">
+                LIHAT / EDIT
               </button>
             </td>
           </tr>
@@ -655,25 +632,74 @@
         catatan: document.getElementById('catatan').value
       };
 
-      google.script.run
-        .withSuccessHandler(function(result) {
-          hideLoading();
-          if (result.success) {
-            showPage('list');
-            loadListDokumen();
-          } else {
-            alert('❌ Gagal menyimpan: ' + result.error);
-          }
-        })
-        .withFailureHandler(function(error) {
-          hideLoading();
-          alert('❌ Terjadi kesalahan: ' + error.message);
-        })
-        .tambahDokumen(data);
+      const editId = document.getElementById('editId').value;
+
+      if (editId) {
+        google.script.run
+          .withSuccessHandler(function(result) {
+            hideLoading();
+            if (result.success) {
+              showPage('list');
+              loadListDokumen();
+            } else {
+              alert('❌ Gagal mengupdate: ' + result.error);
+            }
+          })
+          .withFailureHandler(function(error) {
+            hideLoading();
+            alert('❌ Terjadi kesalahan: ' + error.message);
+          })
+          .updateDokumen(editId, data);
+      } else {
+        google.script.run
+          .withSuccessHandler(function(result) {
+            hideLoading();
+            if (result.success) {
+              showPage('list');
+              loadListDokumen();
+            } else {
+              alert('❌ Gagal menyimpan: ' + result.error);
+            }
+          })
+          .withFailureHandler(function(error) {
+            hideLoading();
+            alert('❌ Terjadi kesalahan: ' + error.message);
+          })
+          .tambahDokumen(data);
+      }
+    }
+
+    function editDokumen(id) {
+      const doc = allDokumen.find(d => d.id === id);
+      if (!doc) return;
+
+      document.getElementById('editId').value = doc.id;
+      document.getElementById('nama').value = doc.nama;
+      document.getElementById('bab').value = doc.bab;
+      document.getElementById('status').value = doc.status;
+      document.getElementById('standar').value = doc.standar;
+      document.getElementById('kriteria').value = doc.kriteria;
+      document.getElementById('pic').value = doc.pic;
+      document.getElementById('link').value = doc.link === '#' ? '' : doc.link;
+      
+      // Format deadline untuk input type date (YYYY-MM-DD)
+      if (doc.deadline) {
+        const d = new Date(doc.deadline);
+        if (!isNaN(d.getTime())) {
+          document.getElementById('deadline').value = d.toISOString().split('T')[0];
+        }
+      }
+
+      document.getElementById('formTitle').textContent = 'EDIT DOKUMEN: ' + doc.id;
+      document.getElementById('btnSubmit').textContent = 'UPDATE DATA DOKUMEN';
+      showPage('tambah');
     }
 
     function resetForm() {
       document.getElementById('formDokumen').reset();
+      document.getElementById('editId').value = '';
+      document.getElementById('formTitle').textContent = 'TAMBAH DOKUMEN BARU';
+      document.getElementById('btnSubmit').textContent = 'SIMPAN DATA';
     }
 
     // Export laporan
